@@ -20,9 +20,10 @@ class Furnio extends StatelessWidget {
       child: MaterialApp.router(
         title: 'Furniture Store',
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme,
+        theme: AppTheme.darkTheme,
         darkTheme: AppTheme.darkTheme,
         routerConfig: AppRouter.router,
+        themeMode: ThemeMode.system,
       ),
     );
   }
