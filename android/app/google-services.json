@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "27584519626",
+    "project_id": "frunioapp",
+    "storage_bucket": "frunioapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:27584519626:android:f8af561fd1b0a12fe20333",
+        "android_client_info": {
+          "package_name": "com.example.furnio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC90B6cXnw8YLDJfr_c6mwimUD5l4V9jRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

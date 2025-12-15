@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static final lightTheme = FlexThemeData.light(
-    scheme: FlexScheme.sakura,
-    surfaceMode: FlexSurfaceMode.highScaffoldLevelSurface,
-    blendLevel: 10,
-    subThemesData: const FlexSubThemesData(
-      blendOnLevel: 20,
-      blendOnColors: true,
-    ),
+    //scheme: FlexScheme.sakura,
+    //surfaceMode: FlexSurfaceMode.highScaffoldLevelSurface,
+    //blendLevel: 10,
+    // subThemesData: const FlexSubThemesData(
+    //   blendOnLevel: 20,
+    //   blendOnColors: true,
+    // ),
   ).copyWith(
     colorScheme: const ColorScheme.light(
       primary: Colors.black,        // زر، أيقونات رئيسية

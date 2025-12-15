@@ -41,6 +41,9 @@ dependencies:
   lottie: ^3.3.1
   google_fonts: ^6.3.2
   smooth_page_indicator: ^1.2.1
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  cloud_firestore: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +71,8 @@ flutter:
   assets:
     - assets/image/onBording/
     - assets/image/splash/
+    - assets/image/auth/
+    - assets/image/general_image/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
