@@ -30,8 +30,6 @@ class AuthHeader extends StatelessWidget {
         ),
 
 
-        HeightSpace(space: 0.01),
-
         Image.asset(
           image,
           height: sizeImage ?? size.height * 0.25,
@@ -41,7 +39,7 @@ class AuthHeader extends StatelessWidget {
 
         GeneralText(
           text: title,
-          sizeText: size.width * 0.08,
+          sizeText: size.width * 0.075,
           fontWeight: FontWeight.bold,
         ),
       ],

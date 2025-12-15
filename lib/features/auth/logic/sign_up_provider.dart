@@ -6,7 +6,6 @@ class SignUpProvider extends ChangeNotifier {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
