@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furnio/core/widgets/general_button.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/widgets/general_text.dart';
 import '../../../../core/widgets/space.dart';
@@ -113,8 +114,7 @@ class OnBoardingPage extends StatelessWidget {
             GeneralButton(
               onTap: (){
                 if (onBoard.currentPage == 2) {
-                  // الصفحة الأخيرة → الانتقال النهائي
-                  // ضع هنا الانتقال إلى صفحة Home أو Login
+                  context.go('/letsYouIn');
                 } else {
                   onBoard.pageController.nextPage(
                       duration: const Duration(milliseconds: 400),

@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 
 class GeneralTextField extends StatelessWidget {
-  const GeneralTextField({super.key, this.textEditingController, this.onSubmitted, this.onChanged, this.focusNode, this.onTap, this.hintText, this.formatters,this.hasError = false, this.obscureText, this.suffixIcon, this.prefixIcon,});
+  const GeneralTextField({super.key, this.textEditingController, this.onSubmitted, this.onChanged, this.focusNode, this.onTap, this.hintText, this.formatters,this.hasError = false, this.obscureText, this.suffixIcon, this.prefixIcon, this.colorHintText, this.readOnly,});
   final String? hintText;
   final TextEditingController? textEditingController;
   final Function(String)? onSubmitted;
@@ -14,12 +14,21 @@ class GeneralTextField extends StatelessWidget {
   final List<TextInputFormatter>? formatters;
   final bool hasError; // ← مجرد true/false
   final bool? obscureText;
+  final bool? readOnly;
   final IconData? suffixIcon;
   final IconData? prefixIcon;
+  final Color? colorHintText;
+
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final bool hasIcon = prefixIcon != null || suffixIcon != null;
+    final bool isFocused = focusNode?.hasFocus ?? false;
+    final bool hasText = textEditingController?.text.isNotEmpty ?? false;
+    final Color iconColor =
+    (isFocused || hasText) ? Colors.black : Colors.grey;
+
     return Container(
       height: size.height * 0.07,
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.01,),
@@ -40,12 +49,14 @@ class GeneralTextField extends StatelessWidget {
         focusNode: focusNode,
         obscureText:obscureText ?? false,
         onTap: onTap,
+        readOnly:readOnly ?? false ,
+        style: TextStyle(fontWeight: FontWeight.w500),
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(top: size.height * 0.018),
-          prefixIcon: Icon(prefixIcon),
-          suffixIcon:Icon(suffixIcon),
+          contentPadding: hasIcon ? EdgeInsets.only(top: size.height * 0.018,left: size.width * 0.03) : EdgeInsets.only(left: size.width * 0.03),
+          prefixIcon:prefixIcon != null ? Icon(prefixIcon,color: iconColor,) : null,
+          suffixIcon:suffixIcon != null ? Icon(suffixIcon,color: iconColor) : null,
           hintText: hintText,
-          hintStyle: TextStyle(color: Colors.grey.shade500), // Light text color
+          hintStyle: TextStyle(color: colorHintText ?? Colors.grey.shade500,fontWeight: FontWeight.w500), // Light text color
           border: InputBorder.none, // Removes underline
         ),
       ),

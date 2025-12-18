@@ -4,6 +4,9 @@ import 'package:furnio/features/auth/logic/sign_up_provider.dart';
 import 'package:provider/provider.dart';
 import 'config/router/app_router.dart';
 import 'core/theme/app_theme.dart';
+import 'features/account_setup/logic/account_setup_provider.dart';
+import 'features/account_setup/logic/fingerprint_provider.dart';
+import 'features/account_setup/logic/new_pin_provider.dart';
 import 'features/auth/logic/auth_provider.dart';
 import 'features/cart/logic/cart_provider.dart';
 import 'features/home/logic/home_provider.dart';
@@ -24,6 +27,9 @@ void main() async{
           ChangeNotifierProvider(create: (_) => CartProvider()),
           ChangeNotifierProvider(create: (_) => OnBoardingProvider()),
           ChangeNotifierProvider(create: (_) => SignUpProvider()),
+          ChangeNotifierProvider(create: (_) => AccountSetupProvider()),
+          ChangeNotifierProvider(create: (_) => NewPinProvide()),
+          ChangeNotifierProvider(create: (_) => FingerprintProvider()),
         ],
         child: const Furnio(),
       ),

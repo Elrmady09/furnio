@@ -57,14 +57,20 @@ class LetsYouInPage extends StatelessWidget {
               GeneralButton(
                 text: "Sign in with password",
                 onTap:(){
-                  context.push('/signUp');
+                  context.push(
+                    '/auth?mode=signIn',
+                  );
                 } ,
               ),
               HeightSpace(space: 0.03),
 
               /// Text Sign up
               AuthTextSign(
-                onTap: (){},
+                onTap: (){
+                  context.push(
+                    '/auth?mode=signUp',
+                  );
+                },
                 textAccount: "Don’t have an account? ",
                 textSign: "Sign up",
               ),

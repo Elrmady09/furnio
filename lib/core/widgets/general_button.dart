@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'general_text.dart';
 
 class GeneralButton extends StatelessWidget {
-  const GeneralButton({super.key, required this.text, this.onTap});
+  const GeneralButton({super.key, required this.text, this.onTap, this.bgColor, this.textColor});
   final String text;
   final VoidCallback? onTap;
+  final Color? bgColor;
+  final Color? textColor;
 
 
   @override
@@ -20,7 +22,7 @@ class GeneralButton extends StatelessWidget {
         height: size.height * 0.07,
         width: size.width,
         decoration: BoxDecoration(
-          color: colors.primary,
+          color: bgColor ?? colors.primary,
           borderRadius: BorderRadius.circular(size.width * 0.6),
           boxShadow: [
             BoxShadow(
@@ -36,7 +38,7 @@ class GeneralButton extends StatelessWidget {
           child: GeneralText(
             text: text,
             sizeText: size.width * 0.05,
-            color: colors.onPrimary,
+            color: textColor ?? colors.onPrimary,
             fontWeight: FontWeight.w600,
           ),
         ),

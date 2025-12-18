@@ -8,6 +8,7 @@ import '../../../../core/widgets/general_button.dart';
 import '../../../../core/widgets/inputs/general_textfield.dart';
 import '../../../../core/widgets/space.dart';
 
+import '../../../account_setup/data/account_setup_service.dart';
 import '../../logic/auth_provider.dart';
 import '../../logic/auth_mode.dart';
 
@@ -126,7 +127,13 @@ class AuthPage extends StatelessWidget {
                       ),
                     );
                     /// SUCCESS
-                    context.go('/home');
+                    final service = AccountSetupService();
+                    final hasProfile = await service.isProfileCompleted();
+                    if (hasProfile) {
+                      context.go('/home');
+                    } else {
+                      context.go('/fillProfile');
+                    }
 
 
                   },

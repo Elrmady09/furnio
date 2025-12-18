@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 
 class AuthProvider extends ChangeNotifier {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -71,7 +71,7 @@ class AuthProvider extends ChangeNotifier {
       isLoading = true;
       notifyListeners();
 
-      await _auth.createUserWithEmailAndPassword(
+      await auth.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text,
       );
@@ -100,7 +100,7 @@ class AuthProvider extends ChangeNotifier {
       isLoading = true;
       notifyListeners();
 
-      await _auth.signInWithEmailAndPassword(
+      await auth.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text,
       );

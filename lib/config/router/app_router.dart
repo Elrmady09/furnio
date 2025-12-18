@@ -1,6 +1,9 @@
 import 'package:furnio/features/auth/logic/auth_mode.dart';
 import 'package:furnio/features/auth/presentation/screens/auth_page.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/account_setup/presentation/screens/create_new_pin_page.dart';
+import '../../features/account_setup/presentation/screens/fill_profile_page.dart';
+import '../../features/account_setup/presentation/screens/fingerprint_page.dart';
 import '../../features/auth/presentation/screens/lets_you_in_page.dart';
 import '../../features/cart/presentation/screens/cart_page.dart';
 import '../../features/home/presentation/screens/home_page.dart';
@@ -11,7 +14,7 @@ import '../../features/onboarding/presentation/screens/splash_page_two.dart';
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/auth',
+    initialLocation: '/home',
     routes: [
       GoRoute(
         path: '/splash',
@@ -24,14 +27,6 @@ class AppRouter {
       GoRoute(
         path: '/onboarding',
         builder: (_, __) => const OnBoardingPage(),
-      ),
-      GoRoute(
-        path: '/home',
-        builder: (_, __) => const HomePage(),
-      ),
-      GoRoute(
-        path: '/cart',
-        builder: (_, __) => const CartPage(),
       ),
       GoRoute(
         path: '/letsYouIn',
@@ -49,6 +44,28 @@ class AppRouter {
           );
         },
       ),
+      GoRoute(
+        path: '/fillProfile',
+        builder: (_, __) => const FillProfilePage(),
+      ),
+      GoRoute(
+        path: '/NewPinPage',
+        builder: (_, __) => const CreateNewPinPage(),
+      ),
+      GoRoute(
+        path: '/fingerprint',
+        builder: (_, __) => const FingerprintPage(),
+      ),
+      GoRoute(
+        path: '/home',
+        builder: (_, __) => const HomePage(),
+      ),
+      GoRoute(
+        path: '/cart',
+        builder: (_, __) => const CartPage(),
+      ),
+
+
     ],
   );
 }
