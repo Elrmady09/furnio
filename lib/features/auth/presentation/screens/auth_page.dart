@@ -139,16 +139,40 @@ class AuthPage extends StatelessWidget {
                   },
                 ),
                 HeightSpace(space: 0.03),
+                if (auth.emailError != null)
+                  GeneralText(
+                    text: auth.emailError!,
+                    color: Colors.red,
+                    sizeText: size.width * 0.035,
+                  ),
 
                 /// forgot the password ?
                 isSignUp?
                      SizedBox(height: size.height * 0.0651,)
-                    :GeneralText(
-                  padding: EdgeInsets.only(left: size.width * 0.03,bottom: size.height * 0.03),
-                  text: 'forgot the password ?',
-                  sizeText: size.width * 0.04,
-                  fontWeight: FontWeight.w500,
-                ),
+                    :GestureDetector(
+                      onTap:()async {
+                        final exists = await auth.checkEmailExists();
+                        if (!exists) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(auth.emailError ?? 'Invalid email'),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                          return;
+                        }
+                        context.push(
+                          '/forgotPassword',
+                          extra: auth.emailController.text.trim(),
+                        );
+                      } ,
+                      child: GeneralText(
+                               padding: EdgeInsets.only(left: size.width * 0.03,bottom: size.height * 0.03),
+                               text: 'forgot the password ?',
+                               sizeText: size.width * 0.04,
+                               fontWeight: FontWeight.w500,
+                            ),
+                         ),
 
 
                 /// AuthDivider

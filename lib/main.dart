@@ -9,6 +9,9 @@ import 'features/account_setup/logic/fingerprint_provider.dart';
 import 'features/account_setup/logic/new_pin_provider.dart';
 import 'features/auth/logic/auth_provider.dart';
 import 'features/cart/logic/cart_provider.dart';
+import 'features/forgot_password/logic/forgot_password_provider.dart';
+import 'features/forgot_password/logic/new_password_provider.dart';
+import 'features/forgot_password/logic/pin_code_provider.dart';
 import 'features/home/logic/home_provider.dart';
 import 'features/onboarding/logic/onboarding_provider.dart';
 
@@ -16,9 +19,6 @@ import 'features/onboarding/logic/onboarding_provider.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
   runApp(
       MultiProvider(
         providers:[
@@ -30,6 +30,9 @@ void main() async{
           ChangeNotifierProvider(create: (_) => AccountSetupProvider()),
           ChangeNotifierProvider(create: (_) => NewPinProvide()),
           ChangeNotifierProvider(create: (_) => FingerprintProvider()),
+          ChangeNotifierProvider(create: (_) => ForgotPasswordProvider()),
+          ChangeNotifierProvider(create: (_) => NewPasswordProvider()),
+          ChangeNotifierProvider(create: (_) => PinCodeProvider ()),
         ],
         child: const Furnio(),
       ),

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -147,7 +148,53 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// =========================
+  /// For forgot password
+  /// =========================
+  Future<bool> checkEmailExists() async {
+    final email = emailController.text.trim();
 
+    if (email.isEmpty) {
+      emailError = 'Email is required';
+      notifyListeners();
+      return false;
+    }
+
+    isLoading = true;
+    emailError = null;
+    notifyListeners();
+
+    try {
+      final query = await FirebaseFirestore.instance
+          .collection('users')
+          .where('email', isEqualTo: email)
+          .limit(1)
+          .get();
+
+      isLoading = false;
+
+      if (query.docs.isEmpty) {
+        emailError = 'Email not found';
+        notifyListeners();
+        return false;
+      }
+
+      notifyListeners();
+      return true;
+    } catch (e) {
+      isLoading = false;
+      emailError = 'Something went wrong';
+      notifyListeners();
+      return false;
+    }
+  }
+
+
+
+
+  /// =========================
+  /// dispose
+  /// =========================
   @override
   void dispose() {
     emailController.dispose();

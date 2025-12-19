@@ -6,6 +6,9 @@ import '../../features/account_setup/presentation/screens/fill_profile_page.dart
 import '../../features/account_setup/presentation/screens/fingerprint_page.dart';
 import '../../features/auth/presentation/screens/lets_you_in_page.dart';
 import '../../features/cart/presentation/screens/cart_page.dart';
+import '../../features/forgot_password/presentation/screens/create_new_password_page.dart';
+import '../../features/forgot_password/presentation/screens/forgot_password_page.dart';
+import '../../features/forgot_password/presentation/screens/pin_code_page.dart';
 import '../../features/home/presentation/screens/home_page.dart';
 import '../../features/onboarding/presentation/screens/onboarding_page.dart';
 import '../../features/onboarding/presentation/screens/splash_page_one.dart';
@@ -14,7 +17,7 @@ import '../../features/onboarding/presentation/screens/splash_page_two.dart';
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/auth',
     routes: [
       GoRoute(
         path: '/splash',
@@ -43,6 +46,18 @@ class AppRouter {
                 : AuthMode.signUp,
           );
         },
+      ),
+      GoRoute(
+        path: '/forgotPassword',
+        builder: (context, state) => ForgotPasswordPage(email: state.extra as String,),
+      ),
+      GoRoute(
+        path: '/pinCode',
+        builder: (_, __) => const PinCodePage(),
+      ),
+      GoRoute(
+        path: '/createNewPassword',
+        builder: (_, __) => const CreateNewPasswordPage(),
       ),
       GoRoute(
         path: '/fillProfile',

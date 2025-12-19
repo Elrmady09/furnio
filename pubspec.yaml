@@ -79,6 +79,7 @@ flutter:
     - assets/image/account_setup/flag/
     - assets/image/account_setup/
     - assets/flags/
+    - assets/image/forgot_password/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
