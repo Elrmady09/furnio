@@ -4,8 +4,9 @@ import '../../../../core/widgets/general_text.dart';
 
 class GeneralHeader extends StatelessWidget {
   final String title;
+  final Widget? trailing;
 
-  const GeneralHeader({super.key, required this.title});
+  const GeneralHeader({super.key, required this.title, this.trailing});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,10 @@ class GeneralHeader extends StatelessWidget {
           sizeText: size.width * 0.05,
           fontWeight: FontWeight.w600,
         ),
+        const Spacer(),
+
+        /// لو لم يتم تمرير ويدجت لن يظهر شيء
+        if (trailing != null) trailing!,
       ],
     );
   }

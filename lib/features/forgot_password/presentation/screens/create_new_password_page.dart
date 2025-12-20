@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furnio/core/constants/app_padding.dart';
+import 'package:furnio/core/widgets/dialog/general_dialog.dart';
 import 'package:furnio/core/widgets/inputs/general_textfield.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -82,13 +83,28 @@ class CreateNewPasswordPage extends StatelessWidget {
                       forgotProvider.email!,
                     );
 
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Password reset link sent to your email'),
-                      ),
-                    );
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    //   const SnackBar(
+                    //     content: Text('Password reset link sent to your email'),
+                    //   ),
+                    // );
 
-                    context.go('/auth');
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder: (context) => GeneralDialog(icon: Icons.beenhere),
+                    );
+                    await Future.delayed(const Duration(seconds: 5));
+
+                    if (context.mounted) {
+                      context.pop();
+                      /// pop -> يغلق Dialog
+                    }
+                    if (context.mounted) {
+                      context.go('/home');
+                      /// go -> يمسح جميع الصفحات وينتقل لي الصفحه التاليه
+                    }
+
                   } catch (e) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(

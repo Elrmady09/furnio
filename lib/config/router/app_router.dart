@@ -1,5 +1,6 @@
 import 'package:furnio/features/auth/logic/auth_mode.dart';
 import 'package:furnio/features/auth/presentation/screens/auth_page.dart';
+import 'package:furnio/features/home/presentation/screens/main_layout.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/account_setup/presentation/screens/create_new_pin_page.dart';
 import '../../features/account_setup/presentation/screens/fill_profile_page.dart';
@@ -10,6 +11,7 @@ import '../../features/forgot_password/presentation/screens/create_new_password_
 import '../../features/forgot_password/presentation/screens/forgot_password_page.dart';
 import '../../features/forgot_password/presentation/screens/pin_code_page.dart';
 import '../../features/home/presentation/screens/home_page.dart';
+import '../../features/home/presentation/screens/notifications/notifications_page.dart';
 import '../../features/onboarding/presentation/screens/onboarding_page.dart';
 import '../../features/onboarding/presentation/screens/splash_page_one.dart';
 import '../../features/onboarding/presentation/screens/splash_page_two.dart';
@@ -17,7 +19,7 @@ import '../../features/onboarding/presentation/screens/splash_page_two.dart';
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/auth',
+    initialLocation: '/mainLayout',
     routes: [
       GoRoute(
         path: '/splash',
@@ -72,8 +74,16 @@ class AppRouter {
         builder: (_, __) => const FingerprintPage(),
       ),
       GoRoute(
+        path: '/mainLayout',
+        builder: (_, __) => const MainLayout(),
+      ),
+      GoRoute(
         path: '/home',
         builder: (_, __) => const HomePage(),
+      ),
+      GoRoute(
+        path: '/notifications',
+          builder: (_, __) => const NotificationsPage(),
       ),
       GoRoute(
         path: '/cart',
