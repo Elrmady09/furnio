@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/widgets/general_text.dart';
-import '../../../../core/widgets/space.dart';
-import '../../data/home_products_data.dart';
-import '../../logic/home_provider.dart';
+import '../../../../../core/widgets/general_text.dart';
+import '../../../../../core/widgets/space.dart';
+import '../../../logic/home_provider.dart';
 
 
-class HomeProductsGrid extends StatelessWidget {
-  const HomeProductsGrid({super.key});
+class GeneralHomeProductsGrid extends StatelessWidget {
+  const GeneralHomeProductsGrid({super.key, required this.itemCount, required this.products});
+  final int itemCount;
+  final List<Map<String, dynamic>> products;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class HomeProductsGrid extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return GridView.builder(
-      itemCount: itemHomeProducts.length,
+      itemCount: itemCount,
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -26,7 +27,7 @@ class HomeProductsGrid extends StatelessWidget {
         childAspectRatio: 0.68,
       ),
       itemBuilder: (_, index) {
-        final product = itemHomeProducts[index];
+        final product = products[index];
         return SizedBox(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,10 +52,10 @@ class HomeProductsGrid extends StatelessWidget {
                           radius: size.width * 0.038,
                           child: Icon(
                             size: size.width * 0.04,
-                            Icons.favorite,
-                            color: provider.favorites[index]
-                                ? Colors.red
-                                : Colors.white,
+                            provider.favorites[index]
+                                ? Icons.favorite_outlined
+                                : Icons.favorite_outline,
+                            color: Colors.white,
                           ),
                         ),
                       ),

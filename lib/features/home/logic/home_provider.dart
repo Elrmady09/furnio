@@ -9,7 +9,16 @@ class HomeProvider extends ChangeNotifier {
 
   String searchQuery = "";
 
-  final PageController pageController = PageController();
+  final Map<String, PageController> _controllers = {
+    'home':PageController(),
+    '25': PageController(),
+    '15': PageController(),
+    '30': PageController(),
+    '20': PageController(),
+  };
+
+  PageController controller(String key) => _controllers[key]!;
+
 
   void setSearchQuery(String value) {
     searchQuery = value;
@@ -45,7 +54,10 @@ class HomeProvider extends ChangeNotifier {
 
   @override
   void dispose() {
-    pageController.dispose();
+
+    for (final controller in _controllers.values) {
+      controller.dispose();
+    }
     super.dispose();
   }
 

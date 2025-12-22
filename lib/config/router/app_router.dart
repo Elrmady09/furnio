@@ -10,8 +10,10 @@ import '../../features/cart/presentation/screens/cart_page.dart';
 import '../../features/forgot_password/presentation/screens/create_new_password_page.dart';
 import '../../features/forgot_password/presentation/screens/forgot_password_page.dart';
 import '../../features/forgot_password/presentation/screens/pin_code_page.dart';
+import '../../features/home/presentation/screens/favorites/favorite_page.dart';
 import '../../features/home/presentation/screens/home_page.dart';
 import '../../features/home/presentation/screens/notifications/notifications_page.dart';
+import '../../features/home/presentation/screens/special_offers/special_offers_page.dart';
 import '../../features/onboarding/presentation/screens/onboarding_page.dart';
 import '../../features/onboarding/presentation/screens/splash_page_one.dart';
 import '../../features/onboarding/presentation/screens/splash_page_two.dart';
@@ -84,6 +86,14 @@ class AppRouter {
       GoRoute(
         path: '/notifications',
           builder: (_, __) => const NotificationsPage(),
+      ),
+      GoRoute(
+        path: '/favorite',
+        builder: (_, __) => const FavoritePage(),
+      ),
+      GoRoute(
+        path: '/specialOffers',
+        builder: (_, __) => const SpecialOffersPage(),
       ),
       GoRoute(
         path: '/cart',

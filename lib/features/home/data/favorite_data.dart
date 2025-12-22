@@ -1,0 +1,45 @@
+
+final List<Map<String, dynamic>> itemFavoriteProducts = [
+  {
+    "productName": "Shiny Wooden Chair",
+    "image": "assets/image/home/feam padded chair.png",
+    "rating": "4.8",
+    "sold": "6,374 sold",
+    "price": "115",
+  },
+  {
+    "productName": "Bedroom Lamp",
+    "image": "assets/image/home/small bookcase.png",
+    "rating": "4.6",
+    "sold": "7,120 sold",
+    "price": "40",
+  },
+  {
+    "productName": "Marble Flower Vase",
+    "image": "assets/image/home/glass lamp.png",
+    "rating": "4.9",
+    "sold": "9,842 sold",
+    "price": "90",
+  },
+  {
+    "productName": "Knife Package",
+    "image": "assets/image/home/cup package.png",
+    "rating": "4.5",
+    "sold": "5,321 sold",
+    "price": "125",
+  },
+  {
+    "productName": "Wooden Chairs",
+    "image": "assets/image/home/wooden chairs.png",
+    "rating": "4.4",
+    "sold": "4,210 sold",
+    "price": "35",
+  },
+  {
+    "productName": "Plastic Chair",
+    "image": "assets/image/home/plastic chair.png",
+    "rating": "4.7",
+    "sold": "7,654 sold",
+    "price": "210",
+  },
+];
