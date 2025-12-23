@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:furnio/features/auth/logic/sign_up_provider.dart';
+import 'package:furnio/features/home/logic/filter_provider.dart';
 import 'package:provider/provider.dart';
 import 'config/router/app_router.dart';
 import 'core/theme/app_theme.dart';
@@ -13,6 +14,7 @@ import 'features/forgot_password/logic/forgot_password_provider.dart';
 import 'features/forgot_password/logic/new_password_provider.dart';
 import 'features/forgot_password/logic/pin_code_provider.dart';
 import 'features/home/logic/home_provider.dart';
+import 'features/home/logic/search_provider.dart';
 import 'features/onboarding/logic/onboarding_provider.dart';
 
 
@@ -33,6 +35,8 @@ void main() async{
           ChangeNotifierProvider(create: (_) => ForgotPasswordProvider()),
           ChangeNotifierProvider(create: (_) => NewPasswordProvider()),
           ChangeNotifierProvider(create: (_) => PinCodeProvider ()),
+          ChangeNotifierProvider(create: (_) => SearchProvider ()),
+          ChangeNotifierProvider(create: (_) => SortAndFilterProvider ()),
         ],
         child: const Furnio(),
       ),

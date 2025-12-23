@@ -46,13 +46,13 @@ class GeneralHomeProductsGrid extends StatelessWidget {
                       top: size.height * 0.015,
                       right: size.width * 0.03,
                       child: GestureDetector(
-                        onTap: () => provider.toggleFavorite(index),
+                        onTap: () => provider.toggleFavorite(products[index]['id']),
                         child: CircleAvatar(
                           backgroundColor: Colors.black,
                           radius: size.width * 0.038,
                           child: Icon(
                             size: size.width * 0.04,
-                            provider.favorites[index]
+                            provider.isFavorite(products[index]['id'])
                                 ? Icons.favorite_outlined
                                 : Icons.favorite_outline,
                             color: Colors.white,

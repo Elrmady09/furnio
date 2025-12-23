@@ -1,6 +1,7 @@
 
 final List<Map<String, dynamic>> itemFavoriteProducts = [
   {
+    "id": '7' ,
     "productName": "Shiny Wooden Chair",
     "image": "assets/image/home/feam padded chair.png",
     "rating": "4.8",
@@ -8,6 +9,7 @@ final List<Map<String, dynamic>> itemFavoriteProducts = [
     "price": "115",
   },
   {
+    "id": '8' ,
     "productName": "Bedroom Lamp",
     "image": "assets/image/home/small bookcase.png",
     "rating": "4.6",
@@ -15,6 +17,7 @@ final List<Map<String, dynamic>> itemFavoriteProducts = [
     "price": "40",
   },
   {
+    "id": '9' ,
     "productName": "Marble Flower Vase",
     "image": "assets/image/home/glass lamp.png",
     "rating": "4.9",
@@ -22,6 +25,7 @@ final List<Map<String, dynamic>> itemFavoriteProducts = [
     "price": "90",
   },
   {
+    "id": '10' ,
     "productName": "Knife Package",
     "image": "assets/image/home/cup package.png",
     "rating": "4.5",
@@ -29,6 +33,7 @@ final List<Map<String, dynamic>> itemFavoriteProducts = [
     "price": "125",
   },
   {
+    "id": '11' ,
     "productName": "Wooden Chairs",
     "image": "assets/image/home/wooden chairs.png",
     "rating": "4.4",
@@ -36,6 +41,7 @@ final List<Map<String, dynamic>> itemFavoriteProducts = [
     "price": "35",
   },
   {
+    "id": '12' ,
     "productName": "Plastic Chair",
     "image": "assets/image/home/plastic chair.png",
     "rating": "4.7",

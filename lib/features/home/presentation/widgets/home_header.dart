@@ -34,7 +34,7 @@ class HomeHeader extends StatelessWidget {
           ],
         ),
         const Spacer(),
-        IconButton(onPressed: () => context.push('/notifications'), icon: Icon(Icons.notifications_none),),
+        IconButton(onPressed: () => context.push('/01_notifications'), icon: Icon(Icons.notifications_none),),
         WidthSpace(space: 0.03),
         IconButton(onPressed: () => context.push('/favorite'), icon: Icon(Icons.favorite_border),),
       ],
