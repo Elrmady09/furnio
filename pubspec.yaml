@@ -84,6 +84,7 @@ flutter:
     - assets/image/home/categories/
     - assets/image/home/notification/
     - assets/image/home/special_offers/
+    - assets/image/home/sofa/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/widgets/general_text.dart';
 import '../../../../core/widgets/space.dart';
@@ -21,14 +22,19 @@ class HomeCategories extends StatelessWidget {
         final categories = itemHomeCategories[index] ;
         return Column(
           children: [
-            Container(
-              width: size.width * 0.15,
-              height: size.width * 0.15,
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                shape: BoxShape.circle,
+            GestureDetector(
+              onTap: (){
+                context.push('/categories',extra: categories['title'],);
+              },
+              child: Container(
+                width: size.width * 0.15,
+                height: size.width * 0.15,
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  shape: BoxShape.circle,
+                ),
+                child: Image.asset(categories['image'],scale: size.width * 0.04,),
               ),
-              child: Image.asset(categories['image'],scale: size.width * 0.04,),
             ),
             HeightSpace(space: 0.01),
             GeneralText(

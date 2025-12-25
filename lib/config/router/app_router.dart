@@ -1,5 +1,6 @@
 import 'package:furnio/features/auth/logic/auth_mode.dart';
 import 'package:furnio/features/auth/presentation/screens/auth_page.dart';
+import 'package:furnio/features/home/presentation/screens/05_categories/reviews_page.dart';
 import 'package:furnio/features/home/presentation/screens/main_layout.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/account_setup/presentation/screens/create_new_pin_page.dart';
@@ -14,6 +15,8 @@ import '../../features/home/presentation/screens/01_notifications/notifications_
 import '../../features/home/presentation/screens/02_favorites/favorite_page.dart';
 import '../../features/home/presentation/screens/03_search_and_filter/search_and_filter_page.dart';
 import '../../features/home/presentation/screens/04_special_offers/special_offers_page.dart';
+import '../../features/home/presentation/screens/05_categories/categories_page.dart';
+import '../../features/home/presentation/screens/05_categories/categories_product_detail_page.dart';
 import '../../features/home/presentation/screens/home_page.dart';
 import '../../features/onboarding/presentation/screens/onboarding_page.dart';
 import '../../features/onboarding/presentation/screens/splash_page_one.dart';
@@ -24,22 +27,10 @@ class AppRouter {
   static final router = GoRouter(
     initialLocation: '/mainLayout',
     routes: [
-      GoRoute(
-        path: '/splash',
-        builder: (_, __) => const SplashPageOne(),
-      ),
-      GoRoute(
-        path: '/splash2',
-        builder: (_, __) => const SplashPageTwo(),
-      ),
-      GoRoute(
-        path: '/onboarding',
-        builder: (_, __) => const OnBoardingPage(),
-      ),
-      GoRoute(
-        path: '/letsYouIn',
-        builder: (_, __) => const LetsYouInPage(),
-      ),
+      GoRoute(path: '/splash', builder: (_, __) => const SplashPageOne(),),
+      GoRoute(path: '/splash2', builder: (_, __) => const SplashPageTwo(),),
+      GoRoute(path: '/onboarding', builder: (_, __) => const OnBoardingPage(),),
+      GoRoute(path: '/letsYouIn', builder: (_, __) => const LetsYouInPage(),),
       GoRoute(
         path: '/auth',
         builder: (context, state) {
@@ -52,46 +43,16 @@ class AppRouter {
           );
         },
       ),
-      GoRoute(
-        path: '/forgotPassword',
-        builder: (context, state) => ForgotPasswordPage(email: state.extra as String,),
-      ),
-      GoRoute(
-        path: '/pinCode',
-        builder: (_, __) => const PinCodePage(),
-      ),
-      GoRoute(
-        path: '/createNewPassword',
-        builder: (_, __) => const CreateNewPasswordPage(),
-      ),
-      GoRoute(
-        path: '/fillProfile',
-        builder: (_, __) => const FillProfilePage(),
-      ),
-      GoRoute(
-        path: '/NewPinPage',
-        builder: (_, __) => const CreateNewPinPage(),
-      ),
-      GoRoute(
-        path: '/fingerprint',
-        builder: (_, __) => const FingerprintPage(),
-      ),
-      GoRoute(
-        path: '/mainLayout',
-        builder: (_, __) => const MainLayout(),
-      ),
-      GoRoute(
-        path: '/home',
-        builder: (_, __) => const HomePage(),
-      ),
-      GoRoute(
-        path: '/01_notifications',
-          builder: (_, __) => const NotificationsPage(),
-      ),
-      GoRoute(
-        path: '/favorite',
-        builder: (_, __) => const FavoritePage(),
-      ),
+      GoRoute(path: '/forgotPassword', builder: (context, state) => ForgotPasswordPage(email: state.extra as String,),),
+      GoRoute(path: '/pinCode', builder: (_, __) => const PinCodePage(),),
+      GoRoute(path: '/createNewPassword', builder: (_, __) => const CreateNewPasswordPage(),),
+      GoRoute(path: '/fillProfile', builder: (_, __) => const FillProfilePage(),),
+      GoRoute(path: '/NewPinPage', builder: (_, __) => const CreateNewPinPage(),),
+      GoRoute(path: '/fingerprint', builder: (_, __) => const FingerprintPage(),),
+      GoRoute(path: '/mainLayout', builder: (_, __) => const MainLayout(),),
+      GoRoute(path: '/home', builder: (_, __) => const HomePage(),),
+      GoRoute(path: '/01_notifications', builder: (_, __) => const NotificationsPage(),),
+      GoRoute(path: '/favorite', builder: (_, __) => const FavoritePage(),),
       GoRoute(
         path: '/SearchAndFilter',
         builder: (context, state) {
@@ -100,14 +61,11 @@ class AppRouter {
 
         }
       ),
-      GoRoute(
-        path: '/specialOffers',
-        builder: (_, __) => const SpecialOffersPage(),
-      ),
-      GoRoute(
-        path: '/cart',
-        builder: (_, __) => const CartPage(),
-      ),
+      GoRoute(path: '/specialOffers', builder: (_, __) => const SpecialOffersPage(),),
+      GoRoute(path: '/categories', builder: (context, state) => CategoriesPage(category:state.extra as String),),
+      GoRoute(path: '/categoriesProductDetail', builder: (_, __) => const CategoriesProductDetailPage(),),
+      GoRoute(path: '/reviews', builder: (_, __) => const ReviewsPage(),),
+      GoRoute(path: '/cart', builder: (_, __) => const CartPage(),),
 
 
     ],

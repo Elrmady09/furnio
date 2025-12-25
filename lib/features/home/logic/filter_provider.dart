@@ -29,7 +29,7 @@ class SortAndFilterProvider extends ChangeNotifier {
     selectedSort = index;
     notifyListeners();
   }
-  /// for Sort Tap
+  /// for Rating Tap
   int selectedRating = 0;
   void changeRating(int index) {
     selectedRating = index;

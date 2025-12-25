@@ -13,6 +13,7 @@ import 'features/cart/logic/cart_provider.dart';
 import 'features/forgot_password/logic/forgot_password_provider.dart';
 import 'features/forgot_password/logic/new_password_provider.dart';
 import 'features/forgot_password/logic/pin_code_provider.dart';
+import 'features/home/logic/categories_product_detail_provider.dart';
 import 'features/home/logic/home_provider.dart';
 import 'features/home/logic/search_provider.dart';
 import 'features/onboarding/logic/onboarding_provider.dart';
@@ -37,6 +38,7 @@ void main() async{
           ChangeNotifierProvider(create: (_) => PinCodeProvider ()),
           ChangeNotifierProvider(create: (_) => SearchProvider ()),
           ChangeNotifierProvider(create: (_) => SortAndFilterProvider ()),
+          ChangeNotifierProvider(create: (_) => CategoriesProductDetailProvider()),
         ],
         child: const Furnio(),
       ),
