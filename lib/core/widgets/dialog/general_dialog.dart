@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/general_text.dart';
 import '../../../../core/widgets/space.dart';
+import '../general_second_button.dart';
 
 
 
 class GeneralDialog extends StatelessWidget {
-  const GeneralDialog({super.key, required this.icon});
+  const GeneralDialog({super.key, required this.icon, this.title, this.description,this.showActions = false});
   final IconData icon;
+  final String? title;
+  final String? description;
+  final bool showActions;
 
   Widget _circleContainer({required double radius}){
 
@@ -100,17 +104,31 @@ class GeneralDialog extends StatelessWidget {
             ),
             HeightSpace(space: 0.02),
             GeneralText(
-              text: 'Congratulations!',
+              text: title ?? 'Congratulations!',
               sizeText:size.width * 0.055,
               fontWeight: FontWeight.bold,
             ),
             HeightSpace(space: 0.02),
             GeneralText(
               textAlign: TextAlign.center,
-              text: 'Your account is ready to use. You will\nbe redirected to the Home page in a\nfew seconds... ',
+              text: description ?? 'Your account is ready to use. You will\nbe redirected to the Home page in a\nfew seconds... ',
             ),
-            HeightSpace(space: 0.05),
-            CircularProgressIndicator(),
+            if(showActions == true)...[
+              Column(
+                children: [
+                  HeightSpace(space: 0.02),
+                  GeneralSecondButton(title: 'View Order',onTap: (){},bgColor: Colors.black,titleColor: Colors.white,),
+                  GeneralSecondButton(title: 'View E-Receipt',bgColor: Colors.grey[300],titleColor: Colors.black,),
+
+                ],
+              ),
+            ]else...[
+              HeightSpace(space: 0.05),
+              CircularProgressIndicator(),
+            ]
+
+
+
 
 
           ],

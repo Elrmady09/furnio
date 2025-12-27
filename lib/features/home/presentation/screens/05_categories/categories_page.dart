@@ -12,7 +12,6 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     final products = categoryProductsMap[category.toLowerCase()] ?? [];
     return SafeArea(
       child: Scaffold(

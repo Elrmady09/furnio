@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../cart_and_checkout/presentation/screens/cart_page.dart';
+import '../../../cart_and_checkout/presentation/widgets/01_cart_widgets/cart_item_card.dart';
 import '../../logic/home_provider.dart';
 import '../widgets/home_bottom_navigation_bar.dart';
 import 'home_page.dart';
@@ -27,8 +29,8 @@ class MainLayout extends StatelessWidget {
       // 1) الصفحة الرئيسية
       HomePage(),
 
-      // 2) صفحة الاحصائيات
-      //StatisticsPage(),
+      // 2) صفحة cart
+      CartPage()
 
       // 3) صفحة البطاقة
      // MyCardsPage(),

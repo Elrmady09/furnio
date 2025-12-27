@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 
 class GeneralTextField extends StatelessWidget {
-  const GeneralTextField({super.key, this.textEditingController, this.onSubmitted, this.onChanged, this.focusNode, this.onTap, this.hintText, this.formatters,this.hasError = false, this.obscureText, this.suffixIcon, this.prefixIcon, this.colorHintText, this.readOnly,});
+  const GeneralTextField({super.key, this.textEditingController, this.onSubmitted, this.onChanged, this.focusNode, this.onTap, this.hintText, this.formatters,this.hasError = false, this.obscureText, this.suffixIcon, this.prefixIcon, this.colorHintText, this.readOnly, this.colorTextFiled,});
   final String? hintText;
   final TextEditingController? textEditingController;
   final Function(String)? onSubmitted;
@@ -18,6 +18,7 @@ class GeneralTextField extends StatelessWidget {
   final IconData? suffixIcon;
   final IconData? prefixIcon;
   final Color? colorHintText;
+  final Color? colorTextFiled;
 
 
   @override
@@ -33,7 +34,7 @@ class GeneralTextField extends StatelessWidget {
       height: size.height * 0.07,
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.01,),
       decoration: BoxDecoration(
-        color: Colors.grey.shade100, // Light background color
+        color: colorTextFiled ?? Colors.grey.shade100, // Light background color
         borderRadius: BorderRadius.circular(size.width * 0.02),
         border: Border.all(
           color: hasError ? Colors.red : Colors.transparent,

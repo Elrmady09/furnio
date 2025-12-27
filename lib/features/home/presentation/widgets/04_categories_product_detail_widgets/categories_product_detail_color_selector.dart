@@ -32,7 +32,7 @@ class CategoriesProductDetailColorSelector extends StatelessWidget {
                 width: size.width * 0.08,
                 height: size.width * 0.08,
                 decoration: BoxDecoration(
-                  color: provider.colors[index],
+                  color: provider.colors[index]['color'],
                   shape: BoxShape.circle,
                 ),
                 child: provider.selectedColorIndex == index

@@ -4,6 +4,7 @@ import 'package:furnio/core/widgets/space.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/widgets/general_text.dart';
+import '../../../../cart_and_checkout/logic/cart_provider.dart';
 import '../../../logic/categories_product_detail_provider.dart';
 
 class CategoriesProductDetailPriceSection extends StatelessWidget {
@@ -35,6 +36,22 @@ class CategoriesProductDetailPriceSection extends StatelessWidget {
         Expanded(
           child: GeneralButton(
             text: 'Add to Cart',
+            onTap: (){
+              final cartProvider = context.read<CartProvider>();
+              cartProvider.addToCart({
+                'name': provider.name,
+                'image': provider.image,
+                'price': provider.price,
+                'quantity': provider.quantity,
+                'color': provider.selectedColor,
+                'colorName': provider.selectedColorName,
+
+              });
+
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Added to cart')),
+              );
+            },
           ),
         ),
       ],

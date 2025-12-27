@@ -1,13 +1,22 @@
+import 'package:flutter/material.dart';
+import 'package:furnio/core/constants/app_text.dart';
 import 'package:furnio/features/auth/logic/auth_mode.dart';
 import 'package:furnio/features/auth/presentation/screens/auth_page.dart';
 import 'package:furnio/features/home/presentation/screens/05_categories/reviews_page.dart';
 import 'package:furnio/features/home/presentation/screens/main_layout.dart';
+import 'package:furnio/features/pin/presentation/screens/pin_page.dart';
 import 'package:go_router/go_router.dart';
+import '../../core/widgets/dialog/general_dialog.dart';
 import '../../features/account_setup/presentation/screens/create_new_pin_page.dart';
 import '../../features/account_setup/presentation/screens/fill_profile_page.dart';
 import '../../features/account_setup/presentation/screens/fingerprint_page.dart';
 import '../../features/auth/presentation/screens/lets_you_in_page.dart';
-import '../../features/cart/presentation/screens/cart_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/cart_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/checkout_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/choose_shipping_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/payment_methods_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/promo_code_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/shipping_address_page.dart';
 import '../../features/forgot_password/presentation/screens/create_new_password_page.dart';
 import '../../features/forgot_password/presentation/screens/forgot_password_page.dart';
 import '../../features/forgot_password/presentation/screens/pin_code_page.dart';
@@ -25,7 +34,7 @@ import '../../features/onboarding/presentation/screens/splash_page_two.dart';
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/mainLayout',
+    initialLocation: '/cartAndCheckoutPin',
     routes: [
       GoRoute(path: '/splash', builder: (_, __) => const SplashPageOne(),),
       GoRoute(path: '/splash2', builder: (_, __) => const SplashPageTwo(),),
@@ -66,6 +75,32 @@ class AppRouter {
       GoRoute(path: '/categoriesProductDetail', builder: (_, __) => const CategoriesProductDetailPage(),),
       GoRoute(path: '/reviews', builder: (_, __) => const ReviewsPage(),),
       GoRoute(path: '/cart', builder: (_, __) => const CartPage(),),
+      GoRoute(path: '/checkout', builder: (_, __) => const CheckoutPage(),),
+      GoRoute(path: '/shippingAddress', builder: (_, __) => const ShippingAddressPage(),),
+      GoRoute(path: '/chooseShipping', builder: (_, __) => const ChooseShippingPage(),),
+      GoRoute(path: '/promoCode', builder: (_, __) => const PromoCodePage(),),
+      GoRoute(path: '/paymentMethods', builder: (_, __) => const PaymentMethodsPage(),),
+      GoRoute(
+        path: '/cartAndCheckoutPin',
+        builder: (context, __) => PinPage(
+            title: AppText.cartPinTitle,
+            description: AppText.cartPinDescription,
+            onComplete: (){
+              showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (context) => GeneralDialog(
+                  showActions: true,
+                  icon: Icons.shopping_cart_rounded,
+                  title: 'Order Successful!',
+                  description: 'You have successfully made order',
+
+                ),
+              );
+            }
+        ),
+      ),
+
 
 
     ],

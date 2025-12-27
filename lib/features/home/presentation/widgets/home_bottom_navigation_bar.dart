@@ -22,8 +22,8 @@ Widget homeBottomNavigationBar(BuildContext context) {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart_rounded),
-            label: "Statistics",
+            icon: Icon(Icons.shopping_cart_rounded),
+            label: "Cart",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.credit_card),

@@ -21,6 +21,8 @@ class CategoriesProductDetailProvider extends ChangeNotifier {
   String get sold => _product?['sold'] ?? '';
   String get rating => _product?['rating'] ?? '';
   String get price => _product?['price'] ?? '';
+  Color get selectedColor => colors[selectedColorIndex]['color'];
+  String get selectedColorName => colors[selectedColorIndex]['name'];
   List<ReviewsModel> get reviews => (_product?['reviews'] as List<ReviewsModel> ?? []);
 
 
@@ -54,13 +56,13 @@ class CategoriesProductDetailProvider extends ChangeNotifier {
 
   /// color
   int selectedColorIndex = 0;
-  final List<Color> colors = [
-    const Color(0xff8B5E3C),
-    const Color(0xff607D8B),
-    const Color(0xff9C27B0),
-    const Color(0xff9E9E9E),
-    const Color(0xff3f51b3),
-    const Color(0xff009789),
+  final List<Map<String, dynamic>> colors = [
+    {'color': const Color(0xff8B5E3C), 'name': 'Brown'},
+    {'color': const Color(0xff607D8B), 'name': 'Blue Grey'},
+    {'color': const Color(0xff9C27B0), 'name': 'Purple'},
+    {'color': const Color(0xff9E9E9E), 'name': 'Grey'},
+    {'color': const Color(0xff3f51b3), 'name': 'Indigo'},
+    {'color': const Color(0xff009789), 'name': 'Teal'},
   ];
 
   void changeColor(int index) {

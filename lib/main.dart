@@ -9,7 +9,8 @@ import 'features/account_setup/logic/account_setup_provider.dart';
 import 'features/account_setup/logic/fingerprint_provider.dart';
 import 'features/account_setup/logic/new_pin_provider.dart';
 import 'features/auth/logic/auth_provider.dart';
-import 'features/cart/logic/cart_provider.dart';
+import 'features/cart_and_checkout/logic/cart_provider.dart';
+import 'features/cart_and_checkout/logic/checkout_provider.dart';
 import 'features/forgot_password/logic/forgot_password_provider.dart';
 import 'features/forgot_password/logic/new_password_provider.dart';
 import 'features/forgot_password/logic/pin_code_provider.dart';
@@ -17,6 +18,7 @@ import 'features/home/logic/categories_product_detail_provider.dart';
 import 'features/home/logic/home_provider.dart';
 import 'features/home/logic/search_provider.dart';
 import 'features/onboarding/logic/onboarding_provider.dart';
+import 'features/pin/logic/pin_provider.dart';
 
 
 void main() async{
@@ -39,6 +41,8 @@ void main() async{
           ChangeNotifierProvider(create: (_) => SearchProvider ()),
           ChangeNotifierProvider(create: (_) => SortAndFilterProvider ()),
           ChangeNotifierProvider(create: (_) => CategoriesProductDetailProvider()),
+          ChangeNotifierProvider(create: (_) => CheckoutProvider()),
+          ChangeNotifierProvider(create: (_) => PinProvider()),
         ],
         child: const Furnio(),
       ),
