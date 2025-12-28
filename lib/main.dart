@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:furnio/features/auth/logic/sign_up_provider.dart';
 import 'package:furnio/features/home/logic/filter_provider.dart';
+import 'package:furnio/features/orders/logic/orders_provider.dart';
 import 'package:provider/provider.dart';
 import 'config/router/app_router.dart';
 import 'core/theme/app_theme.dart';
@@ -18,6 +19,7 @@ import 'features/home/logic/categories_product_detail_provider.dart';
 import 'features/home/logic/home_provider.dart';
 import 'features/home/logic/search_provider.dart';
 import 'features/onboarding/logic/onboarding_provider.dart';
+import 'features/orders/logic/track_order_provider.dart';
 import 'features/pin/logic/pin_provider.dart';
 
 
@@ -43,6 +45,8 @@ void main() async{
           ChangeNotifierProvider(create: (_) => CategoriesProductDetailProvider()),
           ChangeNotifierProvider(create: (_) => CheckoutProvider()),
           ChangeNotifierProvider(create: (_) => PinProvider()),
+          ChangeNotifierProvider(create: (_) => OrdersProvider()),
+          ChangeNotifierProvider(create: (_) => TrackOrderProvider()),
         ],
         child: const Furnio(),
       ),

@@ -47,6 +47,7 @@ dependencies:
   dropdown_button2: ^2.3.9
   firebase_storage: ^13.0.5
   image_picker: ^1.2.1
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -86,6 +87,7 @@ flutter:
     - assets/image/home/special_offers/
     - assets/image/home/sofa/
     - assets/image/cart_and_checkout/
+    - assets/image/order/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

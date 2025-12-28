@@ -4,13 +4,17 @@ import 'package:furnio/features/auth/logic/auth_mode.dart';
 import 'package:furnio/features/auth/presentation/screens/auth_page.dart';
 import 'package:furnio/features/home/presentation/screens/05_categories/reviews_page.dart';
 import 'package:furnio/features/home/presentation/screens/main_layout.dart';
+import 'package:furnio/features/orders/presentation/screens/my_orders_page.dart';
 import 'package:furnio/features/pin/presentation/screens/pin_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import '../../core/widgets/dialog/general_dialog.dart';
 import '../../features/account_setup/presentation/screens/create_new_pin_page.dart';
 import '../../features/account_setup/presentation/screens/fill_profile_page.dart';
 import '../../features/account_setup/presentation/screens/fingerprint_page.dart';
 import '../../features/auth/presentation/screens/lets_you_in_page.dart';
+import '../../features/cart_and_checkout/logic/cart_provider.dart';
+import '../../features/cart_and_checkout/logic/checkout_provider.dart';
 import '../../features/cart_and_checkout/presentation/screens/cart_page.dart';
 import '../../features/cart_and_checkout/presentation/screens/checkout_page.dart';
 import '../../features/cart_and_checkout/presentation/screens/choose_shipping_page.dart';
@@ -30,11 +34,13 @@ import '../../features/home/presentation/screens/home_page.dart';
 import '../../features/onboarding/presentation/screens/onboarding_page.dart';
 import '../../features/onboarding/presentation/screens/splash_page_one.dart';
 import '../../features/onboarding/presentation/screens/splash_page_two.dart';
+import '../../features/orders/logic/orders_provider.dart';
+import '../../features/orders/presentation/screens/track_order_page.dart';
 
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/cartAndCheckoutPin',
+    initialLocation: '/mainLayout',
     routes: [
       GoRoute(path: '/splash', builder: (_, __) => const SplashPageOne(),),
       GoRoute(path: '/splash2', builder: (_, __) => const SplashPageTwo(),),
@@ -86,6 +92,21 @@ class AppRouter {
             title: AppText.cartPinTitle,
             description: AppText.cartPinDescription,
             onComplete: (){
+              final cart = context.read<CartProvider>();
+              final checkout = context.read<CheckoutProvider>();
+              final orders = context.read<OrdersProvider>();
+
+              orders.addOrder({
+                'item' : List.from(cart.items),
+                'total': checkout.getTotal(cart.totalPrice),
+                'shipping': checkout.selectedShipping,
+                'address': checkout.selectedAddress,
+                'promo': checkout.selectedPromoCode,
+                'date': DateTime.now(),
+                'status': 'delivery',
+              });
+              cart.clear();
+
               showDialog(
                 context: context,
                 barrierDismissible: true,
@@ -100,6 +121,8 @@ class AppRouter {
             }
         ),
       ),
+      GoRoute(path: '/myOrder', builder: (_, __) => const MyOrdersPage(),),
+      GoRoute(path: '/trackOrder', builder: (_, __) => const TrackOrderPage(),),
 
 
 

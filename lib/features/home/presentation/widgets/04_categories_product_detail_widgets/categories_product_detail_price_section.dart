@@ -47,10 +47,6 @@ class CategoriesProductDetailPriceSection extends StatelessWidget {
                 'colorName': provider.selectedColorName,
 
               });
-
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Added to cart')),
-              );
             },
           ),
         ),

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/widgets/general_text.dart';
 import '../../../../core/widgets/space.dart';
@@ -117,7 +118,7 @@ class GeneralDialog extends StatelessWidget {
               Column(
                 children: [
                   HeightSpace(space: 0.02),
-                  GeneralSecondButton(title: 'View Order',onTap: (){},bgColor: Colors.black,titleColor: Colors.white,),
+                  GeneralSecondButton(title: 'View Order',bgColor: Colors.black,titleColor: Colors.white,onTap: ()=> context.go('/myOrder')),
                   GeneralSecondButton(title: 'View E-Receipt',bgColor: Colors.grey[300],titleColor: Colors.black,),
 
                 ],

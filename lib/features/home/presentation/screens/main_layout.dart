@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/features/orders/presentation/screens/my_orders_page.dart';
 import 'package:provider/provider.dart';
 import '../../../cart_and_checkout/presentation/screens/cart_page.dart';
 import '../../../cart_and_checkout/presentation/widgets/01_cart_widgets/cart_item_card.dart';
@@ -30,10 +31,10 @@ class MainLayout extends StatelessWidget {
       HomePage(),
 
       // 2) صفحة cart
-      CartPage()
+      CartPage(),
 
-      // 3) صفحة البطاقة
-     // MyCardsPage(),
+      // 3) صفحة order
+      MyOrdersPage(),
 
       // 4) صفحة الإشعارات
       //NotificationsPage(),

@@ -22,12 +22,12 @@ Widget homeBottomNavigationBar(BuildContext context) {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_rounded),
+            icon: Icon(Icons.shopping_bag),
             label: "Cart",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.credit_card),
-            label: "Card",
+            icon: Icon(Icons.shopping_cart_rounded),
+            label: "order",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
