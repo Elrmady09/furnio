@@ -30,7 +30,7 @@ Widget homeBottomNavigationBar(BuildContext context) {
             label: "order",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: Icon(Icons.wallet),
             label: "Alerts",
           ),
         ],

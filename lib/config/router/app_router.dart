@@ -36,6 +36,12 @@ import '../../features/onboarding/presentation/screens/splash_page_one.dart';
 import '../../features/onboarding/presentation/screens/splash_page_two.dart';
 import '../../features/orders/logic/orders_provider.dart';
 import '../../features/orders/presentation/screens/track_order_page.dart';
+import '../../features/wallet/logic/wallet_provider.dart';
+import '../../features/wallet/presentation/screens/my_wallet_page.dart';
+import '../../features/wallet/presentation/screens/receipt_page.dart';
+import '../../features/wallet/presentation/screens/top_up_wallet_method_page.dart';
+import '../../features/wallet/presentation/screens/top_up_wallet_page.dart';
+import '../../features/wallet/presentation/screens/transaction_history_page.dart';
 
 
 class AppRouter {
@@ -95,16 +101,23 @@ class AppRouter {
               final cart = context.read<CartProvider>();
               final checkout = context.read<CheckoutProvider>();
               final orders = context.read<OrdersProvider>();
+              final wallet = context.read<WalletProvider>();
 
-              orders.addOrder({
-                'item' : List.from(cart.items),
+              final order = {
+                'item': List.from(cart.items),
                 'total': checkout.getTotal(cart.totalPrice),
                 'shipping': checkout.selectedShipping,
                 'address': checkout.selectedAddress,
                 'promo': checkout.selectedPromoCode,
                 'date': DateTime.now(),
                 'status': 'delivery',
-              });
+              };
+
+              orders.addOrder(order);
+              wallet.addOrderTransaction(order: order);
+
+
+
               cart.clear();
 
               showDialog(
@@ -123,6 +136,42 @@ class AppRouter {
       ),
       GoRoute(path: '/myOrder', builder: (_, __) => const MyOrdersPage(),),
       GoRoute(path: '/trackOrder', builder: (_, __) => const TrackOrderPage(),),
+      GoRoute(path: '/myWallet', builder: (_, __) => const MyWalletPage(),),
+      GoRoute(path: '/topUpWallet', builder: (_, __) => const TopUpWalletPage(),),
+      GoRoute(path: '/topUpWalletMethod', builder: (_, __) => const TopUpWalletMethodPage(),),
+      GoRoute(
+        path: '/walletPIN',
+        builder: (context, __) => PinPage(
+            title: AppText.cartPinTitle,
+            description: AppText.cartPinDescription,
+            onComplete: (){
+              final provider = context.read<WalletProvider>();
+              provider.confirmTopUp();
+
+
+              showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (context) => GeneralDialog(
+                  showActions: true,
+                  icon: Icons.shopping_cart_rounded,
+                  title: 'Top Up Successful!',
+                  description: 'You have successfully top up\ne-wallet for \$${provider.topUpAmount.toStringAsFixed(0)}',
+                  blackButtonTitle: 'View E-Wallet',
+                  greyButtonTitle: 'View E-Receipt',
+                  blackButtonOnTap: (){
+                    context.go('/mainLayout');
+                    provider.clear();
+                  },
+                  greyButtonOnTap: () => provider.clear(),
+
+                ),
+              );
+            }
+        ),
+      ),
+      GoRoute(path: '/transactionHistory', builder: (_, __) => const TransactionHistoryPage(),),
+      GoRoute(path: '/receipt', builder: (_, __) => const ReceiptPage(),),
 
 
 

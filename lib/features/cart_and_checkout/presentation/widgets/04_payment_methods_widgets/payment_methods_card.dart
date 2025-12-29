@@ -13,8 +13,8 @@ class PaymentMethodsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<CheckoutProvider>();
     Size size = MediaQuery.of(context).size;
-
     final bool isSelected = provider.selectedPaymentMethodsIndex == index;
+    final bool isWallet = data['title'] == 'My Wallet';
 
     return GestureDetector(
       onTap: (){
@@ -36,7 +36,7 @@ class PaymentMethodsCard extends StatelessWidget {
               sizeText: size.width * 0.047,
               fontWeight: FontWeight.w700,
             ),
-            if(index == 0 && provider.selectedPaymentMethodsIndex == index)
+            if(isWallet && isSelected)
               GeneralText(
                 padding: EdgeInsets.only(left: size.width * 0.3),
                 text: '\$9379',

@@ -9,11 +9,15 @@ import '../general_second_button.dart';
 
 
 class GeneralDialog extends StatelessWidget {
-  const GeneralDialog({super.key, required this.icon, this.title, this.description,this.showActions = false});
+  const GeneralDialog({super.key, required this.icon, this.title, this.description,this.showActions = false, this.blackButtonTitle, this.greyButtonTitle, this.blackButtonOnTap, this.greyButtonOnTap});
   final IconData icon;
   final String? title;
   final String? description;
   final bool showActions;
+  final String? blackButtonTitle;
+  final String? greyButtonTitle;
+  final VoidCallback? blackButtonOnTap;
+  final VoidCallback? greyButtonOnTap;
 
   Widget _circleContainer({required double radius}){
 
@@ -118,8 +122,8 @@ class GeneralDialog extends StatelessWidget {
               Column(
                 children: [
                   HeightSpace(space: 0.02),
-                  GeneralSecondButton(title: 'View Order',bgColor: Colors.black,titleColor: Colors.white,onTap: ()=> context.go('/myOrder')),
-                  GeneralSecondButton(title: 'View E-Receipt',bgColor: Colors.grey[300],titleColor: Colors.black,),
+                  GeneralSecondButton(title: blackButtonTitle ?? 'View Order',bgColor: Colors.black,titleColor: Colors.white,onTap: blackButtonOnTap ??  ()=> context.go('/mainLayout')),
+                  GeneralSecondButton(title: greyButtonTitle ?? 'View E-Receipt',bgColor: Colors.grey[300],titleColor: Colors.black,onTap: greyButtonOnTap,),
 
                 ],
               ),

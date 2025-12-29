@@ -5,8 +5,9 @@ import '../../../../core/widgets/general_text.dart';
 class GeneralHeader extends StatelessWidget {
   final String title;
   final Widget? trailing;
+  final VoidCallback? onTap;
 
-  const GeneralHeader({super.key, required this.title, this.trailing});
+  const GeneralHeader({super.key, required this.title, this.trailing, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class GeneralHeader extends StatelessWidget {
       children: [
         IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.pop(),
+          onPressed:onTap ??  () => context.pop(),
         ),
         GeneralText(
           text: title,
