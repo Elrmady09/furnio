@@ -21,6 +21,9 @@ import 'features/home/logic/search_provider.dart';
 import 'features/onboarding/logic/onboarding_provider.dart';
 import 'features/orders/logic/track_order_provider.dart';
 import 'features/pin/logic/pin_provider.dart';
+import 'features/profile/logic/add_new_card_provider.dart';
+import 'features/profile/logic/chat_provider.dart';
+import 'features/profile/logic/profile_provider.dart';
 import 'features/wallet/logic/wallet_provider.dart';
 
 
@@ -49,6 +52,9 @@ void main() async{
           ChangeNotifierProvider(create: (_) => OrdersProvider()),
           ChangeNotifierProvider(create: (_) => TrackOrderProvider()),
           ChangeNotifierProvider(create: (_) => WalletProvider()),
+          ChangeNotifierProvider(create: (_) => ProfileProvider()),
+          ChangeNotifierProvider(create: (_) => AddNewCardProvider()),
+          ChangeNotifierProvider(create: (_) => ChatProvider()),
 
         ],
         child: const Furnio(),

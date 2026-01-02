@@ -116,6 +116,9 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
+  String get uid => auth.currentUser!.uid;
+
+
   /// =========================
   /// Firebase Error Mapper
   /// =========================

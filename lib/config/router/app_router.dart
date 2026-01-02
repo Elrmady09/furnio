@@ -6,6 +6,12 @@ import 'package:furnio/features/home/presentation/screens/05_categories/reviews_
 import 'package:furnio/features/home/presentation/screens/main_layout.dart';
 import 'package:furnio/features/orders/presentation/screens/my_orders_page.dart';
 import 'package:furnio/features/pin/presentation/screens/pin_page.dart';
+import 'package:furnio/features/profile/presentation/screens/02_edit_profile/edit_profile_page.dart';
+import 'package:furnio/features/profile/presentation/screens/04_add_new_address/add_new_address_page.dart';
+import 'package:furnio/features/profile/presentation/screens/05_notification_settings/notification_setting_page.dart';
+import 'package:furnio/features/profile/presentation/screens/06_payment/payment_page.dart';
+import 'package:furnio/features/profile/presentation/screens/08_security/security_page.dart';
+import 'package:furnio/features/profile/presentation/screens/09_language/language_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../core/widgets/dialog/general_dialog.dart';
@@ -36,6 +42,13 @@ import '../../features/onboarding/presentation/screens/splash_page_one.dart';
 import '../../features/onboarding/presentation/screens/splash_page_two.dart';
 import '../../features/orders/logic/orders_provider.dart';
 import '../../features/orders/presentation/screens/track_order_page.dart';
+import '../../features/profile/presentation/screens/03_address/address_page.dart';
+import '../../features/profile/presentation/screens/07_add_card/add_card_page.dart';
+import '../../features/profile/presentation/screens/10_privacy_policy/privacy_policy_page.dart';
+import '../../features/profile/presentation/screens/11_invite_friends_page/invite_friends_page.dart';
+import '../../features/profile/presentation/screens/12_help_center/help_center_page.dart';
+import '../../features/profile/presentation/screens/13_chat/chat_page.dart';
+import '../../features/profile/presentation/screens/01_profile/profile_page.dart';
 import '../../features/wallet/logic/wallet_provider.dart';
 import '../../features/wallet/presentation/screens/my_wallet_page.dart';
 import '../../features/wallet/presentation/screens/receipt_page.dart';
@@ -46,7 +59,7 @@ import '../../features/wallet/presentation/screens/transaction_history_page.dart
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/mainLayout',
+    initialLocation: '/auth',
     routes: [
       GoRoute(path: '/splash', builder: (_, __) => const SplashPageOne(),),
       GoRoute(path: '/splash2', builder: (_, __) => const SplashPageTwo(),),
@@ -172,6 +185,27 @@ class AppRouter {
       ),
       GoRoute(path: '/transactionHistory', builder: (_, __) => const TransactionHistoryPage(),),
       GoRoute(path: '/receipt', builder: (_, __) => const ReceiptPage(),),
+      GoRoute(path: '/profile', builder: (_, __) => const ProfilePage(),),
+      GoRoute(path: '/editProfile', builder: (_, __) => const EditProfilePage(),),
+      GoRoute(path: '/address', builder: (_, __) => const AddressPage(),),
+      GoRoute(path: '/addNewAddress', builder: (_, __) => const AddNewAddressPage(),),
+
+      GoRoute(path: '/notificationSetting', builder: (_, __) => const NotificationSettingPage(),),
+      GoRoute(path: '/Payment', builder: (_, __) => const PaymentPage(),),
+      GoRoute(path: '/addCard', builder: (_, __) => const AddCardPage(),),
+      GoRoute(path: '/security', builder: (_, __) => const SecurityPage(),),
+      GoRoute(path: '/language', builder: (_, __) => const LanguagePage(),),
+      GoRoute(path: '/privacyPolicy', builder: (_, __) => const PrivacyPolicyPage(),),
+      GoRoute(path: '/inviteFriends', builder: (_, __) => const InviteFriendsPage(),),
+      GoRoute(path: '/helpCenter', builder: (_, __) => const HelpCenterPage(),),
+      GoRoute(path: '/chat', builder: (_, __) => const ChatPage(),),
+
+
+
+
+
+
+
 
 
 

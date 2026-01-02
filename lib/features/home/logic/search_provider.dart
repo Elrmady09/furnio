@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 
+import '../data/categories/01_categories_sofa_data.dart';
 import '../data/favorite_data.dart';
 import '../data/home_products_data.dart';
 
@@ -19,6 +20,7 @@ class SearchProvider extends ChangeNotifier {
     final allProducts = [
       ...itemHomeProducts,
       ...itemFavoriteProducts,
+      ...itemCategoriesSofa,
       // أي Lists أخرى لاحقًا
     ];
 

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:furnio/core/widgets/general_text.dart';
 import 'package:provider/provider.dart';
 
-import '../../../logic/checkout_provider.dart';
+import '../../../features/cart_and_checkout/logic/checkout_provider.dart';
 
-class PaymentMethodsCard extends StatelessWidget {
-  const PaymentMethodsCard({super.key, required this.data, required this.index,this.inPaymentMethods = true});
+
+class GeneralPaymentCard extends StatelessWidget {
+  const GeneralPaymentCard({super.key, required this.data, required this.index,this.inPaymentMethods = true});
   final Map<String, String> data;
   final int index;
   final bool inPaymentMethods;
@@ -19,7 +20,7 @@ class PaymentMethodsCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: (){
-          provider.selectPayment(index);
+        provider.selectPayment(index);
       },
       child: Container(
         margin: EdgeInsets.only(bottom: size.height * 0.025),
@@ -56,7 +57,7 @@ class PaymentMethodsCard extends StatelessWidget {
               GeneralText(
                 padding: EdgeInsets.only(left: size.width * 0.02),
                 text: 'Connected',
-                sizeText: size.width * 0.047,
+                sizeText: size.width * 0.04,
                 fontWeight: FontWeight.w700,
               ),
             ]

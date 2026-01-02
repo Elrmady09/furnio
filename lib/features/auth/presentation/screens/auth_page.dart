@@ -130,7 +130,7 @@ class AuthPage extends StatelessWidget {
                     final service = AccountSetupService();
                     final hasProfile = await service.isProfileCompleted();
                     if (hasProfile) {
-                      context.go('/home');
+                      context.go('/mainLayout');
                     } else {
                       context.go('/fillProfile');
                     }

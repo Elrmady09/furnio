@@ -90,6 +90,7 @@ flutter:
     - assets/image/cart_and_checkout/
     - assets/image/order/
     - assets/image/wallet/
+    - assets/image/profile/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -8,13 +8,14 @@ import '../../screens/03_search_and_filter/sort_and_filter_bottom_sheet.dart';
 
 
 class GeneralHomeSearch extends StatelessWidget {
-  const GeneralHomeSearch({super.key, this.searchText, this.textEditingController, this.onSubmitted, this.onChanged, this.focusNode, this.onTap});
+  const GeneralHomeSearch({super.key, this.searchText, this.textEditingController, this.onSubmitted, this.onChanged, this.focusNode, this.onTap, this.showFilterSearch = true});
   final String? searchText;
   final TextEditingController? textEditingController;
   final Function(String)? onSubmitted;
   final Function(String)? onChanged;
   final FocusNode? focusNode;
   final VoidCallback? onTap;
+  final bool showFilterSearch;
 
   @override
   Widget build(BuildContext context) {
@@ -55,12 +56,17 @@ class GeneralHomeSearch extends StatelessWidget {
           WidthSpace(space: 0.03), // Space between separator and mic icon
           IconButton(
             onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                isScrollControlled: true, // مهم للطول الكامل
-                backgroundColor: Colors.transparent, // نترك التصميم للـ Container
-                builder: (_) => const SortAndFilterBottomSheet(),
-              );
+              if (showFilterSearch){
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true, // مهم للطول الكامل
+                  backgroundColor: Colors.transparent, // نترك التصميم للـ Container
+                  builder: (_) => const SortAndFilterBottomSheet(),
+                );
+              }else{
+                return;
+              }
+
             },
             icon:Icon(Icons.tune),color: Colors.black ,
           ), // Mic icon
