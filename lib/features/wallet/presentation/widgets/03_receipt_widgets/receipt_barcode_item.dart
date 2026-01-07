@@ -13,10 +13,10 @@ class ReceiptBarcodeItem extends StatelessWidget {
     return Row(
       children: [
         Image.asset(image,scale: size.width * 0.072,),
-        WidthSpace(space: 0.04),
+        WidthSpace(space: 0.03),
         GeneralText(
           text: title,
-          sizeText: size.width * 0.045,
+          sizeText: size.width * 0.043,
           fontWeight: FontWeight.w700,
         ),
       ],

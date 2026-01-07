@@ -13,7 +13,7 @@ class CategoriesProductDetailImageSection extends StatelessWidget {
     final provider = context.watch<CategoriesProductDetailProvider>();
 
     return SizedBox(
-      height: size.height * 0.35,
+      height: 240,
       child: Stack(
         children: [
           PageView.builder(
@@ -21,7 +21,7 @@ class CategoriesProductDetailImageSection extends StatelessWidget {
             itemCount: 4,
             itemBuilder: (context,index){
               return Container(
-                height: size.height * 0.45,
+                height: size.height ,
                 width: double.infinity,
                 color: Color(0xfff3f3f3),
                 child: Image.asset(
@@ -41,7 +41,7 @@ class CategoriesProductDetailImageSection extends StatelessWidget {
           ),
 
           Positioned(
-            bottom: size.height * 0.02,
+            bottom: 14,
             left: 0,
             right: 0,
             child: Center(
@@ -51,13 +51,13 @@ class CategoriesProductDetailImageSection extends StatelessWidget {
                 effect: CustomizableEffect(
                   activeDotDecoration: DotDecoration(
                     width: size.width * 0.08,
-                    height: size.height * 0.014,
+                    height: 10,
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(size.width * 0.1),
                   ),
                   dotDecoration: DotDecoration(
-                    width: size.height * 0.014,
-                    height: size.height * 0.014,
+                    width: 10,
+                    height: 10,
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(size.width * 0.5),
                   ),

@@ -16,7 +16,7 @@ class NewCardImageCard extends StatelessWidget {
       children: [
         Image.asset('assets/image/wallet/bank cart.png'),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.06,vertical: size.height * 0.03),
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.06,vertical: 18),
           child: Row(
             children: [
               GeneralText(
@@ -27,7 +27,7 @@ class NewCardImageCard extends StatelessWidget {
               ),
               Spacer(),
               Padding(
-                padding:EdgeInsets.only(top:size.height * 0.01 ),
+                padding:EdgeInsets.only(top:10 ),
                 child: Image.asset('assets/image/profile/amazon.png',scale: size.width * 0.2,color: Colors.white,),
               ),
 
@@ -35,7 +35,7 @@ class NewCardImageCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: size.height * 0.15,
+          top: 75,
           left: size.width * 0.07,
           child: GeneralText(
             text: '****  ****  ****  ****',
@@ -45,7 +45,7 @@ class NewCardImageCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: size.height * 0.05,
+          bottom: 22,
           child: Padding(
             padding:EdgeInsets.symmetric(horizontal: size.width * 0.07),
             child: Row(
@@ -63,7 +63,7 @@ class NewCardImageCard extends StatelessWidget {
                   sizeText: size.width * 0.03,
                   fontWeight: FontWeight.w500,
                 ),
-                WidthSpace(space: 0.08),
+                WidthSpace(space: 0.05),
                 Image.asset('assets/image/general_image/mastercard.png',scale: size.width * 0.006,),
 
 

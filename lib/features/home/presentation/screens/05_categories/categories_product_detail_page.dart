@@ -27,41 +27,47 @@ class CategoriesProductDetailPage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children:[
-              /// Image
-              CategoriesProductDetailImageSection(),
-              Padding(
-                padding:AppPadding.pagePadding(context),
+        body: CustomScrollView(
+          slivers: [
+            /// Image
+            SliverToBoxAdapter(
+              child: CategoriesProductDetailImageSection(),
+            ),
+
+            /// Content
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: AppPadding.pagePadding(context),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    /// Name AND Favorites
                     CategoriesProductDetailTitleSection(),
-                    /// Sold AND Reviews
                     CategoriesProductDetailRatingSection(),
-                    HeightSpace(space: 0.015),
-                    Divider(thickness: size.width * 0.005,color: Colors.grey[200],),
-                    HeightSpace(space: 0.01),
-                    /// Description
+                    HeightSpace1(space: 12),
+                    Divider(thickness: size.width * 0.005, color: Colors.grey[200],),
+                    HeightSpace1(space: 7),
                     CategoriesProductDetailDescriptionSection(),
-                    HeightSpace(space: 0.02),
-                    /// Color
+                    HeightSpace1(space: 14),
                     CategoriesProductDetailColorSelector(),
-                    HeightSpace(space: 0.02),
-                    /// Quantity
+                    HeightSpace1(space: 14),
                     CategoriesProductDetailQuantitySelector(),
-                    HeightSpace(space: 0.015),
-                    Divider(thickness: size.width * 0.005,color: Colors.grey[200],),
-                    HeightSpace(space: 0.015),
-                    /// Price
-                    CategoriesProductDetailPriceSection(),
+                    HeightSpace1(space: 14),
+                    Divider(thickness: size.width * 0.005, color: Colors.grey[200],),
+
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+
+            /// ✅ Price fills remaining space
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Padding(
+                padding: AppPadding.pagePadding(context),
+                child: CategoriesProductDetailPriceSection(),
+              ),
+            ),
+          ],
         ),
       ),
     );

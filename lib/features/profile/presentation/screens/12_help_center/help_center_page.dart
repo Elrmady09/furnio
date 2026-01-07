@@ -32,18 +32,16 @@ class HelpCenterPage extends StatelessWidget {
               children: [
                 GeneralHeader(title: 'Help Center'),
                 GeneralAnimatedTabs(titleOne: 'FAQ', titleTwo: 'Contact us', indexOne: 0, indexTwo: 1,),
-                HeightSpace(space: 0.01),
-
                 if (provider.selectedTab == 0) ...[
                   GeneralHomeFilterTap(items: AppLists.filtersTapsProfile, selectedIndex: provider.selectedCategory, onTap: provider.changeCategory,),
-                  HeightSpace(space: 0.03),
+                  HeightSpace1(space: 20),
                   GeneralHomeSearch(
                     textEditingController: provider.searchController,
                     focusNode: provider.searchFocusNode,
                     onTap: provider.openSearch,
                     showFilterSearch: false,
                   ),
-                  HeightSpace(space: 0.02),
+                  HeightSpace1(space: 10),
                   Expanded(
                     child: ListView(
                       children:  [

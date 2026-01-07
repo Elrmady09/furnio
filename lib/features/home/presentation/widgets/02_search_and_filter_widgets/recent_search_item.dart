@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/widgets/general_text.dart';
 import '../../../logic/home_provider.dart';
-import '../../../logic/search_provider.dart';
 
 
 
@@ -26,7 +25,7 @@ class RecentSearchItem extends StatelessWidget {
         sizeText: size.width * 0.038,
       ),
       trailing: IconButton(
-        icon: const Icon(Icons.close, size: 18),
+        icon: Icon(Icons.close, size: size.width * 0.045,),
         onPressed: () => provider.removeSearch(text),
       ),
     );

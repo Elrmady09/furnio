@@ -22,7 +22,7 @@ class CategoriesProductDetailQuantitySelector extends StatelessWidget {
         ),
         WidthSpace(space: 0.05),
         Container(
-          height: size.height * 0.058,
+          height: 40,
           decoration: BoxDecoration(
             color: Colors.grey[200],
             borderRadius: BorderRadius.circular(size.width * 0.05),

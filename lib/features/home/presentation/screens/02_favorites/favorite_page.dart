@@ -15,20 +15,19 @@ class FavoritePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     final provider = context.watch<HomeProvider>();
 
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+          padding: AppPadding.pagePadding(context),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 GeneralHeader(title: 'My Favorite',trailing: Icon(Icons.search),),
-                HeightSpace(space: 0.03),
+                HeightSpace1(space: 7),
                 GeneralHomeFilterTap(items: AppLists.filtersTaps, selectedIndex:provider.selectedFilter, onTap: provider.changeFilter,),
-                HeightSpace(space: 0.04),
+                HeightSpace1(space: 12),
                 GeneralHomeProductsGrid(itemCount: itemFavoriteProducts.length, products: itemFavoriteProducts),
 
               ],

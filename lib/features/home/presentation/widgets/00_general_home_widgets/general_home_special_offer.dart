@@ -14,11 +14,12 @@ class GeneralHomeSpecialOffer extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final controller = context.watch<HomeProvider>().controller(controllerKey);
+    final theme =Theme.of(context).colorScheme;
     return Container(
-      height: size.height * 0.25,
-      margin: EdgeInsets.only(bottom: size.height * 0.03),
+      height: 171,
+      margin: EdgeInsets.only(bottom: 15),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: theme.secondaryContainer,
         borderRadius: BorderRadius.circular(size.width * 0.05),
       ),
       child: Stack(
@@ -30,7 +31,7 @@ class GeneralHomeSpecialOffer extends StatelessWidget {
               final offerProduct = offers[index];
               return Container(
                 margin: EdgeInsets.only(right: size.width * 0.03),
-                padding: EdgeInsets.symmetric(horizontal:size.width * 0.04,vertical: size.height * 0.01),
+                padding: EdgeInsets.symmetric(horizontal:size.width * 0.04,vertical: 8),
                 child: Row(
                   children: [
                     Column(
@@ -47,23 +48,26 @@ class GeneralHomeSpecialOffer extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         ),
                         GeneralText(
-                          padding: EdgeInsets.only(top: size.height * 0.01),
+                          padding: EdgeInsets.only(top: 8),
                           textAlign: TextAlign.start,
                           text: 'Get discount for every\norder, only valid for today',
                           sizeText: size.width * 0.03,
-                          color: Colors.grey,
+                          color: theme.onSurfaceVariant
                         ),
                       ],
                     ),
                     const Spacer(),
-                    Image.asset(offerProduct['image'],height: size.height * 0.18,),
+                    SizedBox(
+                      height: 100,
+                        child: Image.asset(offerProduct['image'],height: size.height,)
+                    ),
                   ],
                 ),
               );
             },
           ),
           Positioned(
-            bottom: size.height * 0.015,
+            bottom: 12,
             left: size.width * 0.36,
             child: SmoothPageIndicator(
               controller: controller,
@@ -71,13 +75,13 @@ class GeneralHomeSpecialOffer extends StatelessWidget {
               effect: CustomizableEffect(
                 activeDotDecoration: DotDecoration(
                   width: size.width * 0.08,
-                  height: size.height * 0.014,
-                  color: Colors.black,
+                  height: 10,
+                  color: theme.primary,
                   borderRadius: BorderRadius.circular(size.width * 0.1),
                 ),
                 dotDecoration: DotDecoration(
-                  width: size.height * 0.014,
-                  height: size.height * 0.014,
+                  width: 10,
+                  height: 10,
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(size.width * 0.5),
                 ),

@@ -23,11 +23,11 @@ class NotificationsListSection extends StatelessWidget {
               sizeText: size.width * 0.045,
               fontWeight: FontWeight.w600,
             ),
-            HeightSpace(space: 0.02),
+            HeightSpace1(space: 14),
 
             ...section.value.map(
                   (item) => Padding(
-                padding: EdgeInsets.only(bottom: size.height * 0.02),
+                padding: EdgeInsets.only(bottom: 14),
                 child: NotificationCard(
                   title: item['title']!,
                   subtitle: item['subtitle']!,

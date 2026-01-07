@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/constants/app_padding.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../core/widgets/general_button.dart';
-import '../../../../core/widgets/space.dart';
-import '../widgets/auth_header.dart';
-import '../widgets/auth_text_sign.dart';
-import '../widgets/social_button.dart';
-import '../widgets/auth_divider.dart';
+import '../../../../../core/widgets/general_button.dart';
+import '../../../../../core/widgets/space.dart';
+import '../../widgets/auth_header.dart';
+import '../../widgets/auth_text_sign.dart';
+import '../../widgets/social_button.dart';
+import '../../widgets/auth_divider.dart';
 
 
 class LetsYouInPage extends StatelessWidget {
@@ -13,12 +14,11 @@ class LetsYouInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
 
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.03,vertical: size.height * 0.02),
+          padding: AppPadding.pagePadding(context),
           child: Column(
             children: [
               /// Header
@@ -26,11 +26,8 @@ class LetsYouInPage extends StatelessWidget {
                 title: "Let's you in",
                 image: "assets/image/auth/auth image.png",
               ),
-
-              HeightSpace(space: 0.04),
-
+              HeightSpace1(space: 20),
               /// SocialButton
-
               const SocialButton(
                 icon: "assets/image/auth/facebook logo.png",
                 text: "Continue with Facebook",
@@ -48,7 +45,7 @@ class LetsYouInPage extends StatelessWidget {
 
               /// AuthDivider
 
-              HeightSpace(space: 0.03),
+              HeightSpace1(space: 20),
               const AuthDivider(text: "or",),
 
 
@@ -62,7 +59,7 @@ class LetsYouInPage extends StatelessWidget {
                   );
                 } ,
               ),
-              HeightSpace(space: 0.03),
+              HeightSpace1(space: 25),
 
               /// Text Sign up
               AuthTextSign(

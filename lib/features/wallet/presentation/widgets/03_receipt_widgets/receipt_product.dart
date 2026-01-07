@@ -13,8 +13,8 @@ class ReceiptProduct extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     final transaction = context.watch<WalletProvider>().selectedTransaction;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.04,vertical: size.height * 0.02),
-      margin: EdgeInsets.symmetric(vertical: size.height * 0.02),
+      padding: EdgeInsets.symmetric(horizontal: size.width * 0.04,vertical: 15),
+      margin: EdgeInsets.symmetric(vertical: 15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(size.width * 0.03),
@@ -22,9 +22,9 @@ class ReceiptProduct extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: size.width * 0.015,vertical: size.height * 0.01),
+            padding: EdgeInsets.symmetric(horizontal: size.width * 0.015,vertical: 8),
             width: size.width * 0.15,
-            height: size.width * 0.15,
+            height: 50,
             decoration: BoxDecoration(
                 color: Colors.grey[200],
                 shape: BoxShape.circle

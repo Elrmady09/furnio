@@ -5,15 +5,14 @@ import 'package:furnio/core/widgets/general_header.dart';
 import 'package:furnio/core/widgets/space.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../cart_and_checkout/data/04_payment_methods/payment_method_data.dart';
-import '../../../cart_and_checkout/presentation/widgets/04_payment_methods_widgets/payment_methods_card.dart';
+import '../../../../cart_and_checkout/data/04_payment_methods/payment_method_data.dart';
+import '../../../../cart_and_checkout/presentation/widgets/04_payment_methods_widgets/payment_methods_card.dart';
 
 class TopUpWalletMethodPage extends StatelessWidget {
   const TopUpWalletMethodPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size size =MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[200],
@@ -22,9 +21,8 @@ class TopUpWalletMethodPage extends StatelessWidget {
           child: Column(
             children: [
               GeneralHeader(title: 'Top UP E-Wallet'),
-              HeightSpace(space: 0.02),
-              SizedBox(
-                height:size.height * 0.5,
+              HeightSpace1(space: 15),
+              Expanded(
                 child: ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   itemCount:paymentMethodData.length - 1,
@@ -42,7 +40,7 @@ class TopUpWalletMethodPage extends StatelessWidget {
                 text: 'Add New Card',
                 bgColor: Colors.grey[400],
               ),
-              Spacer(),
+              HeightSpace1(space: 15),
               GeneralButton(
                 onTap: ()=> context.push('/walletPIN'),
                 text: 'Continue',

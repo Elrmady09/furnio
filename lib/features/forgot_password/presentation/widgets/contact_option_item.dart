@@ -24,7 +24,7 @@ class ContactOptionItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal:size.width * 0.04,vertical: size.height * 0.036),
+        padding: EdgeInsets.symmetric(horizontal:size.width * 0.04,vertical: 25),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(size.width * 0.04),
           border: Border.all(

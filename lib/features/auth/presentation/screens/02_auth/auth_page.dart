@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/constants/app_padding.dart';
 import 'package:furnio/core/widgets/general_text.dart';
-import 'package:furnio/features/auth/logic/sign_up_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/widgets/general_button.dart';
-import '../../../../core/widgets/inputs/general_textfield.dart';
-import '../../../../core/widgets/space.dart';
+import '../../../../../core/widgets/general_button.dart';
+import '../../../../../core/widgets/inputs/general_textfield.dart';
+import '../../../../../core/widgets/space.dart';
 
-import '../../../account_setup/data/account_setup_service.dart';
-import '../../logic/auth_provider.dart';
-import '../../logic/auth_mode.dart';
+import '../../../../account_setup/data/account_setup_service.dart';
+import '../../../logic/auth_provider.dart';
+import '../../../logic/auth_mode.dart';
 
-import '../widgets/auth_header.dart';
-import '../widgets/auth_divider.dart';
-import '../widgets/auth_text_sign.dart';
-import '../widgets/social_icons_row.dart';
-import '../widgets/remember_me_row.dart';
+import '../../widgets/auth_header.dart';
+import '../../widgets/auth_divider.dart';
+import '../../widgets/auth_text_sign.dart';
+import '../../widgets/social_icons_row.dart';
+import '../../widgets/remember_me_row.dart';
 
 class AuthPage extends StatelessWidget {
   final AuthMode mode;
@@ -52,10 +52,7 @@ class AuthPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: size.width * 0.03,
-            vertical: size.height * 0.02,
-          ),
+          padding: AppPadding.pagePadding(context),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -64,9 +61,9 @@ class AuthPage extends StatelessWidget {
                   title: title,
                   image: "assets/image/general_image/furnio logo.png",
                   sizeImage: size.height * 0.16,
-                  spaceBetweenImagesAndText: 0.03,
+                  spaceBetweenImagesAndText: 10,
                 ),
-                HeightSpace(space: 0.025),
+                HeightSpace1(space: 20),
 
 
                 ///Inputs
@@ -76,7 +73,7 @@ class AuthPage extends StatelessWidget {
                   textEditingController: auth.emailController,
                   hasError: auth.emailError != null,
                 ),
-                HeightSpace(space: 0.02),
+                HeightSpace1(space:15),
                 GeneralTextField(
                   hintText: "Password",
                   prefixIcon: Icons.lock,
@@ -84,12 +81,12 @@ class AuthPage extends StatelessWidget {
                   textEditingController: auth.passwordController,
                   hasError: auth.passwordError != null,
                 ),
-                HeightSpace(space: 0.01),
+                HeightSpace1(space: 8),
 
 
                 /// Remember Box
                 const RememberMeRow(),
-                HeightSpace(space: 0.01),
+                HeightSpace1(space: 10),
 
 
                 /// Button
@@ -138,17 +135,11 @@ class AuthPage extends StatelessWidget {
 
                   },
                 ),
-                HeightSpace(space: 0.03),
-                if (auth.emailError != null)
-                  GeneralText(
-                    text: auth.emailError!,
-                    color: Colors.red,
-                    sizeText: size.width * 0.035,
-                  ),
+                HeightSpace1(space: 20),
 
                 /// forgot the password ?
                 isSignUp?
-                     SizedBox(height: size.height * 0.0651,)
+                     SizedBox(height: 40,)
                     :GestureDetector(
                       onTap:()async {
                         final exists = await auth.checkEmailExists();
@@ -178,11 +169,11 @@ class AuthPage extends StatelessWidget {
                 /// AuthDivider
 
                 const AuthDivider(text: "or continue with"),
-                HeightSpace(space: 0.03),
+                HeightSpace1(space: 25),
 
                 /// SocialIconsRow
                 const SocialIconsRow(),
-                HeightSpace(space: 0.03),
+                HeightSpace1(space: 25),
 
                 /// Text Sign
                 AuthTextSign(

@@ -17,7 +17,7 @@ class ReceiptRowData extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: size.height * 0.012),
+      padding: EdgeInsets.symmetric(vertical: 9),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -28,7 +28,7 @@ class ReceiptRowData extends StatelessWidget {
           ),
           if (showPaid)...[
             Container(
-              padding: EdgeInsets.symmetric(horizontal: size.width * 0.02,vertical: size.height * 0.003),
+              padding: EdgeInsets.symmetric(horizontal: size.width * 0.02,vertical: 2.5),
               decoration: BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(size.width * 0.015),

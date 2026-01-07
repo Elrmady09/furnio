@@ -67,13 +67,15 @@ class Furnio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = context.watch<ProfileProvider>();
     return MaterialApp.router(
       title: 'Furniture Store',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
+      themeMode: provider.themeMode,
       routerConfig: AppRouter.router,
-      themeMode: ThemeMode.system,
+
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/widgets/general_text.dart';
-import '../../logic/orders_provider.dart';
+import '../../../../../core/widgets/general_text.dart';
+import '../../../logic/orders_provider.dart';
 
 class TabItem extends StatelessWidget {
   const TabItem({super.key, required this.index, required this.title});

@@ -21,7 +21,7 @@ class CheckoutOrderList extends StatelessWidget {
           sizeText: size.width * 0.045,
           fontWeight: FontWeight.w600,
         ),
-        HeightSpace(space: 0.015),
+        HeightSpace1(space: 5),
         Column(
           children: List.generate(
             cartProvider.items.length,

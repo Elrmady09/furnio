@@ -14,7 +14,7 @@ class TopUpQuickGrid extends StatelessWidget {
 
     return Wrap(
       spacing: size.width * 0.03,
-      runSpacing: size.height * 0.02,
+      runSpacing: 15,
       children: amounts.map((amount) {
         return TopUpQuickAmount(amount: amount.toDouble());
       }).toList(),
@@ -28,7 +28,6 @@ class TopUpQuickAmount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.read<WalletProvider>();
     Size size = MediaQuery.of(context).size;
 
     return GestureDetector(

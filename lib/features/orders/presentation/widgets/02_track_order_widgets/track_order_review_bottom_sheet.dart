@@ -6,7 +6,7 @@ import 'package:furnio/core/widgets/space.dart';
 import 'package:provider/provider.dart';
 
 import '../../../logic/track_order_provider.dart';
-import '../order_card.dart';
+import '../01_order_widgets/order_card.dart';
 
 class LeaveReviewSheet extends StatelessWidget {
   const LeaveReviewSheet({super.key});
@@ -23,7 +23,7 @@ class LeaveReviewSheet extends StatelessWidget {
         vertical: size.height * 0.02,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color:Theme.of(context).brightness == Brightness.light ? Colors.grey[200]  : Colors.black54,
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(size.width * 0.08),
         ),
@@ -69,9 +69,9 @@ class LeaveReviewSheet extends StatelessWidget {
           /// stars
           RatingBar(
             ratingWidget: RatingWidget(
-              full: const Icon(Icons.star, color: Colors.black),
-              half: const Icon(Icons.star_half, color: Colors.black),
-              empty: const Icon(Icons.star_border, color: Colors.black),
+              full:Icon(Icons.star, color: Theme.of(context).colorScheme.primary),
+              half: Icon(Icons.star_half, color: Theme.of(context).colorScheme.primary),
+              empty: Icon(Icons.star_border, color: Theme.of(context).colorScheme.primary),
             ),
             initialRating: 3.5,
             minRating: 1,
@@ -89,7 +89,7 @@ class LeaveReviewSheet extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(size.width * 0.04),
-              border: Border.all(color: Colors.black,width: size.width * 0.004),
+              border: Border.all(color: Theme.of(context).colorScheme.primary,width: size.width * 0.004),
             ),
             child: Row(
               children: [
@@ -120,7 +120,7 @@ class LeaveReviewSheet extends StatelessWidget {
           /// buttons
           Row(
             children: [
-              Expanded(child: GeneralSecondButton(title: 'Cancel',bgColor:Colors.grey.shade200 ,)),
+              Expanded(child: GeneralSecondButton(title: 'Cancel',bgColor:Colors.grey.shade200 ,titleColor: Colors.black,)),
               WidthSpace(space: 0.05),
               Expanded(child: GeneralSecondButton(title: 'Submit',bgColor: Colors.black,titleColor: Colors.white,)),
             ],

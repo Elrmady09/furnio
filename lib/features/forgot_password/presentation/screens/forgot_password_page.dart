@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/constants/app_padding.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -39,28 +40,27 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal:size.width * 0.05,vertical: size.height * 0.02),
+          padding: AppPadding.pagePadding(context),
           child: Column(
             children: [
               ///Header
               GeneralHeader(title: 'Forgot Password'),
-              HeightSpace(space: 0.02),
+              HeightSpace1(space: 5),
 
               /// Image
               Image.asset(
                 'assets/image/forgot_password/forgot_password.png',
                 height: size.height * 0.28,
               ),
-              HeightSpace(space: 0.03),
+              HeightSpace1(space: 20),
 
               /// Text
               GeneralText(
-                text:
-                'Select which contact details should we use to reset your password',
+                text: 'Select which contact details should we use to reset your password',
                 sizeText: size.width * 0.04,
                 textAlign: TextAlign.center,
               ),
-              HeightSpace(space: 0.03),
+              HeightSpace1(space: 20),
 
               /// Option
               ContactOptionItem(
@@ -70,7 +70,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 icon: Icons.sms,
                 onTap: () => provider.selectOption(0),
               ),
-              HeightSpace(space: 0.02),
+              HeightSpace1(space: 15),
               ContactOptionItem(
                 selected: provider.selectedOption == 1,
                 title: 'via Email',
@@ -92,17 +92,17 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     // SMS
                     pinProvider.setData(
                       sms: true,
-                      text: forgotProvider.maskedPhone ?? '',
+                      text: forgotProvider.maskedPhone ,
                     );
                   } else {
                     // Email
                     pinProvider.setData(
                       sms: false,
-                      text: forgotProvider.maskedEmail ?? '',
+                      text: forgotProvider.maskedEmail ,
                     );
                   }
 
-                  context.push('/pinCode');
+                  context.push('/forgotPasswordPin');
                 },
               ),
             ],

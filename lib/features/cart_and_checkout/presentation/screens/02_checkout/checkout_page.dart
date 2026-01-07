@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/constants/app_padding.dart';
 import 'package:furnio/core/widgets/general_header.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/widgets/general_button.dart';
-import '../../../../core/widgets/general_text.dart';
-import '../../../../core/widgets/space.dart';
-import '../widgets/02_ckeckout_widgets/checkout_order_list.dart';
-import '../widgets/02_ckeckout_widgets/checkout_promo_code.dart';
-import '../widgets/02_ckeckout_widgets/checkout_shipping_address.dart';
-import '../widgets/02_ckeckout_widgets/checkout_shipping_type.dart';
-import '../widgets/02_ckeckout_widgets/checkout_summary.dart';
+import '../../../../../core/widgets/general_button.dart';
+import '../../../../../core/widgets/general_text.dart';
+import '../../../../../core/widgets/space.dart';
+import '../../widgets/02_ckeckout_widgets/checkout_order_list.dart';
+import '../../widgets/02_ckeckout_widgets/checkout_promo_code.dart';
+import '../../widgets/02_ckeckout_widgets/checkout_shipping_address.dart';
+import '../../widgets/02_ckeckout_widgets/checkout_shipping_type.dart';
+import '../../widgets/02_ckeckout_widgets/checkout_summary.dart';
 
 class CheckoutPage extends StatelessWidget {
   const CheckoutPage({super.key});
@@ -20,44 +21,44 @@ class CheckoutPage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor:Theme.of(context).brightness == Brightness.light ? Colors.grey[200]  : null,
         body: Padding(
-          padding: EdgeInsets.all(size.width * 0.05),
+          padding: AppPadding.pagePadding(context),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 /// Header
                 GeneralHeader(title: 'Checkout'),
-                HeightSpace(space: 0.03),
+                HeightSpace1(space: 5),
                 /// Shipping Address
                 CheckoutShippingAddress(),
-                HeightSpace(space: 0.03),
                 /// Order List
                 CheckoutOrderList(),
-                HeightSpace(space: 0.03),
+                HeightSpace1(space: 15),
                 /// Choose Shipping
                 GeneralText(
                   text: 'Choose Shipping',
                   sizeText: size.width * 0.045,
                   fontWeight: FontWeight.w700,
                 ),
-                HeightSpace(space: 0.02),
+                HeightSpace1(space: 10),
                 CheckoutShippingType(),
-                HeightSpace(space: 0.02),
-                Divider(thickness: size.width * 0.005,color: Colors.grey[200],),
+                HeightSpace1(space: 10),
+                Divider(thickness: size.width * 0.005,color: Colors.grey[300],),
+                HeightSpace1(space: 5),
                 /// promo code
                 GeneralText(
                   text: 'Promo Code',
                   sizeText: size.width * 0.045,
                   fontWeight: FontWeight.w700,
                 ),
-                HeightSpace(space: 0.02),
+                HeightSpace1(space: 10),
                 CheckoutPromoCode(),
-                HeightSpace(space: 0.03),
+                HeightSpace1(space: 15),
                 /// Summary
                 CheckoutSummary(),
-                HeightSpace(space: 0.04),
+                HeightSpace1(space: 25),
                 GeneralButton(
                 text: 'Continue to Payment →',
                 onTap: () {

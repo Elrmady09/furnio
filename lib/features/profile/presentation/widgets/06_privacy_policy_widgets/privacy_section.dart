@@ -18,7 +18,7 @@ class PrivacySection extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Padding(
-      padding: EdgeInsets.only(bottom: size.height * 0.03),
+      padding: EdgeInsets.only(bottom: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -27,7 +27,7 @@ class PrivacySection extends StatelessWidget {
             sizeText: size.width * 0.045,
             fontWeight: FontWeight.w600,
           ),
-          HeightSpace(space: 0.01),
+          HeightSpace1(space:5),
           GeneralText(
             text: content,
             sizeText: size.width * 0.035,

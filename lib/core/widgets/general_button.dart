@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'general_text.dart';
 
 class GeneralButton extends StatelessWidget {
-  const GeneralButton({super.key, required this.text, this.onTap, this.bgColor, this.textColor, this.showShadow = true});
+  const GeneralButton({super.key, required this.text, this.onTap, this.bgColor, this.textColor, this.showShadow = true, this.verticalPadding});
   final String text;
   final VoidCallback? onTap;
   final Color? bgColor;
   final Color? textColor;
   final bool showShadow;
+  final double? verticalPadding;
 
 
   @override
@@ -19,8 +20,8 @@ class GeneralButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: size.width * 0.05),
-        height: size.height * 0.07,
+        margin: EdgeInsets.symmetric(horizontal: size.width * 0.05,vertical: verticalPadding ?? 0),
+        height: 50,
         width: size.width,
         decoration: BoxDecoration(
           color: bgColor ?? colors.primary,

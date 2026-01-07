@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/widgets/space.dart';
 
 import '../general_text.dart';
 
@@ -12,8 +13,8 @@ class GeneralHeaderWithLogo extends StatelessWidget {
 
     return Row(
       children: [
-        Image.asset('assets/image/splash/furnio icon.png',scale: size.width * 0.06,),
-        SizedBox(width: size.width * 0.03),
+        Image.asset('assets/image/splash/furnio icon.png',scale: size.width * 0.06,color: Theme.of(context).colorScheme.primary,),
+        WidthSpace(space: 0.03),
         GeneralText(
           text: title,
           sizeText: size.width * 0.05,
@@ -21,7 +22,7 @@ class GeneralHeaderWithLogo extends StatelessWidget {
         ),
         const Spacer(),
         Icon(Icons.search, size: size.width * 0.06),
-        SizedBox(width: size.width * 0.03),
+        WidthSpace(space: 0.03),
         Icon(Icons.more_vert, size: size.width * 0.06),
       ],
     );

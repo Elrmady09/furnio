@@ -23,7 +23,7 @@ class CategoriesProductDetailProvider extends ChangeNotifier {
   String get price => _product?['price'] ?? '';
   Color get selectedColor => colors[selectedColorIndex]['color'];
   String get selectedColorName => colors[selectedColorIndex]['name'];
-  List<ReviewsModel> get reviews => (_product?['reviews'] as List<ReviewsModel> ?? []);
+  List<ReviewsModel> get reviews => (_product?['reviews'] as List<ReviewsModel> );
 
 
   /// rating filter

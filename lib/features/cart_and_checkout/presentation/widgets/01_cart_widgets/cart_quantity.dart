@@ -25,7 +25,7 @@ class CartQuantity extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            icon: Icon(Icons.remove),
+            icon: Icon(Icons.remove,color: Colors.black,),
             iconSize: size.width * 0.06,
             onPressed: () => provider.decreaseQuantity(index),
           ),
@@ -33,9 +33,10 @@ class CartQuantity extends StatelessWidget {
             text: provider.items[index]['quantity'].toString(),
             sizeText: size.width * 0.04,
             fontWeight: FontWeight.w700,
+            color: Colors.black,
           ),
           IconButton(
-            icon: Icon(Icons.add),
+            icon: Icon(Icons.add,color: Colors.black,),
             iconSize: size.width * 0.06,
             onPressed: () => provider.increaseQuantity(index),
           ),

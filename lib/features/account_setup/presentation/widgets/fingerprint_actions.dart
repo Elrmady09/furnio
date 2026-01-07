@@ -12,16 +12,18 @@ class FingerprintActions extends StatelessWidget {
       children: [
         Expanded(
           child: GeneralButton(
+            showShadow: false,
             text: 'Skip',
             bgColor: Colors.grey.shade400,
             textColor: Colors.black,
             onTap: () {
-              context.go('/home');
+              context.go('/mainLayout');
             },
           ),
         ),
         Expanded(
           child: GeneralButton(
+            showShadow: false,
             text: 'Continue',
             onTap: () async{
               showDialog(
@@ -35,7 +37,7 @@ class FingerprintActions extends StatelessWidget {
                 context.pop();
               }
               if (context.mounted) {
-                context.go('/home');
+                context.go('/mainLayout');
               }
               ///context.mounted
               /// لو المستخدم خرج من الصفحة قبل انتهاء الـ 5 ثواني  Flutter سيمنعك من استخدام context  بدونها → Crash

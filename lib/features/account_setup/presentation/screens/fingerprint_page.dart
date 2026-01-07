@@ -23,19 +23,19 @@ class FingerprintPage extends StatelessWidget {
             children: [
               /// Header
               const AccountHeader(title: 'Set Your Fingerprint'),
-              HeightSpace(space:0.04),
+              HeightSpace1(space:40),
               /// Text
               GeneralText(
                 text: 'Add a fingerprint to make your account more secure.',
                 sizeText: size.width * 0.038,
                 textAlign: TextAlign.center,
               ),
-              HeightSpace(space:0.12),
+              HeightSpace1(space:100),
               /// Fingerprint image
               GestureDetector(
                 onTap: provider.startScan,
                   child: FingerprintScanIcon(progress: provider.scanProgress,)),
-              HeightSpace(space:0.05),
+              HeightSpace1(space:40),
               /// Scanning Progress
               GeneralText(
                 text: "Scanning (${provider.scanProgress.toInt()}%)",
@@ -43,14 +43,14 @@ class FingerprintPage extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 color: provider.scanProgress == 100 ? Colors.black : Colors.grey,
               ),
-              HeightSpace(space:0.13),
+              Spacer(),
               /// Text
               GeneralText(
                 text: 'please put your finger on the fingerprint\nscanner to get started',
                 sizeText: size.width * 0.038,
                 textAlign: TextAlign.center,
               ),
-              Spacer(),
+              HeightSpace1(space: 50),
               /// Buttons
               const FingerprintActions(),
             ],

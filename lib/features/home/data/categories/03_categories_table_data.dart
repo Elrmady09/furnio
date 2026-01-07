@@ -55,7 +55,7 @@ final List<Map<String, dynamic>> itemCategoriesTable = [
   },
   {
     "id": '7',
-    "productName": "Coffee Table with Storage",
+    "productName": "Coffee Table ",
     "image": "assets/image/home/wooden chairs.png",
     "rating": "4.8",
     "sold": "3,110 sold",
@@ -91,7 +91,7 @@ final List<Map<String, dynamic>> itemCategoriesTable = [
   },
   {
     "id": '11',
-    "productName": "Minimalist Coffee Table",
+    "productName": "Minimalist Coffee",
     "image": "assets/image/home/wooden chairs.png",
     "rating": "4.4",
     "sold": "1,560 sold",

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:furnio/features/orders/presentation/widgets/tab_item.dart';
+import 'package:furnio/features/orders/presentation/widgets/01_order_widgets/tab_item.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/widgets/space.dart';
-import '../../logic/orders_provider.dart';
+import '../../../../../core/widgets/space.dart';
+import '../../../logic/orders_provider.dart';
 
 class OrdersTabs extends StatelessWidget {
   const OrdersTabs({super.key});
@@ -21,11 +21,11 @@ class OrdersTabs extends StatelessWidget {
 
           ],
         ),
-        HeightSpace(space: 0.015),
+        HeightSpace1(space: 10),
         Stack(
           children: [
             Container(
-              height: size.height * 0.004,
+              height: 4,
               color: Colors.grey[300],
             ),
             AnimatedAlign(
@@ -35,7 +35,7 @@ class OrdersTabs extends StatelessWidget {
                   : Alignment.centerRight,
               child: Container(
                 width: size.width * 0.4475,
-                height: size.height * 0.005,
+                height: 4,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(size.width * 0.05),
                   color: Colors.black,
@@ -45,7 +45,7 @@ class OrdersTabs extends StatelessWidget {
             ),
           ],
         ),
-        HeightSpace(space: 0.03),
+        HeightSpace1(space: 15),
       ],
     );
   }

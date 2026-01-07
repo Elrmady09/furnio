@@ -13,7 +13,7 @@ Widget homeBottomNavigationBar(BuildContext context) {
         type: BottomNavigationBarType.fixed,
         elevation: 20,
 
-        selectedItemColor: Colors.black,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
         unselectedItemColor: Colors.grey,
 
         items: const [
@@ -27,11 +27,15 @@ Widget homeBottomNavigationBar(BuildContext context) {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart_rounded),
-            label: "order",
+            label: "Order",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.wallet),
-            label: "Alerts",
+            label: "Wallet",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
           ),
         ],
       );

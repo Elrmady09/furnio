@@ -5,7 +5,7 @@ import 'package:furnio/core/widgets/general_header.dart';
 import 'package:furnio/features/cart_and_checkout/data/03_promo_code/promo_code_data.dart';
 import 'package:furnio/features/cart_and_checkout/presentation/widgets/00_general_cart_and_checkout_widgets/general_cart_and_checkout_shipping_list.dart';
 import 'package:go_router/go_router.dart';
-import '../../logic/shipping_selection_type.dart';
+import '../../../logic/shipping_selection_type.dart';
 
 class PromoCodePage extends StatelessWidget {
   const PromoCodePage({super.key});

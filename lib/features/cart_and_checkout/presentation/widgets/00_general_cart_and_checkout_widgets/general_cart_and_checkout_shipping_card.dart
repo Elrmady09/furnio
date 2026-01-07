@@ -29,7 +29,7 @@ class GeneralCartAndCheckoutShippingCard extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     final isSelectedPadding = selectionType == ShippingSelectionType.promoCode
-          ? EdgeInsets.symmetric(horizontal: size.width * 0.04,vertical: size.height * 0.01)
+          ? EdgeInsets.symmetric(horizontal: size.width * 0.04,vertical: 5)
           : EdgeInsets.all(size.width * 0.04);
 
     bool isSelected;
@@ -53,10 +53,10 @@ class GeneralCartAndCheckoutShippingCard extends StatelessWidget {
         }
       },
       child: Container(
-        margin: EdgeInsets.only(bottom: size.height * 0.02),
+        margin: EdgeInsets.only(bottom: 15),
         padding: isSelectedPadding,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
@@ -105,6 +105,7 @@ class GeneralCartAndCheckoutShippingCard extends StatelessWidget {
                           child: GeneralText(
                             text: 'Default',
                             sizeText: size.width * 0.025,
+                            color: Colors.black,
                           ),
                         ),
                     ],

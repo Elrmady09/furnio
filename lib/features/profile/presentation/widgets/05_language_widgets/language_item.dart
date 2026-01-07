@@ -21,7 +21,7 @@ class LanguageItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.only(bottom: size.height * 0.04),
+        padding: EdgeInsets.only(bottom: 30),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

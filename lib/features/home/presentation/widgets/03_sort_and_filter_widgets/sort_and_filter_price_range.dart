@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:furnio/core/widgets/space.dart';
 import 'package:furnio/features/home/presentation/widgets/03_sort_and_filter_widgets/price_range_bubble.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../core/widgets/general_text.dart';
 import '../../../logic/filter_provider.dart';
 
 

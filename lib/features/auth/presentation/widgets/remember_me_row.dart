@@ -8,7 +8,6 @@ class RememberMeRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     final provider = context.watch<AuthProvider>();
 
     return Row(

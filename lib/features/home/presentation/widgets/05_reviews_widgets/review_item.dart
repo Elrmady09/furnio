@@ -20,7 +20,6 @@ class ReviewItem extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         WidthSpace(space: 0.03),
         Expanded(
           child: Column(
@@ -42,7 +41,7 @@ class ReviewItem extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: size.width * 0.035,
-                      vertical: size.height * 0.007,
+                      vertical: 5,
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(size.width * 0.05),
@@ -64,13 +63,12 @@ class ReviewItem extends StatelessWidget {
               ),
               HeightSpace(space: 0.015),
               GeneralText(
-                text:
-                reviews[index].comment,
+                text: reviews[index].comment,
                 sizeText: size.width * 0.036,
                 color: Colors.grey[700],
                 fontWeight: FontWeight.w400,
               ),
-              HeightSpace(space: 0.015),
+              HeightSpace1(space: 10),
               Row(
                 children: [
                   Icon(Icons.favorite_border, size: size.width * 0.06),
@@ -85,7 +83,6 @@ class ReviewItem extends StatelessWidget {
                   ),
                 ],
               ),
-              HeightSpace(space: 0.015),
             ],
           ),
         ),

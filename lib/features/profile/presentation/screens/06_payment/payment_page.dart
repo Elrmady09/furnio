@@ -13,18 +13,16 @@ class PaymentPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor:Theme.of(context).brightness == Brightness.light ? Colors.grey[200]  : null,
         body: Padding(
           padding: AppPadding.pagePadding(context),
           child: Column(
             children: [
               GeneralHeader(title: 'Payment',trailing: Icon(Icons.list),),
-              HeightSpace(space: 0.02),
-              SizedBox(
-                height:size.height * 0.75,
+              HeightSpace1(space: 10),
+              Expanded(
                 child: ListView.builder(
                   itemCount:paymentMethodData.length - 1,
                   itemBuilder: (_, index) {
@@ -37,13 +35,11 @@ class PaymentPage extends StatelessWidget {
                   },
                 ),
               ),
-              Spacer(),
+              HeightSpace1(space: 25),
               GeneralButton(
                 text: 'Add New Card',
                 onTap: () => context.push('/addCard'),
               ),
-
-
             ],
           ),
         ),

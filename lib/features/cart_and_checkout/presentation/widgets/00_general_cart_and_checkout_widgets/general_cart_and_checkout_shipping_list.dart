@@ -12,10 +12,7 @@ class GeneralCartAndCheckoutShippingList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
-    return SizedBox(
-      height: height ?? size.height * 0.56,
+    return Expanded(
       child: ListView.builder(
         itemCount:dataLength,
         itemBuilder: (_, index) {

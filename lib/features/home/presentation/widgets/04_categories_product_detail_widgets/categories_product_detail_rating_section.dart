@@ -17,7 +17,7 @@ class CategoriesProductDetailRatingSection extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal:size.width * 0.02,vertical: size.height * 0.005),
+          padding: EdgeInsets.symmetric(horizontal:size.width * 0.02,vertical: 4),
           decoration: BoxDecoration(
             color: Colors.grey[300],
             borderRadius: BorderRadius.circular(5),
@@ -35,7 +35,7 @@ class CategoriesProductDetailRatingSection extends StatelessWidget {
             context.push('/reviews');
           },
           child: GeneralText(
-            padding: EdgeInsets.only(top: size.height * 0.005,left: size.width * 0.01),
+            padding: EdgeInsets.only(top: 4,left: size.width * 0.01),
             text: '${provider.rating} (5,673 reviews)',
             fontWeight: FontWeight.w500,
             color: Colors.grey[600],

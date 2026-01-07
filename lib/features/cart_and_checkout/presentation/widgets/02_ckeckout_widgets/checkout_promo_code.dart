@@ -18,10 +18,10 @@ class CheckoutPromoCode extends StatelessWidget {
       children: [
         if(promoCode != null)...[
           Container(
-            padding: EdgeInsets.symmetric(horizontal: size.width * 0.06,vertical: size.height * 0.015),
+            padding: EdgeInsets.symmetric(horizontal: size.width * 0.06,vertical: 11),
             decoration: BoxDecoration(
                 color: Colors.black,
-                borderRadius: BorderRadius.circular(size.width * 0.05)
+                borderRadius: BorderRadius.circular(25)
             ),
             child: Row(
               children: [
@@ -45,10 +45,10 @@ class CheckoutPromoCode extends StatelessWidget {
         ]else...[
           Expanded(
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: size.width * 0.04,vertical: size.height * 0.02),
+                padding: EdgeInsets.symmetric(horizontal: size.width * 0.04,vertical: 15),
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(size.width *0.03),
+                  color: Theme.of(context).colorScheme.background,
+                  borderRadius: BorderRadius.circular(size.width * 0.03),
                 ),
                 child: GeneralText(
                   text: 'Add Promo Code',

@@ -11,7 +11,6 @@ class InviteFriendsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
 
 
     return SafeArea(
@@ -21,7 +20,7 @@ class InviteFriendsPage extends StatelessWidget {
           child: Column(
             children: [
               GeneralHeader(title: 'Invite Friends'),
-              HeightSpace(space: 0.02),
+              HeightSpace1(space: 15),
               Expanded(
                 child: ListView.builder(
                   itemCount:friends.length ,

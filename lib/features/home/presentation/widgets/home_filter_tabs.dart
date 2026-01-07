@@ -26,12 +26,11 @@ class HomeFilterTabs extends StatelessWidget {
             GeneralText(
               text: 'See All',
               sizeText: size.width * 0.035,
-              color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
           ],
         ),
-        HeightSpace(space: 0.02),
+        HeightSpace1(space: 14),
         GeneralHomeFilterTap(items: AppLists.filtersTaps, selectedIndex:provider.selectedFilter, onTap: provider.changeFilter,),
       ],
     );

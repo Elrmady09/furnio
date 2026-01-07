@@ -23,7 +23,7 @@ class NewCardInput extends StatelessWidget {
           sizeText: size.width * 0.04,
           fontWeight: FontWeight.w500,
         ),
-        HeightSpace(space: 0.008),
+        HeightSpace1(space: 5),
         GeneralTextField(
           textEditingController: provider.controller(CardField.number),
           hasError: provider.error(CardField.number) != null,
@@ -32,13 +32,13 @@ class NewCardInput extends StatelessWidget {
             LengthLimitingTextInputFormatter(16),
           ],
         ),
-        HeightSpace(space: 0.02),
+        HeightSpace1(space: 15),
         GeneralText(
           text: 'Card Name',
           sizeText: size.width * 0.04,
           fontWeight: FontWeight.w500,
         ),
-        HeightSpace(space: 0.008),
+        HeightSpace1(space: 5),
         GeneralTextField(
           textEditingController: provider.controller(CardField.name),
           hasError: provider.error(CardField.name) != null,
@@ -47,7 +47,7 @@ class NewCardInput extends StatelessWidget {
             LengthLimitingTextInputFormatter(20),
           ],
         ),
-        HeightSpace(space: 0.02),
+        HeightSpace1(space: 15),
 
         Row(
           children: [
@@ -60,7 +60,7 @@ class NewCardInput extends StatelessWidget {
                     sizeText: size.width * 0.04,
                     fontWeight: FontWeight.w500,
                   ),
-                  HeightSpace(space: 0.008),
+                  HeightSpace1(space: 5),
                   GeneralTextField(
                     textEditingController: provider.controller(CardField.expDate),
                     hasError: provider.error(CardField.expDate) != null,
@@ -83,7 +83,7 @@ class NewCardInput extends StatelessWidget {
                     sizeText: size.width * 0.04,
                     fontWeight: FontWeight.w500,
                   ),
-                  HeightSpace(space: 0.008),
+                  HeightSpace1(space: 5),
                   GeneralTextField(
                     textEditingController: provider.controller(CardField.cvv),
                     hasError: provider.error(CardField.cvv) != null,
@@ -99,7 +99,7 @@ class NewCardInput extends StatelessWidget {
           ],
         ),
 
-        HeightSpace(space: 0.035),
+        HeightSpace1(space: 30),
       ],
     );
   }

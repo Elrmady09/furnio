@@ -20,7 +20,7 @@ class InviteFriendItem extends StatelessWidget {
 
 
     return Padding(
-      padding: EdgeInsets.only(bottom: size.height * 0.02),
+      padding: EdgeInsets.only(bottom: 15),
       child: Row(
         children: [
           CircleAvatar(
@@ -40,7 +40,7 @@ class InviteFriendItem extends StatelessWidget {
                 GeneralText(
                   text: phone,
                   sizeText: size.width * 0.04,
-                  color: Colors.black54,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ],
             ),
@@ -50,7 +50,7 @@ class InviteFriendItem extends StatelessWidget {
               provider.toggleInvite(name);
             },
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: size.width * 0.03,vertical: size.height * 0.005),
+              padding: EdgeInsets.symmetric(horizontal: size.width * 0.03,vertical: 4),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(size.width * 0.05),
                 color: isInvited ? Colors.white : Colors.black,

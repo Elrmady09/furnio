@@ -29,6 +29,6 @@ class SortAndFilterActions extends StatelessWidget {
           ),
         ),
       ],
-    );;
+    );
   }
 }

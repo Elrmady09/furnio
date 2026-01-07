@@ -66,13 +66,18 @@ class ProfileProvider extends ChangeNotifier {
 
 
 
+  /// dark mode
+  ThemeMode _themeMode = ThemeMode.light;
 
-  bool isDarkMode = false;
+  ThemeMode get themeMode => _themeMode;
+
+  bool get isDarkMode => _themeMode == ThemeMode.dark;
 
   void toggleDarkMode(bool value) {
-    isDarkMode = value;
+    _themeMode = value ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
   }
+
   /// Security Page
   bool rememberMe = true;
   bool faceId = false;

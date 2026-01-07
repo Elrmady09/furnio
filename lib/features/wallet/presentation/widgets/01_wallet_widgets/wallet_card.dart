@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:furnio/core/widgets/general_second_button.dart';
-import 'package:furnio/core/widgets/space.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -18,9 +17,9 @@ class WalletCard extends StatelessWidget {
 
     return Stack(
       children: [
-        Image.asset('assets/image/wallet/bank cart.png'),
+        Image.asset('assets/image/wallet/bank cart.png',width: size.width,height: 220,),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.06,vertical: size.height * 0.02),
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.06,vertical: 4),
           child: Row(
             children: [
               GeneralText(
@@ -36,17 +35,17 @@ class WalletCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: size.height * 0.1,
+          top: 75,
           left: size.width * 0.07,
           child: GeneralText(
             text: '**** **** **** 3629',
             color: Colors.white,
-            sizeText: size.width * 0.04,
+            sizeText: size.width * 0.05,
             fontWeight: FontWeight.w500,
           ),
         ),
         Positioned(
-          top: size.height * 0.18,
+          top: 115,
           left: size.width * 0.07,
           child: GeneralText(
             text: 'Your balance',
@@ -56,8 +55,7 @@ class WalletCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: size.height * 0.05,
-          //left: size.width * 0.07,
+          bottom: 25,
           child: Padding(
             padding:EdgeInsets.symmetric(horizontal: size.width * 0.07),
             child: Row(
@@ -75,8 +73,10 @@ class WalletCard extends StatelessWidget {
                   onTap: () => context.push('/topUpWallet'),
                   showIcon: true,
                   title: 'Top Up',
+                  bottomPadding: 0,
                   width: size.width * 0.3,
                   bgColor: Colors.white,
+                  titleColor: Colors.black,
                 ),
               ],
             ),

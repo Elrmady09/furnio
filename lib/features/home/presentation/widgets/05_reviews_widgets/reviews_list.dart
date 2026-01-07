@@ -15,7 +15,7 @@ class ReviewsList extends StatelessWidget {
     final length = context.watch<CategoriesProductDetailProvider>().filteredReviews;
     return ListView.separated(
       itemCount: length.length,
-      separatorBuilder: (_, __) => HeightSpace(space: 0.02),
+      separatorBuilder: (_, __) => HeightSpace1(space: 15),
       itemBuilder: (context, index) {
         return ReviewItem(index: index,);
       },

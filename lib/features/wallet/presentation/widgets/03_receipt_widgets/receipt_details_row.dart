@@ -15,7 +15,7 @@ class ReceiptDetailsRow extends StatelessWidget {
 
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.035,vertical: size.height * 0.02),
+      padding: EdgeInsets.symmetric(horizontal: size.width * 0.035,vertical: 15),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(size.width * 0.03),

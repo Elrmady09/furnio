@@ -18,7 +18,7 @@ class _NotificationItemState extends State<NotificationItem> {
     Size size = MediaQuery.of(context).size;
 
     return Padding(
-      padding: EdgeInsets.only(bottom: size.height * 0.02),
+      padding: EdgeInsets.only(bottom: 15),
       child: Row(
         children: [
           Expanded(

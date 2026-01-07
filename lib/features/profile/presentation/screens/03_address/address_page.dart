@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:furnio/core/constants/app_padding.dart';
 import 'package:furnio/core/widgets/general_button.dart';
 import 'package:furnio/core/widgets/general_header.dart';
+import 'package:furnio/core/widgets/space.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../../../cart_and_checkout/logic/shipping_selection_type.dart';
@@ -19,19 +20,18 @@ class AddressPage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor:Theme.of(context).brightness == Brightness.light ? Colors.grey[200]  : null,
         body: Padding(
           padding: AppPadding.pagePadding(context),
           child: Column(
             children: [
               GeneralHeader(title: 'Address'),
               GeneralCartAndCheckoutShippingList(
-                height:size.height * 0.75 ,
                 data: provider.shippingAddresses,
                 selectionType: ShippingSelectionType.address,
                 dataLength:provider.shippingAddresses.length ,
               ),
-              Spacer(),
+              HeightSpace1(space: 25,),
               GeneralButton(text: 'Add New Address',onTap: () => context.push('/addNewAddress'),),
 
             ],

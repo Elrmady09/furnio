@@ -3,11 +3,11 @@ import 'package:furnio/core/constants/app_padding.dart';
 import 'package:furnio/core/widgets/general_header.dart';
 import 'package:furnio/core/widgets/space.dart';
 
-import '../widgets/03_receipt_widgets/receipt_amount_paid.dart';
-import '../widgets/03_receipt_widgets/receipt_barcode.dart';
-import '../widgets/03_receipt_widgets/receipt_details_row.dart';
-import '../widgets/03_receipt_widgets/receipt_product.dart';
-import '../widgets/03_receipt_widgets/receipt_type.dart';
+import '../../widgets/03_receipt_widgets/receipt_amount_paid.dart';
+import '../../widgets/03_receipt_widgets/receipt_barcode.dart';
+import '../../widgets/03_receipt_widgets/receipt_details_row.dart';
+import '../../widgets/03_receipt_widgets/receipt_product.dart';
+import '../../widgets/03_receipt_widgets/receipt_type.dart';
 
 class ReceiptPage extends StatelessWidget {
   const ReceiptPage({super.key});
@@ -26,9 +26,9 @@ class ReceiptPage extends StatelessWidget {
                 ReceiptBarcode(),
                 ReceiptProduct(),
                 ReceiptAmountPaid(),
-                HeightSpace(space: 0.02),
+                HeightSpace1(space: 14),
                 ReceiptDetailsRow(),
-                HeightSpace(space: 0.02),
+                HeightSpace1(space: 14),
                 ReceiptType(),
 
               ],

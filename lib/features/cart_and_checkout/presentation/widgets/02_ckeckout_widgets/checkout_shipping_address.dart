@@ -22,7 +22,7 @@ class CheckoutShippingAddress extends StatelessWidget {
           sizeText: size.width * 0.045,
           fontWeight: FontWeight.w700,
         ),
-        HeightSpace(space: 0.015),
+        HeightSpace1(space: 10),
         GestureDetector(
           onTap: (){
             context.push('/shippingAddress');
@@ -30,7 +30,7 @@ class CheckoutShippingAddress extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(size.width * 0.04),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.background,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
@@ -61,7 +61,7 @@ class CheckoutShippingAddress extends StatelessWidget {
                       GeneralText(
                         text: address['subtitle'] ?? '',
                         sizeText: size.width * 0.032,
-                        color: Colors.black54,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
                     ],
                   ),
@@ -71,8 +71,9 @@ class CheckoutShippingAddress extends StatelessWidget {
             ),
           ),
         ),
-        HeightSpace(space: 0.02),
-        Divider(thickness: size.width * 0.005,color: Colors.grey[200],),
+        HeightSpace1(space: 10),
+        Divider(thickness: size.width * 0.005,color: Colors.grey[300],),
+        HeightSpace1(space: 5),
       ],
     );
   }

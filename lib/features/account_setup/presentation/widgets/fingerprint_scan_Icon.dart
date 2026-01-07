@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
 
 class FingerprintScanIcon extends StatelessWidget {
   final double progress; // من 0 إلى 100
@@ -14,9 +13,6 @@ class FingerprintScanIcon extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        // -------------------------
-        // 1) الصورة الرمادية (ثابتة)
-        // -------------------------
         ColorFiltered(
           colorFilter: const ColorFilter.mode(
             Colors.grey,
@@ -28,9 +24,6 @@ class FingerprintScanIcon extends StatelessWidget {
           ),
         ),
 
-        // ------------------------------------------
-        // 2) الصورة الملونة — تتلوّن من الأسفل للأعلى
-        // ------------------------------------------
         ShaderMask(
           shaderCallback: (rect) {
             return LinearGradient(

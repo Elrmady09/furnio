@@ -18,7 +18,7 @@ class CategoriesProductDetailDescriptionSection extends StatelessWidget {
           sizeText: size.width * 0.05,
           fontWeight: FontWeight.w600,
         ),
-        HeightSpace(space: 0.005),
+        HeightSpace1(space: 4),
         Text.rich(
           TextSpan(
             style: TextStyle(

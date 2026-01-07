@@ -3,7 +3,7 @@ import 'package:furnio/core/widgets/general_text.dart';
 import 'package:furnio/core/widgets/space.dart';
 
 class GeneralSecondButton extends StatelessWidget {
-  const GeneralSecondButton({super.key, this.onTap, required this.title, this.bgColor, this.titleColor, this.width, this.height,this.showIcon = false});
+  const GeneralSecondButton({super.key, this.onTap, required this.title, this.bgColor, this.titleColor, this.width, this.height,this.showIcon = false, this.bottomPadding});
   final VoidCallback? onTap;
   final String title;
   final Color? bgColor;
@@ -11,6 +11,7 @@ class GeneralSecondButton extends StatelessWidget {
   final double? width;
   final double? height;
   final bool showIcon;
+  final double? bottomPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class GeneralSecondButton extends StatelessWidget {
       child: Container(
         height: height,
         width: width ?? size.width  * 0.5,
-        margin: EdgeInsets.only(bottom: size.height * 0.01),
+        margin: EdgeInsets.only(bottom: bottomPadding ?? size.height * 0.01),
         padding: EdgeInsets.symmetric(vertical: size.height * 0.011,horizontal: size.width *0.04),
         decoration: BoxDecoration(
           color: bgColor,

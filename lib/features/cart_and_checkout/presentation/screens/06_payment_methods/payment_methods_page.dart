@@ -5,25 +5,23 @@ import 'package:furnio/core/widgets/general_header.dart';
 import 'package:furnio/core/widgets/space.dart';
 import 'package:furnio/features/cart_and_checkout/data/04_payment_methods/payment_method_data.dart';
 import 'package:go_router/go_router.dart';
-import '../widgets/04_payment_methods_widgets/payment_methods_card.dart';
+import '../../widgets/04_payment_methods_widgets/payment_methods_card.dart';
 
 class PaymentMethodsPage extends StatelessWidget {
   const PaymentMethodsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor:Theme.of(context).brightness == Brightness.light ? Colors.grey[200]  : null,
         body: Padding(
           padding: AppPadding.pagePadding(context),
           child: Column(
             children: [
               GeneralHeader(title: 'Payment Methods',trailing: Icon(Icons.add),),
-              HeightSpace(space: 0.02),
-              SizedBox(
-                height:size.height * 0.58,
+              HeightSpace1(space: 8),
+              Expanded(
                 child: ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   itemCount:paymentMethodData.length,
@@ -36,7 +34,7 @@ class PaymentMethodsPage extends StatelessWidget {
                   },
                 ),
               ),
-              Spacer(),
+              HeightSpace1(space: 8),
               GeneralButton(
                 onTap: (){
                   context.push('/cartAndCheckoutPin');

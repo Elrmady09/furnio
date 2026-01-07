@@ -20,9 +20,9 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             children: [
               GeneralHeaderWithLogo(title: 'Profile'),
-              HeightSpace(space: 0.03),
+              HeightSpace1(space:15),
               ProfileImage(),
-              HeightSpace(space: 0.03),
+              HeightSpace1(space: 15),
               ProfileMenuList(),
             ],
           ),

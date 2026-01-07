@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import '../../../../core/widgets/general_button.dart';
 import '../../../../core/widgets/general_text.dart';
 import '../../../../core/widgets/space.dart';
-import '../../../account_setup/presentation/widgets/new_pin_textfiled.dart';
+import '../../../forgot_password/logic/forgot_password_provider.dart';
 import '../../logic/pin_provider.dart';
 import '../widgets/pin_input.dart';
 
@@ -16,17 +16,21 @@ class PinPage extends StatelessWidget {
   final String title;
   final String description;
   final VoidCallback onComplete;
+  final bool isForgotPasswordPage;
 
   const PinPage({
     super.key,
     required this.title,
     required this.description,
     required this.onComplete,
+    this.isForgotPasswordPage = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<PinProvider>();
+    final forgotPasswordProvider = context.watch<ForgotPasswordProvider>();
+
     Size size = MediaQuery.of(context).size;
 
     return SafeArea(
@@ -38,16 +42,26 @@ class PinPage extends StatelessWidget {
             child: Column(
               children: [
                 GeneralHeader(title: title),
-                HeightSpace(space: 0.1),
+                HeightSpace1(space: 80),
                 GeneralText(
                   textAlign: TextAlign.center,
                   text: description,
                   sizeText: size.width * 0.04,
+                  fontWeight: FontWeight.w500,
                 ),
-
-                HeightSpace(space: 0.1),
+                HeightSpace1(space: 80),
 
                 PinInput(),
+
+                if(isForgotPasswordPage)...[
+
+                  HeightSpace1(space: 80),
+                  GeneralText(
+                    text: 'Resend code in ${forgotPasswordProvider.seconds}s',
+                    sizeText: size.width * 0.04,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ],
 
                 Spacer(),
 

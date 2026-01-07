@@ -30,8 +30,9 @@ class GeneralTextField extends StatelessWidget {
     final Color iconColor =
     (isFocused || hasText) ? Colors.black : Colors.grey;
 
+
     return Container(
-      height: size.height * 0.07,
+      height: 50,
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.01,),
       decoration: BoxDecoration(
         color: colorTextFiled ?? Colors.grey.shade100, // Light background color
@@ -51,9 +52,9 @@ class GeneralTextField extends StatelessWidget {
         obscureText:obscureText ?? false,
         onTap: onTap,
         readOnly:readOnly ?? false ,
-        style: TextStyle(fontWeight: FontWeight.w500),
+        style: TextStyle(fontWeight: FontWeight.w500,color: Theme.of(context).colorScheme.onSurface,),
         decoration: InputDecoration(
-          contentPadding: hasIcon ? EdgeInsets.only(top: size.height * 0.018,left: size.width * 0.03) : EdgeInsets.only(left: size.width * 0.03),
+          contentPadding: hasIcon ? EdgeInsets.only(top: 13,left: size.width * 0.03) : EdgeInsets.only(left: size.width * 0.03),
           prefixIcon:prefixIcon != null ? Icon(prefixIcon,color: iconColor,) : null,
           suffixIcon:suffixIcon != null ? Icon(suffixIcon,color: iconColor) : null,
           hintText: hintText,

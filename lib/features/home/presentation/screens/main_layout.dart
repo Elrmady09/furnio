@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:furnio/features/orders/presentation/screens/my_orders_page.dart';
+import 'package:furnio/features/orders/presentation/screens/01_my_orders/my_orders_page.dart';
 import 'package:provider/provider.dart';
-import '../../../cart_and_checkout/presentation/screens/cart_page.dart';
-import '../../../cart_and_checkout/presentation/widgets/01_cart_widgets/cart_item_card.dart';
-import '../../../wallet/presentation/screens/my_wallet_page.dart';
+import '../../../cart_and_checkout/presentation/screens/01_cart/cart_page.dart';
+import '../../../profile/presentation/screens/01_profile/profile_page.dart';
+import '../../../wallet/presentation/screens/01_my_wallet/my_wallet_page.dart';
 import '../../logic/home_provider.dart';
 import '../widgets/home_bottom_navigation_bar.dart';
 import 'home_page.dart';
@@ -39,6 +39,8 @@ class MainLayout extends StatelessWidget {
 
       // 4) صفحة Wallet
       MyWalletPage(),
+      // 4) صفحة Profile
+      ProfilePage(),
     ];
   }
 }

@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import '../../../../../core/widgets/general_text.dart';
 import '../../../../../core/widgets/space.dart';
 import '../../../logic/home_provider.dart';
-import '../../../logic/search_provider.dart';
 import 'recent_search_item.dart';
 
 class RecentSearchBox extends StatelessWidget {
@@ -15,6 +14,7 @@ class RecentSearchBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<HomeProvider>();
     Size size = MediaQuery.of(context).size;
+    final theme = Theme.of(context).colorScheme;
 
     if (!provider.isSearching || provider.recentSearches.isEmpty) {
       return const SizedBox();
@@ -23,7 +23,7 @@ class RecentSearchBox extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(size.width * 0.04),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.secondaryContainer,
         borderRadius: BorderRadius.circular(size.width * 0.04),
       ),
       child: Column(
@@ -35,18 +35,19 @@ class RecentSearchBox extends StatelessWidget {
                 text: 'Recent Search',
                 sizeText: size.width * 0.04,
                 fontWeight: FontWeight.w600,
+
               ),
               GestureDetector(
                 onTap: provider.clearAll,
                 child: GeneralText(
                   text: 'Clear',
                   sizeText: size.width * 0.035,
-                  color: Colors.grey,
+                  color:theme.onSurfaceVariant ,
                 ),
               ),
             ],
           ),
-          HeightSpace(space: 0.015),
+          HeightSpace1(space: 7),
           ...List.generate(
             provider.recentSearches.length,
                 (index) => RecentSearchItem(

@@ -25,97 +25,110 @@ class CreateNewPasswordPage extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding: AppPadding.pagePadding(context),
-          child: Column(
-            children: [
-              /// Header
-              GeneralHeader(title: 'Create New Password'),
-              HeightSpace(space: 0.03),
+          child: CustomScrollView(
+            slivers:[
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    /// Header
+                    GeneralHeader(title: 'Create New Password'),
+                    HeightSpace1(space:20),
 
-              /// Image
-              Image.asset(
-                'assets/image/forgot_password/rest_password.png',
-                height: size.height * 0.25,
+                    /// Image
+                    Image.asset(
+                      'assets/image/forgot_password/rest_password.png',
+                      height: size.height * 0.25,
+                    ),
+                    HeightSpace1(space: 20),
+
+                    /// Text
+                    GeneralText(
+                      text: 'Create Your New Password',
+                      sizeText: size.width * 0.045,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    HeightSpace1(space: 20),
+
+                    /// Input
+
+                    GeneralTextField(
+                      prefixIcon: Icons.lock,
+                      suffixIcon: Icons.remove_red_eye,
+                      hintText: 'Password',
+                      textEditingController:newPasswordProvider.passwordController,
+                      focusNode: newPasswordProvider.passwordFocus,
+                      obscureText: true,
+                    ),
+                    HeightSpace1(space: 15),
+                    GeneralTextField(
+                      prefixIcon: Icons.lock,
+                      suffixIcon: Icons.remove_red_eye,
+                      hintText: 're Password',
+                      textEditingController:newPasswordProvider.rePasswordController,
+                      focusNode: newPasswordProvider.rePasswordFocus,
+                      obscureText: true,
+                    ),
+                    HeightSpace1(space: 15),
+                    const RememberMeCheckbox(),
+
+                  ],
+                ),
               ),
-              HeightSpace(space: 0.03),
 
-              /// Text
-              GeneralText(
-                text: 'Create Your New Password',
-                sizeText: size.width * 0.045,
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child:Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: GeneralButton(
+                      text: 'Continue',
+                      onTap: () async{
+                        final currentContext = context;
+
+                        final forgotProvider = context.read<ForgotPasswordProvider>();
+                        final newPasswordProvider = context.read<NewPasswordProvider>();
+
+                        try {
+                          await newPasswordProvider.sendResetEmail(
+                            forgotProvider.email!,
+                          );
+
+                          if (!currentContext.mounted) return;
+
+                          showDialog(
+                            context: currentContext,
+                            barrierDismissible: false,
+                            builder: (context) => GeneralDialog(icon: Icons.beenhere),
+                          );
+                          await Future.delayed(const Duration(seconds: 5));
+
+                          if (context.mounted) {
+                            context.pop();
+                            /// pop -> يغلق Dialog
+                          }
+                          if (context.mounted) {
+                            context.go('/mainLayout');
+                            /// go -> يمسح جميع الصفحات وينتقل لي الصفحه التاليه
+                          }
+
+                        } catch (e) {
+                          if (!currentContext.mounted) return;
+                          ScaffoldMessenger.of(currentContext).showSnackBar(
+                            const SnackBar(
+                              content: Text('Passwords do not match'),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  ),
+                ),
               ),
-              HeightSpace(space: 0.03),
 
-              /// Input
 
-              GeneralTextField(
-                prefixIcon: Icons.lock,
-                suffixIcon: Icons.remove_red_eye,
-                hintText: 'Password',
-                textEditingController:newPasswordProvider.passwordController,
-                focusNode: newPasswordProvider.passwordFocus,
-                obscureText: true,
-              ),
-              HeightSpace(space: 0.02),
-              GeneralTextField(
-                prefixIcon: Icons.lock,
-                suffixIcon: Icons.remove_red_eye,
-                hintText: 're Password',
-                textEditingController:newPasswordProvider.rePasswordController,
-                focusNode: newPasswordProvider.rePasswordFocus,
-                obscureText: true,
-              ),
-              
-
-              HeightSpace(space: 0.02),
-
-              const RememberMeCheckbox(),
-
-              const Spacer(),
-
-              GeneralButton(
-                text: 'Continue',
-                onTap: () async{
-                  final forgotProvider = context.read<ForgotPasswordProvider>();
-                  final newPasswordProvider = context.read<NewPasswordProvider>();
-
-                  try {
-                    await newPasswordProvider.sendResetEmail(
-                      forgotProvider.email!,
-                    );
-
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    //   const SnackBar(
-                    //     content: Text('Password reset link sent to your email'),
-                    //   ),
-                    // );
-
-                    showDialog(
-                      context: context,
-                      barrierDismissible: false,
-                      builder: (context) => GeneralDialog(icon: Icons.beenhere),
-                    );
-                    await Future.delayed(const Duration(seconds: 5));
-
-                    if (context.mounted) {
-                      context.pop();
-                      /// pop -> يغلق Dialog
-                    }
-                    if (context.mounted) {
-                      context.go('/home');
-                      /// go -> يمسح جميع الصفحات وينتقل لي الصفحه التاليه
-                    }
-
-                  } catch (e) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Passwords do not match'),
-                        backgroundColor: Colors.red,
-                      ),
-                    );
-                  }
-                },
-              ),
-            ],
+            ]
           ),
         ),
       ),

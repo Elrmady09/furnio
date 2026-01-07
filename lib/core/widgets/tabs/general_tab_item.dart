@@ -63,12 +63,12 @@ class GeneralAnimatedTabs extends StatelessWidget {
           ],
         ),
 
-        HeightSpace(space: 0.015),
+        HeightSpace1(space: 12),
 
         Stack(
           children: [
             Container(
-              height: size.height * 0.003,
+              height: 2.5,
               color: Colors.grey[300],
             ),
             AnimatedAlign(
@@ -78,7 +78,7 @@ class GeneralAnimatedTabs extends StatelessWidget {
                   : Alignment.centerRight,
               child: Container(
                 width: size.width * 0.45,
-                height: size.height * 0.004,
+                height: 3,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(size.width * 0.05),
                   color: Colors.black,
@@ -88,7 +88,7 @@ class GeneralAnimatedTabs extends StatelessWidget {
           ],
         ),
 
-        HeightSpace(space: 0.03),
+        HeightSpace1(space: 20),
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/constants/app_padding.dart';
 import 'package:furnio/core/widgets/general_text.dart';
 import 'package:furnio/core/widgets/space.dart';
 import 'package:furnio/features/home/presentation/widgets/00_general_home_widgets/general_home_search.dart';
@@ -43,12 +44,10 @@ class _SearchAndFilterPageState extends State<SearchAndFilterPage> {
         },
         child: Scaffold(
           body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+            padding: AppPadding.pagePadding(context),
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  HeightSpace(space: 0.02),
-
                   GeneralHomeSearch(
                     textEditingController: searchProvider.searchController,
                     focusNode: searchProvider.searchFocusNode,
@@ -57,7 +56,7 @@ class _SearchAndFilterPageState extends State<SearchAndFilterPage> {
 
 
                   ),
-                  HeightSpace(space: 0.02),
+                  HeightSpace1(space: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -73,7 +72,7 @@ class _SearchAndFilterPageState extends State<SearchAndFilterPage> {
                       ),
                     ],
                   ),
-                  HeightSpace(space: 0.02),
+                  HeightSpace1(space: 12),
 
                   if(results.isEmpty)...[
                     HeightSpace(space: 0.1),

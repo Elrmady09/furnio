@@ -21,11 +21,12 @@ class GeneralHomeSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final homeProvider = context.watch<HomeProvider>();
+    final theme = Theme.of(context).colorScheme;
     return  Container(
       height: size.width * 0.11,
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.04,vertical: size.height * 0.01),
+      padding: EdgeInsets.only(left: size.width * 0.04,right: size.width * 0.04),
       decoration: BoxDecoration(
-        color: Colors.grey.shade100, // Light background color
+        color: theme.secondaryContainer, // Light background color
         borderRadius: BorderRadius.circular(size.width * 0.03),
       ),
       child: Row(
@@ -40,7 +41,9 @@ class GeneralHomeSearch extends StatelessWidget {
               textInputAction: TextInputAction.search,
               onSubmitted:onSubmitted ,
               onChanged:onChanged ,
+              style: TextStyle(fontWeight: FontWeight.w500,),
               decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(bottom: 7),
                 hintText: "Search...",
                 hintStyle: TextStyle(color: Colors.grey.shade500), // Light text color
                 border: InputBorder.none, // Removes underline
@@ -49,7 +52,7 @@ class GeneralHomeSearch extends StatelessWidget {
           ),
           // Separator ( | )
           Container(
-            height: size.height * 0.04, // Height of separator
+            height: 25, // Height of separator
             width: size.width * 0.004, // Width of separator
             color: Colors.grey.shade300, // Light grey separator color
           ),
@@ -68,7 +71,7 @@ class GeneralHomeSearch extends StatelessWidget {
               }
 
             },
-            icon:Icon(Icons.tune),color: Colors.black ,
+            icon:Icon(Icons.tune),color: theme.primary ,
           ), // Mic icon
         ],
       ),

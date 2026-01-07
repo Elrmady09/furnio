@@ -20,9 +20,9 @@ class CheckoutSummary extends StatelessWidget {
     final total = checkout.getTotal(itemsTotal);
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.025,vertical: size.height * 0.02),
+      padding: EdgeInsets.symmetric(horizontal: size.width * 0.025,vertical: 15),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.background,
         borderRadius: BorderRadius.circular(size.width * 0.03),
       ),
       child: Column(
@@ -40,7 +40,7 @@ class CheckoutSummary extends StatelessWidget {
 
   Widget _row(String title, double value, Size size, {bool bold = false,bool isDiscount = false,}) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: size.height * 0.012),
+      padding: EdgeInsets.symmetric(vertical: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

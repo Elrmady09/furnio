@@ -32,15 +32,15 @@ class GeneralDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Dialog(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.background,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.05,vertical: size.height * 0.07),
+        padding: EdgeInsets.symmetric(horizontal: size.width * 0.05,vertical: 40),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
-              height: size.height * 0.25,
+              height: 150,
               width: size.width * 0.45,
               child: Stack(
                 alignment: AlignmentDirectional.center,
@@ -57,48 +57,53 @@ class GeneralDialog extends StatelessWidget {
                   ),
                   /// Start from top left
                   Positioned(
-                      top: size.height * 0.02,
+                      top: 15,
                       left: size.width * 0.05,
                       child: _circleContainer(radius: size.width * 0.02)
                   ),
                   Positioned(
-                      top: size.height * 0.1,
-                      left: size.width * 0.02,
+                      top: 70,
+                      left: size.width * 0.03,
                       child: _circleContainer(radius: size.width * 0.003)
                   ),
                   Positioned(
-                      bottom: size.height * 0.05,
+                      bottom: 53,
+                      left: size.width * 0.01,
+                      child: _circleContainer(radius: size.width * 0.006)
+                  ),
+                  Positioned(
+                      bottom: 30,
                       left: size.width * 0.05,
                       child: _circleContainer(radius: size.width * 0.01)
                   ),
                   Positioned(
-                      bottom: size.height * 0.01,
+                      bottom: 7,
                       left: 0,
                       right: 0,
                       child: _circleContainer(radius: size.width * 0.007)
                   ),
                   Positioned(
-                      bottom: size.height * 0.03,
+                      bottom: 20,
                       right: size.width * 0.13,
                       child: _circleContainer(radius: size.width * 0.004)
                   ),
                   Positioned(
-                      bottom: size.height * 0.05,
+                      bottom: 40,
                       right: size.width * 0.05,
                       child: _circleContainer(radius: size.width * 0.007)
                   ),
                   Positioned(
-                      bottom: size.height * 0.1,
-                      right: size.width * 0.06,
+                      bottom: 75,
+                      right: size.width * 0.025,
                       child: _circleContainer(radius: size.width * 0.007)
                   ),
                   Positioned(
-                      top: size.height * 0.035,
+                      top: 25,
                       right: size.width * 0.05,
                       child: _circleContainer(radius: size.width * 0.015)
                   ),
                   Positioned(
-                      top: size.height * 0.015,
+                      top: 8,
                       right: size.width * 0.2,
                       child: _circleContainer(radius: size.width * 0.008)
                   ),
@@ -107,13 +112,13 @@ class GeneralDialog extends StatelessWidget {
                 ],
               ),
             ),
-            HeightSpace(space: 0.02),
+            HeightSpace1(space: 14),
             GeneralText(
               text: title ?? 'Congratulations!',
               sizeText:size.width * 0.055,
               fontWeight: FontWeight.bold,
             ),
-            HeightSpace(space: 0.02),
+            HeightSpace1(space: 14),
             GeneralText(
               textAlign: TextAlign.center,
               text: description ?? 'Your account is ready to use. You will\nbe redirected to the Home page in a\nfew seconds... ',
@@ -121,14 +126,14 @@ class GeneralDialog extends StatelessWidget {
             if(showActions == true)...[
               Column(
                 children: [
-                  HeightSpace(space: 0.02),
+                  HeightSpace1(space: 15),
                   GeneralSecondButton(title: blackButtonTitle ?? 'View Order',bgColor: Colors.black,titleColor: Colors.white,onTap: blackButtonOnTap ??  ()=> context.go('/mainLayout')),
                   GeneralSecondButton(title: greyButtonTitle ?? 'View E-Receipt',bgColor: Colors.grey[300],titleColor: Colors.black,onTap: greyButtonOnTap,),
 
                 ],
               ),
             ]else...[
-              HeightSpace(space: 0.05),
+              HeightSpace1(space: 38),
               CircularProgressIndicator(),
             ]
 

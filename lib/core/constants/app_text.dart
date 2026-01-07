@@ -2,6 +2,10 @@
 class AppText {
   static const String cartPinTitle = 'Enter Your PIN';
   static const String cartPinDescription = 'Enter Your PIN to confirm payment';
+  static const String forgotPasswordTitle = 'Forgot Password';
+  static const String forgotPasswordPinDescription = 'code has been send to ';
+  static const String accountSetupTitle = 'Create New PIN';
+  static const String accountSetupPinDescription = 'Add a PIN number to make your account\nmore secure';
   static const List<String> filtersSort = ['Popular','Most Recent','Price High','Table','Kitchen','Lamp','Cupboard','Vase'];
   static const List<String> filtersRating = ['All','5','4','3','2','1'];
   // ===== Privacy Policy =====

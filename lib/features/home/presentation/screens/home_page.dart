@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/constants/app_padding.dart';
 import 'package:furnio/features/home/logic/home_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -30,23 +31,25 @@ class HomePage extends StatelessWidget {
           children: [
 
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+              padding: AppPadding.pagePadding(context),
               child: SingleChildScrollView(
                 controller: homeProvider.scrollController,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    HeightSpace(space: 0.02),
+                    /// Header
                     const HomeHeader(),
-                    HeightSpace(space: 0.07),
-                    RecentSearchBox(),
-                    HeightSpace(space: 0.025),
+                    HeightSpace1(space: 68),
+                    /// Special Offer
                     const HomeSpecialOffer(),
-                    HeightSpace(space: 0.01),
+                    HeightSpace1(space: 8),
+                    /// Categories
                     const HomeCategories(),
-                    HeightSpace(space: 0.02),
+                    HeightSpace1(space: 14),
+                    /// Filter Tabs
                     const HomeFilterTabs(),
-                    HeightSpace(space: 0.02),
+                    HeightSpace1(space: 14),
+                    /// Products
                     GeneralHomeProductsGrid(itemCount: itemHomeProducts.length, products: itemHomeProducts,),
                   ],
                 ),
@@ -59,7 +62,7 @@ class HomePage extends StatelessWidget {
             AnimatedPositioned(
               duration: const Duration(milliseconds: 300),
               top: homeProvider.showSearch
-                  ? (homeProvider.isSearching ? size.height * 0.05 : size.height * 0.11)
+                  ? (homeProvider.isSearching ? 35 : 75)
                   : -100, // يختفي عند التمرير
               left: size.width * 0.04,
               right: size.width * 0.04,

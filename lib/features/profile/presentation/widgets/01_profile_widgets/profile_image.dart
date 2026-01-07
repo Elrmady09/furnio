@@ -31,13 +31,13 @@ class ProfileImage extends StatelessWidget {
             ),
           ],
         ),
-        HeightSpace(space: 0.015),
+        HeightSpace1(space: 10),
         GeneralText(
           text: 'Andrew Ainsley',
           sizeText: size.width * 0.045,
           fontWeight: FontWeight.w600,
         ),
-        HeightSpace(space: 0.005),
+        HeightSpace1(space:2),
         GeneralText(
           text: '+111 467 378 399',
           sizeText: size.width * 0.035,

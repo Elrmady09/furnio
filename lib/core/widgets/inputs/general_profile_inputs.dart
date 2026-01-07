@@ -31,7 +31,7 @@ class GeneralProfileInputs extends StatelessWidget {
           ],
 
         ),
-        HeightSpace(space:0.025),
+        HeightSpace1(space:15),
 
         /// NickName
 
@@ -40,10 +40,9 @@ class GeneralProfileInputs extends StatelessWidget {
           textEditingController: provider.nickNameController,
           hasError: provider.nickNameError != null,
         ),
-        HeightSpace(space:0.025),
+        HeightSpace1(space:15),
 
         /// Date
-
         GeneralTextField(
           hintText: 'Date of Birth',
           suffixIcon: Icons.date_range_outlined,
@@ -65,8 +64,7 @@ class GeneralProfileInputs extends StatelessWidget {
             }
           },
         ),
-        HeightSpace(space:0.025),
-
+        HeightSpace1(space:15),
         /// Email
 
         GeneralTextField(
@@ -76,13 +74,12 @@ class GeneralProfileInputs extends StatelessWidget {
           focusNode: provider.emailFocus,
           hasError: provider.emailError != null,
         ),
-        HeightSpace(space:0.025),
-
+        HeightSpace1(space:15),
         /// Phone Number
 
         // Phone with country
         Container(
-          height: size.height * 0.066,
+          height: 50,
           width: size.width,
           decoration: BoxDecoration(
             color: Colors.grey.shade100,
@@ -91,13 +88,13 @@ class GeneralProfileInputs extends StatelessWidget {
           child: Row(
             children: [
               SizedBox(
-                width: size.width * 0.3,
+                width: 110,
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton2<int>(
                     value: provider.selectedIndex,
                     isExpanded: true,
                     dropdownStyleData: DropdownStyleData(
-                      maxHeight: size.height * 0.2,
+                      maxHeight: 150,
                       //direction: DropdownDirection., // 👈 الحل السحري
                     ),
                     items: List.generate(itemCountries.length, (index) {
@@ -141,11 +138,10 @@ class GeneralProfileInputs extends StatelessWidget {
             ],
           ),
         ),
-        HeightSpace(space: 0.025),
-
+        HeightSpace1(space:15),
         /// Gender
         Container(
-          height: size.height * 0.066,
+          height: 50,
           decoration: BoxDecoration(
             color: Colors.grey.shade100,
             borderRadius: BorderRadius.circular(size.width * 0.02),

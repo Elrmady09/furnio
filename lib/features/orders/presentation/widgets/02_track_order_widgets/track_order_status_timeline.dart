@@ -20,7 +20,7 @@ class TrackOrderStatusTimeline extends StatelessWidget {
         final item = items[index];
 
         return Padding(
-          padding: EdgeInsets.only(bottom: size.height * 0.02),
+          padding: EdgeInsets.only(bottom: 15),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -35,7 +35,7 @@ class TrackOrderStatusTimeline extends StatelessWidget {
                       sizeText: size.width * 0.038,
                       fontWeight: FontWeight.w600,
                     ),
-                    HeightSpace(space: 0.005),
+                    HeightSpace1(space: 4),
                     GeneralText(
                       text: item['address']!,
                       sizeText: size.width * 0.03,

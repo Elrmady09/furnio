@@ -24,7 +24,7 @@ class ProfileMenuItem extends StatelessWidget {
 
     return ListTile(
       onTap: onTap,
-      leading: Icon(icon, color: color ?? Colors.black),
+      leading: Icon(icon, color: color ),
       title: GeneralText(
         text: title,
         sizeText: size.width * 0.04,

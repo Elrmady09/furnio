@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/constants/app_padding.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -17,8 +18,8 @@ class CartBottomBar extends StatelessWidget {
     final provider = context.watch<CartProvider>();
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal:size.width * 0.03,vertical: size.height * 0.01),
-      color: Colors.white,
+      padding: AppPadding.checkoutPricePadding(context),
+      color:Theme.of(context).brightness == Brightness.light ? Colors.white  : null,
       child: Row(
         children: [
           Column(
@@ -29,7 +30,7 @@ class CartBottomBar extends StatelessWidget {
                 sizeText: size.width * 0.03,
                 color: Colors.grey,
               ),
-              HeightSpace(space: 0.005),
+              HeightSpace1(space: 4),
               GeneralText(
                 text: '\$${provider.totalPrice.toStringAsFixed(2)}',
                 sizeText: size.width * 0.05,

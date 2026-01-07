@@ -4,18 +4,17 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static final lightTheme = FlexThemeData.light(
-    //scheme: FlexScheme.sakura,
-    //surfaceMode: FlexSurfaceMode.highScaffoldLevelSurface,
-    //blendLevel: 10,
-    // subThemesData: const FlexSubThemesData(
-    //   blendOnLevel: 20,
-    //   blendOnColors: true,
-    // ),
   ).copyWith(
-    colorScheme: const ColorScheme.light(
-      primary: Colors.black,        // زر، أيقونات رئيسية
+    colorScheme: ColorScheme.light(
+      primary: Colors.black,         // زر او ايقونه او نص
       onPrimary: Colors.white,       // نص فوق الزر
-      background: Colors.white,
+      onSurfaceVariant: Color(0xFF757575),  // نص بالون رمادي
+      background: Colors.white,   // لون card او box مخصصه للون الابيض فقط
+      secondaryContainer: Colors.grey[200],
+      onSurface:Colors.black,
+
+
+
     ),
   );
 
@@ -29,10 +28,15 @@ class AppTheme {
       blendOnColors: true,
     ),
   ).copyWith(
-    colorScheme: const ColorScheme.dark(
+    colorScheme: ColorScheme.dark(
       primary: Colors.white,        // زر
       onPrimary: Colors.black,      // نص فوق الزر
-      background: Colors.black,
+      onSurfaceVariant: Color(0xFFBDBDBD),
+      background: Color(0xff1e222a),
+      secondaryContainer: Color(0xff1e222a),
+      onSurface:Colors.black,
+
+
     ),
   );
 

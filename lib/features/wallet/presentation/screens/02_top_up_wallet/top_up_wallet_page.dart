@@ -6,9 +6,9 @@ import 'package:furnio/features/wallet/logic/wallet_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/widgets/space.dart';
-import '../widgets/02_top_up_wallet_widgets/top_up_amount_field.dart';
-import '../widgets/02_top_up_wallet_widgets/top_up_quick_amount.dart';
+import '../../../../../core/widgets/space.dart';
+import '../../widgets/02_top_up_wallet_widgets/top_up_amount_field.dart';
+import '../../widgets/02_top_up_wallet_widgets/top_up_quick_amount.dart';
 
 class TopUpWalletPage extends StatelessWidget {
   const TopUpWalletPage({super.key});
@@ -30,10 +30,9 @@ class TopUpWalletPage extends StatelessWidget {
                   provider.clear();
                 },
               ),
-              HeightSpace(space: 0.03),
-
+              HeightSpace1(space: 15),
               TopUpAmountField(),
-              HeightSpace(space: 0.03),
+              HeightSpace1(space: 30),
 
               TopUpQuickGrid(),
               Spacer(),

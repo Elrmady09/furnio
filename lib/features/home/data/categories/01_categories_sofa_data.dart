@@ -3,7 +3,7 @@ import '../reviews/reviews_data.dart';
 final List<Map<String, dynamic>> itemCategoriesSofa = [
   {
     "id": '1',
-    "productName": "Modern Fabric Sofa",
+    "productName": "Modern Fabric",
     "image": "assets/image/home/sofa/sofa 1.png",
     "rating": "4.8",
     "sold": "6,420 sold",
@@ -23,7 +23,7 @@ final List<Map<String, dynamic>> itemCategoriesSofa = [
   },
   {
     "id": '3',
-    "productName": "Classic Wooden Sofa",
+    "productName": "Classic Wooden",
     "image": "assets/image/home/sofa/sofa 3.png",
     "rating": "4.6",
     "sold": "3,870 sold",
@@ -33,7 +33,7 @@ final List<Map<String, dynamic>> itemCategoriesSofa = [
   },
   {
     "id": '4',
-    "productName": "Corner L-Shaped Sofa",
+    "productName": "Corner L-Shaped",
     "image": "assets/image/home/sofa/sofa 4.png",
     "rating": "4.7",
     "sold": "5,134 sold",
@@ -43,7 +43,7 @@ final List<Map<String, dynamic>> itemCategoriesSofa = [
   },
   {
     "id": '5',
-    "productName": "Minimalist Grey Sofa",
+    "productName": "Minimalist Grey",
     "image": "assets/image/home/sofa/sofa 5.png",
     "rating": "4.5",
     "sold": "2,980 sold",
@@ -53,7 +53,7 @@ final List<Map<String, dynamic>> itemCategoriesSofa = [
   },
   {
     "id": '6',
-    "productName": "Three-Seater Sofa",
+    "productName": "Three-Seater",
     "image": "assets/image/home/sofa/sofa 6.png",
     "rating": "4.6",
     "sold": "4,560 sold",
@@ -63,7 +63,7 @@ final List<Map<String, dynamic>> itemCategoriesSofa = [
   },
   {
     "id": '7',
-    "productName": "Velvet Cushion Sofa",
+    "productName": "Velvet Cushion",
     "image": "assets/image/home/sofa/sofa 7.png",
     "rating": "4.8",
     "sold": "3,245 sold",
@@ -73,7 +73,7 @@ final List<Map<String, dynamic>> itemCategoriesSofa = [
   },
   {
     "id": '8',
-    "productName": "Compact Living Room Sofa",
+    "productName": "Compact Living Room",
     "image": "assets/image/home/sofa/sofa 8.png",
     "rating": "4.4",
     "sold": "2,190 sold",
@@ -83,7 +83,7 @@ final List<Map<String, dynamic>> itemCategoriesSofa = [
   },
   {
     "id": '9',
-    "productName": "Scandinavian Style Sofa",
+    "productName": "Scandinavian Style",
     "image": "assets/image/home/sofa/sofa 9.png",
     "rating": "4.7",
     "sold": "3,980 sold",
@@ -93,7 +93,7 @@ final List<Map<String, dynamic>> itemCategoriesSofa = [
   },
   {
     "id": '10',
-    "productName": "Soft Cushion Lounge Sofa",
+    "productName": "Soft Cushion Lounge",
     "image": "assets/image/home/sofa/sofa 10.png",
     "rating": "4.9",
     "sold": "6,780 sold",
@@ -103,7 +103,7 @@ final List<Map<String, dynamic>> itemCategoriesSofa = [
   },
   {
     "id": '11',
-    "productName": "Family Size Sofa",
+    "productName": "Family Size",
     "image": "assets/image/home/sofa/sofa 11.png",
     "rating": "4.6",
     "sold": "5,410 sold",
@@ -113,7 +113,7 @@ final List<Map<String, dynamic>> itemCategoriesSofa = [
   },
   {
     "id": '12',
-    "productName": "Modern Corner Lounge Sofa",
+    "productName": "Modern Corner Lounge",
     "image": "assets/image/home/sofa/sofa 12.png",
     "rating": "4.8",
     "sold": "4,995 sold",

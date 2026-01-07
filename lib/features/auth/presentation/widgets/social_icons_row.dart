@@ -8,7 +8,7 @@ class SocialIconsRow extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     Widget icon(String path) => Container(
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.07,vertical: size.height * 0.02),
+      padding: EdgeInsets.symmetric(horizontal: size.width * 0.07,vertical:15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(size.width * 0.03),
         border: Border.all(color: Colors.grey.shade300),

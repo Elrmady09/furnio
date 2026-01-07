@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/constants/app_padding.dart';
 import 'package:furnio/core/widgets/general_header.dart';
 import 'package:furnio/core/widgets/general_text.dart';
+import 'package:furnio/core/widgets/space.dart';
 import 'package:provider/provider.dart';
-import '../../../../core/widgets/space.dart';
-import '../../logic/track_order_provider.dart';
-import '../widgets/02_track_order_widgets/track_order_progress.dart';
-import '../widgets/02_track_order_widgets/track_order_status_timeline.dart';
-import '../widgets/order_card.dart';
+import '../../../logic/track_order_provider.dart';
+import '../../widgets/02_track_order_widgets/track_order_progress.dart';
+import '../../widgets/02_track_order_widgets/track_order_status_timeline.dart';
+import '../../widgets/01_order_widgets/order_card.dart';
 
 
 class TrackOrderPage extends StatelessWidget {
@@ -19,9 +20,9 @@ class TrackOrderPage extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor: Theme.of(context).brightness == Brightness.light ? Colors.grey[100]  : null,
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+          padding: AppPadding.pagePadding(context),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -35,10 +36,11 @@ class TrackOrderPage extends StatelessWidget {
                 showStatus: false,
                 showTrackButton: false,
               ),
+              HeightSpace1(space: 10),
               /// Packet In Delivery
               TrackOrderProgress(currentStep: 1,),
               GeneralText(
-                padding: EdgeInsets.only(bottom: size.height * 0.02),
+                padding: EdgeInsets.only(bottom: 15),
                 text: 'Order Status Details',
                 sizeText: size.width * 0.045,
                 fontWeight: FontWeight.w700,

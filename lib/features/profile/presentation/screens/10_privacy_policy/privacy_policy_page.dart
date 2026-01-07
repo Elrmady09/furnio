@@ -18,7 +18,7 @@ class PrivacyPolicyPage extends StatelessWidget {
           child: Column(
             children: [
               GeneralHeader(title: 'Privacy Policy'),
-              HeightSpace(space: 0.02),
+              HeightSpace1(space: 5),
               Expanded(
                 child: ListView(
                   children: [

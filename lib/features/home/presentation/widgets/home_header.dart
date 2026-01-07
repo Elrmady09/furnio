@@ -16,11 +16,11 @@ class HomeHeader extends StatelessWidget {
         GestureDetector(
           onTap: () => context.push('/profile'),
           child: CircleAvatar(
-            radius: size.width * 0.06,
+            radius: 25,
             backgroundImage: AssetImage('assets/image/home/photo profile.jpg'),
           ),
         ),
-        WidthSpace(space: 0.03),
+        WidthSpace1(space: 15),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

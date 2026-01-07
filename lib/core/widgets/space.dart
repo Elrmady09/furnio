@@ -21,3 +21,23 @@ class WidthSpace extends StatelessWidget {
     return SizedBox(width: size.width * space);
   }
 }
+
+
+class HeightSpace1 extends StatelessWidget {
+  const HeightSpace1({super.key, required this.space});
+  final double space;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(height:space);
+  }
+}
+
+class WidthSpace1 extends StatelessWidget {
+  const WidthSpace1({super.key, required this.space});
+  final double space;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(width: space);
+  }
+}

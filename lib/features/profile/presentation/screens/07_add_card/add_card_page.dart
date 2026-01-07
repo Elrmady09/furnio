@@ -20,36 +20,48 @@ class AddCardPage extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding: AppPadding.pagePadding(context),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                GeneralHeader(title: 'Add New Card'),
-                NewCardImageCard(),
-                NewCardInput(),
-                GeneralButton(
-                  onTap: (){
-                    final provider = context.read<AddNewCardProvider>();
-                    final isValid = provider.validateCardInputs();
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    GeneralHeader(title: 'Add New Card'),
+                    NewCardImageCard(),
+                    NewCardInput(),
 
-                    if (!isValid) {
-                      final messages = provider.getAllErrors().join('/');
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(messages),
-                          backgroundColor: Colors.red,
-                        ),
-                      );
-                      return;
-                    }
-                    provider.clearCardInputs();
-                    context.pop();
-
-                  },
-                  text: 'Add'
+                  ],
                 ),
-              ],
-            ),
+              ),
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: GeneralButton(
+                    verticalPadding: 10,
+                      onTap: (){
+                        final provider = context.read<AddNewCardProvider>();
+                        final isValid = provider.validateCardInputs();
+
+                        if (!isValid) {
+                          final messages = provider.getAllErrors().join('/');
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(messages),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                          return;
+                        }
+                        provider.clearCardInputs();
+                        context.pop();
+
+                      },
+                      text: 'Add'
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

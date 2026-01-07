@@ -19,42 +19,56 @@ class EditProfilePage extends StatelessWidget {
       child: Scaffold(
         body:Padding(
           padding: AppPadding.pagePadding(context),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                GeneralHeader(title: 'Edit Profile'),
-                HeightSpace(space: 0.05),
-                GeneralProfileInputs(),
-                HeightSpace(space: 0.18),
-                GeneralButton(
-                  text: 'Continue',
-                  onTap: () async {
-                    final ok = provider.validateInputs();
-                    if (!ok) {
-                      final messages =
-                          provider.fullNameError ??
-                              provider.nickNameError ??
-                              provider.dateError ??
-                              provider.emailError ??
-                              provider.phoneNumberError ??
-                              "error";
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(messages), backgroundColor: Colors.red),
-                      );
-                      return; // مهم
-                    }
-                    //context.push('/NewPinPage');
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Edit Profile Success')),
-                    );
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    GeneralHeader(title: 'Edit Profile'),
+                    HeightSpace1(space: 8),
+                    GeneralProfileInputs(),
 
-                  },
+                  ],
+                ) ,
+              ),
 
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child:Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: GeneralButton(
+                      text: 'Continue',
+                      onTap: () async {
+                        final ok = provider.validateInputs();
+                        if (!ok) {
+                          final messages =
+                              provider.fullNameError ??
+                                  provider.nickNameError ??
+                                  provider.dateError ??
+                                  provider.emailError ??
+                                  provider.phoneNumberError ??
+                                  "error";
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(messages), backgroundColor: Colors.red),
+                          );
+                          return; // مهم
+                        }
+                        //context.push('/NewPinPage');
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Edit Profile Success')),
+                        );
+
+                      },
+
+                    ),
+                  ),
                 ),
+              ),
 
 
-              ],
-            ),
+            ],
           ),
         ),
       ),

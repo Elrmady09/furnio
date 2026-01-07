@@ -19,7 +19,7 @@ class SpecialOffersPage extends StatelessWidget {
             child: Column(
               children: [
                 GeneralHeader(title: 'SpecialOffer',trailing: Icon(Icons.list)),
-                HeightSpace(space: 0.02),
+                HeightSpace1(space: 12),
                 GeneralHomeSpecialOffer(offers: itemSpecialOffers_25, controllerKey: '25',),
                 GeneralHomeSpecialOffer(offers: itemSpecialOffers_15, controllerKey: '15',),
                 GeneralHomeSpecialOffer(offers: itemSpecialOffers_30, controllerKey: '30',),

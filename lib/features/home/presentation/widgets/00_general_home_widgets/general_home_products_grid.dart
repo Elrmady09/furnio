@@ -17,6 +17,7 @@ class GeneralHomeProductsGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<HomeProvider>();
     Size size = MediaQuery.of(context).size;
+    final theme = Theme.of(context).colorScheme;
 
     return GridView.builder(
       itemCount: itemCount,
@@ -24,9 +25,9 @@ class GeneralHomeProductsGrid extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        mainAxisSpacing: size.height * 0.02,
-        crossAxisSpacing: size.width * 0.03,
-        childAspectRatio: 0.615,
+        mainAxisSpacing: 14,
+        crossAxisSpacing: 20,
+        childAspectRatio: 0.6,
       ),
       itemBuilder: (_, index) {
         final product = products[index];
@@ -41,61 +42,61 @@ class GeneralHomeProductsGrid extends StatelessWidget {
               children: [
                 Container(
                   width: size.width,
-                  height: size.height * 0.25,
+                  height: 170,
                   decoration: BoxDecoration(
-                    color: Color(0xfff3f3f3),
+                    color: theme.secondaryContainer,
                     borderRadius: BorderRadius.circular(size.width * 0.05),
                   ),
                   child: Stack(
                     children: [
-                      Image.asset(product['image'],width: size.width,height: size.height * 0.41,),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Image.asset(product['image'],width: size.width,height: size.height,),
+                      ),
                       Positioned(
-                        top: size.height * 0.015,
+                        top: 12,
                         right: size.width * 0.03,
                         child: GestureDetector(
                           onTap: () => provider.toggleFavorite(products[index]['id']),
                           child: CircleAvatar(
-                            backgroundColor: Colors.black,
+                            backgroundColor: theme.primary,
                             radius: size.width * 0.038,
                             child: Icon(
                               size: size.width * 0.04,
                               provider.isFavorite(products[index]['id'])
                                   ? Icons.favorite_outlined
                                   : Icons.favorite_outline,
-                              color: Colors.white,
+                              color: theme.onPrimary,
                             ),
                           ),
                         ),
                       ),
                     ],
                   )),
-                HeightSpace(space: 0.01),
-                SizedBox(
-                  height: size.height * 0.071,
-                  child: GeneralText(
-                    text: product['productName'],
-                    sizeText: size.width * 0.045,
-                    fontWeight: FontWeight.w700,
-                  ),
+                HeightSpace1(space: 7),
+                GeneralText(
+                  text: product['productName'],
+                  sizeText: size.width * 0.039,
+                  fontWeight: FontWeight.w700,
                 ),
-                HeightSpace(space: 0.01),
+                HeightSpace1(space: 7),
                 Row(
                   children: [
-                    Icon(Icons.star, size: 16, color: Colors.orange),
-                    GeneralText(padding:EdgeInsets.only(left: size.width * 0.01),text: '${product['rating']}  |',color: Colors.grey,fontWeight: FontWeight.w500),
+                    Icon(Icons.star, size: size.width * 0.035,),
+                    GeneralText(padding:EdgeInsets.only(left: size.width * 0.01),text: '${product['rating']}  |',color: theme.onSurfaceVariant,fontWeight: FontWeight.w500),
                     WidthSpace(space: 0.01),
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal:size.width * 0.02,vertical: size.height * 0.005),
+                      padding: EdgeInsets.symmetric(horizontal:size.width * 0.02,vertical:4),
                       margin: EdgeInsets.only(left: size.width * 0.02),
                       decoration: BoxDecoration(
                         color: Colors.grey[400],
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: GeneralText(text: product['sold'], sizeText: size.width * 0.027,fontWeight: FontWeight.w500),
+                      child: GeneralText(text: product['sold'], sizeText: size.width * 0.027,fontWeight: FontWeight.w500,color: Colors.black,),
                     ),
                   ],
                 ),
-                HeightSpace(space: 0.01),
+                HeightSpace1(space: 7),
                 GeneralText(
                   text: '\$${product['price']}.00',
                   sizeText: size.width * 0.045,

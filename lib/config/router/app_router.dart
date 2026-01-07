@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:furnio/core/constants/app_text.dart';
 import 'package:furnio/features/auth/logic/auth_mode.dart';
-import 'package:furnio/features/auth/presentation/screens/auth_page.dart';
+import 'package:furnio/features/auth/presentation/screens/02_auth/auth_page.dart';
 import 'package:furnio/features/home/presentation/screens/05_categories/reviews_page.dart';
 import 'package:furnio/features/home/presentation/screens/main_layout.dart';
-import 'package:furnio/features/orders/presentation/screens/my_orders_page.dart';
+import 'package:furnio/features/orders/presentation/screens/01_my_orders/my_orders_page.dart';
 import 'package:furnio/features/pin/presentation/screens/pin_page.dart';
 import 'package:furnio/features/profile/presentation/screens/02_edit_profile/edit_profile_page.dart';
 import 'package:furnio/features/profile/presentation/screens/04_add_new_address/add_new_address_page.dart';
@@ -15,21 +15,20 @@ import 'package:furnio/features/profile/presentation/screens/09_language/languag
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../core/widgets/dialog/general_dialog.dart';
-import '../../features/account_setup/presentation/screens/create_new_pin_page.dart';
 import '../../features/account_setup/presentation/screens/fill_profile_page.dart';
 import '../../features/account_setup/presentation/screens/fingerprint_page.dart';
-import '../../features/auth/presentation/screens/lets_you_in_page.dart';
+import '../../features/auth/presentation/screens/01_lets_you_in/lets_you_in_page.dart';
 import '../../features/cart_and_checkout/logic/cart_provider.dart';
 import '../../features/cart_and_checkout/logic/checkout_provider.dart';
-import '../../features/cart_and_checkout/presentation/screens/cart_page.dart';
-import '../../features/cart_and_checkout/presentation/screens/checkout_page.dart';
-import '../../features/cart_and_checkout/presentation/screens/choose_shipping_page.dart';
-import '../../features/cart_and_checkout/presentation/screens/payment_methods_page.dart';
-import '../../features/cart_and_checkout/presentation/screens/promo_code_page.dart';
-import '../../features/cart_and_checkout/presentation/screens/shipping_address_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/01_cart/cart_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/02_checkout/checkout_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/04_choose_shipping/choose_shipping_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/06_payment_methods/payment_methods_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/05_promo_code/promo_code_page.dart';
+import '../../features/cart_and_checkout/presentation/screens/03_shipping_address/shipping_address_page.dart';
+import '../../features/forgot_password/logic/pin_code_provider.dart';
 import '../../features/forgot_password/presentation/screens/create_new_password_page.dart';
 import '../../features/forgot_password/presentation/screens/forgot_password_page.dart';
-import '../../features/forgot_password/presentation/screens/pin_code_page.dart';
 import '../../features/home/presentation/screens/01_notifications/notifications_page.dart';
 import '../../features/home/presentation/screens/02_favorites/favorite_page.dart';
 import '../../features/home/presentation/screens/03_search_and_filter/search_and_filter_page.dart';
@@ -41,7 +40,7 @@ import '../../features/onboarding/presentation/screens/onboarding_page.dart';
 import '../../features/onboarding/presentation/screens/splash_page_one.dart';
 import '../../features/onboarding/presentation/screens/splash_page_two.dart';
 import '../../features/orders/logic/orders_provider.dart';
-import '../../features/orders/presentation/screens/track_order_page.dart';
+import '../../features/orders/presentation/screens/02_track_order/track_order_page.dart';
 import '../../features/profile/presentation/screens/03_address/address_page.dart';
 import '../../features/profile/presentation/screens/07_add_card/add_card_page.dart';
 import '../../features/profile/presentation/screens/10_privacy_policy/privacy_policy_page.dart';
@@ -50,17 +49,18 @@ import '../../features/profile/presentation/screens/12_help_center/help_center_p
 import '../../features/profile/presentation/screens/13_chat/chat_page.dart';
 import '../../features/profile/presentation/screens/01_profile/profile_page.dart';
 import '../../features/wallet/logic/wallet_provider.dart';
-import '../../features/wallet/presentation/screens/my_wallet_page.dart';
-import '../../features/wallet/presentation/screens/receipt_page.dart';
-import '../../features/wallet/presentation/screens/top_up_wallet_method_page.dart';
-import '../../features/wallet/presentation/screens/top_up_wallet_page.dart';
+import '../../features/wallet/presentation/screens/01_my_wallet/my_wallet_page.dart';
+import '../../features/wallet/presentation/screens/05_receipt/receipt_page.dart';
+import '../../features/wallet/presentation/screens/03_top_wallet_method/top_up_wallet_method_page.dart';
+import '../../features/wallet/presentation/screens/02_top_up_wallet/top_up_wallet_page.dart';
 import '../../features/wallet/presentation/screens/transaction_history_page.dart';
 
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/auth',
+    initialLocation: '/letsYouIn',
     routes: [
+      //test
       GoRoute(path: '/splash', builder: (_, __) => const SplashPageOne(),),
       GoRoute(path: '/splash2', builder: (_, __) => const SplashPageTwo(),),
       GoRoute(path: '/onboarding', builder: (_, __) => const OnBoardingPage(),),
@@ -78,10 +78,34 @@ class AppRouter {
         },
       ),
       GoRoute(path: '/forgotPassword', builder: (context, state) => ForgotPasswordPage(email: state.extra as String,),),
-      GoRoute(path: '/pinCode', builder: (_, __) => const PinCodePage(),),
+      GoRoute(
+        path: '/forgotPasswordPin',
+        builder: (context, __) {
+          final pinCodeProvider = context.watch<PinCodeProvider>();
+          return PinPage(
+              isForgotPasswordPage: true,
+              title: AppText.forgotPasswordTitle,
+              description: '${AppText.forgotPasswordPinDescription}${pinCodeProvider.isSms ? pinCodeProvider.value : pinCodeProvider.value}',
+              onComplete: (){
+                context.push('/createNewPassword');
+              }
+          );
+        }
+
+      ),
       GoRoute(path: '/createNewPassword', builder: (_, __) => const CreateNewPasswordPage(),),
       GoRoute(path: '/fillProfile', builder: (_, __) => const FillProfilePage(),),
-      GoRoute(path: '/NewPinPage', builder: (_, __) => const CreateNewPinPage(),),
+      GoRoute(
+        path: '/accountSetupPin',
+        builder: (context, __) => PinPage(
+            title: AppText.accountSetupTitle,
+            description: AppText.accountSetupPinDescription,
+            onComplete: (){
+              context.push('/fingerprint');
+            }
+        ),
+      ),
+
       GoRoute(path: '/fingerprint', builder: (_, __) => const FingerprintPage(),),
       GoRoute(path: '/mainLayout', builder: (_, __) => const MainLayout(),),
       GoRoute(path: '/home', builder: (_, __) => const HomePage(),),

@@ -13,7 +13,6 @@ class LanguagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<ProfileProvider>();
-    Size size = MediaQuery.of(context).size;
 
     final languages = [
       'English (US)',
@@ -34,7 +33,7 @@ class LanguagePage extends StatelessWidget {
           child: Column(
             children: [
               GeneralHeader(title: 'Language'),
-              HeightSpace(space: 0.02),
+              HeightSpace1(space: 14),
               Expanded(
                 child: ListView.builder(
                   itemCount: languages.length,

@@ -41,14 +41,14 @@ class SecurityPage extends StatelessWidget {
                 title: 'Google Authentication',
                 showSwitch: false,
               ),
-              HeightSpace(space: 0.04),
+              HeightSpace1(space: 30),
               GeneralButton(
                 text: 'Change PIN',
                 bgColor: Colors.grey[300],
                 showShadow: false,
                 textColor: Colors.black,
               ),
-              HeightSpace(space: 0.03),
+              HeightSpace1(space: 20),
               GeneralButton(
                 text: 'Change Password',
                 bgColor: Colors.grey[300],

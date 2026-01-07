@@ -10,13 +10,14 @@ class HomeCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final theme = Theme.of(context).colorScheme;
     return GridView.builder(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       itemCount: 8,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
-        mainAxisSpacing: size.height * 0.01,
+        mainAxisSpacing: 6,
       ),
       itemBuilder: (_, index) {
         final categories = itemHomeCategories[index] ;
@@ -30,13 +31,13 @@ class HomeCategories extends StatelessWidget {
                 width: size.width * 0.15,
                 height: size.width * 0.15,
                 decoration: BoxDecoration(
-                  color: Colors.grey[200],
+                  color: theme.secondaryContainer,
                   shape: BoxShape.circle,
                 ),
-                child: Image.asset(categories['image'],scale: size.width * 0.04,),
+                child: Image.asset(categories['image'],scale: size.width * 0.04,color: theme.primary,),
               ),
             ),
-            HeightSpace(space: 0.01),
+            HeightSpace1(space:7),
             GeneralText(
               text: categories['title'],
               sizeText: size.width * 0.038,

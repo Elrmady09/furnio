@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furnio/core/constants/app_format.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/widgets/general_text.dart';
@@ -41,7 +40,7 @@ class GeneralWalletTransactionCard extends StatelessWidget {
                 ),
               ],
             ),
-            HeightSpace(space: 0.02),
+            HeightSpace1(space: 14),
           ],
           Expanded(
             child: ListView.builder(

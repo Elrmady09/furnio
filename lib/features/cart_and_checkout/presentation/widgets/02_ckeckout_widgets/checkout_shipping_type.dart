@@ -18,9 +18,9 @@ class CheckoutShippingType extends StatelessWidget {
         context.push('/chooseShipping');
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.025,vertical: size.height * 0.023),
+        padding: EdgeInsets.symmetric(horizontal: size.width * 0.025,vertical: 15),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: BorderRadius.circular(size.width * 0.03),
         ),
         child: Row(
@@ -52,7 +52,7 @@ class CheckoutShippingType extends StatelessWidget {
                     padding: EdgeInsets.only(left: size.width * 0.03),
                     text: shipping['subtitle'] ?? '',
                     sizeText: size.width * 0.035,
-                    color: Colors.grey,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                     fontWeight: FontWeight.w400,
                   ),
                 ],
@@ -63,9 +63,9 @@ class CheckoutShippingType extends StatelessWidget {
                 sizeText: size.width * 0.048,
                 fontWeight: FontWeight.w900,
               ),
-              Icon(Icons.edit),
+              Icon(Icons.edit,),
             ]else...[
-              Icon(Icons.local_shipping),
+              Icon(Icons.local_shipping,),
               GeneralText(
                 padding: EdgeInsets.only(left: size.width * 0.03),
                 text: 'Choose Shipping Type',
@@ -73,7 +73,7 @@ class CheckoutShippingType extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
               Spacer(),
-              Icon(Icons.arrow_forward_ios, size: size.width * 0.04),
+              Icon(Icons.arrow_forward_ios, size: size.width * 0.04,),
             ],
           ],
         )

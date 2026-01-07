@@ -11,8 +11,6 @@ class NotificationsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -21,7 +19,7 @@ class NotificationsPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GeneralHeader(title: 'Notification',trailing: Icon(Icons.list),),
-              HeightSpace(space: 0.03),
+              HeightSpace1(space: 10),
 
               const Expanded(
                 child: NotificationsListSection(),

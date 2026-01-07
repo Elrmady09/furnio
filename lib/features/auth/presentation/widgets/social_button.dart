@@ -17,8 +17,8 @@ class SocialButton extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      height: size.height * 0.065,
-      margin: EdgeInsets.only(bottom: size.height * 0.03),
+      height: 50,
+      margin: EdgeInsets.only(bottom: 25),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(size.width * 0.03),
         border: Border.all(color: Colors.grey.shade300),

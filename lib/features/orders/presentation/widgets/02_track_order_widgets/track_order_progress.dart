@@ -24,7 +24,7 @@ class TrackOrderProgress extends StatelessWidget {
             StepIcon(icon: 'assets/image/general_image/open-box.png', isActive: false),
           ],
         ),
-        HeightSpace(space: 0.015),
+        HeightSpace1(space: 10),
         /// الصف السفلي (الدائرة + الخط)
         Row(
           children: [
@@ -39,7 +39,7 @@ class TrackOrderProgress extends StatelessWidget {
         ),
 
         GeneralText(
-          padding: EdgeInsets.symmetric(vertical: size.height * 0.02),
+          padding: EdgeInsets.symmetric(vertical: 15),
           text: 'Packet In Delivery',
           sizeText: size.width * 0.045 ,
           fontWeight: FontWeight.w700,

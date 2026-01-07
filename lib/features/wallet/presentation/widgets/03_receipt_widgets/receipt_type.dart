@@ -12,7 +12,7 @@ class ReceiptType extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     final transaction = context.watch<WalletProvider>().selectedTransaction;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.035,vertical: size.height * 0.02),
+      padding: EdgeInsets.symmetric(horizontal: size.width * 0.035,vertical: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(size.width * 0.03),

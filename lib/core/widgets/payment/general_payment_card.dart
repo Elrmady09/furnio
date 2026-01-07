@@ -26,7 +26,7 @@ class GeneralPaymentCard extends StatelessWidget {
         margin: EdgeInsets.only(bottom: size.height * 0.025),
         padding: EdgeInsets.symmetric(horizontal: size.width * 0.04,vertical: size.height * 0.025),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: BorderRadius.circular(size.width * 0.03),
         ),
         child: Row(

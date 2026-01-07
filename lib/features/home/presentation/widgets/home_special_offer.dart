@@ -26,7 +26,6 @@ class HomeSpecialOffer extends StatelessWidget {
               child: GeneralText(
                 text: 'See All',
                 sizeText: size.width * 0.035,
-                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furnio/core/constants/app_lists.dart';
+import 'package:furnio/core/constants/app_padding.dart';
 import 'package:furnio/core/widgets/general_header.dart';
-import 'package:furnio/features/home/logic/filter_provider.dart';
 import 'package:furnio/features/home/presentation/widgets/00_general_home_widgets/general_home_filter_tap.dart';
 import 'package:provider/provider.dart';
 
@@ -22,13 +22,12 @@ class ReviewsPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+          padding: AppPadding.pagePadding(context),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HeightSpace(space: 0.02),
               GeneralHeader(title: '4.7 (7,376 reviews)',trailing: Icon(Icons.search),),
-              HeightSpace(space: 0.02),
+              HeightSpace1(space: 7),
               GeneralHomeFilterTap(
                 items: AppLists.filtersRating,
                 selectedIndex: provider.selectedRating == -1 ? 0 : 6-provider.selectedRating ,
@@ -41,7 +40,7 @@ class ReviewsPage extends StatelessWidget {
                 },
                 showStar: true,
               ),
-              HeightSpace(space: 0.03),
+              HeightSpace1(space: 15),
               const Expanded(child: ReviewsList()),
             ],
           ),

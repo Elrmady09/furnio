@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:furnio/core/widgets/space.dart';
-import 'package:provider/provider.dart';
 
 import '../../../../../core/widgets/general_text.dart';
-import '../../../logic/home_provider.dart';
 
 class GeneralHomeFilterTap extends StatelessWidget {
   const GeneralHomeFilterTap({super.key, required this.items, required this.selectedIndex, required this.onTap, this.showStar});
@@ -15,11 +13,11 @@ class GeneralHomeFilterTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.watch<HomeProvider>();
     Size size = MediaQuery.of(context).size;
-    //final filters = ['All','Sofa','Chair','Table','Kitchen','Lamp','Cupboard','Vase'];
+    final theme = Theme.of(context).colorScheme;
+
     return SizedBox(
-      height: size.height * 0.045,
+      height: 30.8,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: items.length,
@@ -31,9 +29,9 @@ class GeneralHomeFilterTap extends StatelessWidget {
               margin: EdgeInsets.only(right: size.width * 0.02),
               padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
               decoration: BoxDecoration(
-                color: selected ? Colors.black : Colors.grey[200],
+                color: selected ? theme.primary: theme.secondaryContainer,
                 borderRadius: BorderRadius.circular(size.width * 0.05),
-                border: selected ? null : Border.all(width: size.width * 0.004,color: Colors.black),
+                border: selected ? null : Border.all(width: size.width * 0.004,color: theme.primary),
               ),
               child: Row(
                 children: [
@@ -48,7 +46,7 @@ class GeneralHomeFilterTap extends StatelessWidget {
                   Center(
                     child: GeneralText(
                       text: items[index],
-                      color: selected ? Colors.white : Colors.black,
+                      color: selected ? theme.onPrimary : theme.primary,
                       sizeText: size.width * 0.035,
                       fontWeight: FontWeight.w500,
                     ),

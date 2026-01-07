@@ -17,20 +17,24 @@ class CategoriesProductDetailPriceSection extends StatelessWidget {
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            GeneralText(
-              text: 'Total price',
-              color: Colors.grey[600],
-            ),
-            GeneralText(
-              text: '\$${provider.totalPrice.toStringAsFixed(2)}',
-              sizeText: size.width * 0.055,
-              fontWeight: FontWeight.bold,
-            ),
-          ],
+        SizedBox(
+          height: 55,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              GeneralText(
+                text: 'Total price',
+                color: Colors.grey[600],
+              ),
+              GeneralText(
+                text: '\$${provider.totalPrice.toStringAsFixed(2)}',
+                sizeText: size.width * 0.055,
+                fontWeight: FontWeight.bold,
+              ),
+            ],
+          ),
         ),
         WidthSpace(space: 0.1),
         Expanded(

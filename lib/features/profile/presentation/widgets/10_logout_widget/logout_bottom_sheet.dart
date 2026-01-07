@@ -15,13 +15,13 @@ class LogoutBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * 0.3,
+      height: 200,
       padding: EdgeInsets.symmetric(
         horizontal: size.width * 0.05,
-        vertical: size.height * 0.02,
+        vertical: 14,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.background,
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(size.width * 0.08),
         ),
@@ -33,25 +33,25 @@ class LogoutBottomSheet extends StatelessWidget {
           Center(
             child: Container(
               width: size.width * 0.15,
-              height: size.height * 0.005,
+              height: 4,
               decoration: BoxDecoration(
                 color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
           ),
-          HeightSpace(space: 0.02),
+          HeightSpace1(space: 14),
 
           /// title
-          GeneralText(padding:EdgeInsets.only(bottom: size.height * 0.02),text: 'Logout',sizeText:size.width * 0.05,fontWeight: FontWeight.w600,color: Colors.red,),
+          GeneralText(padding:EdgeInsets.only(bottom: 10),text: 'Logout',sizeText:size.width * 0.05,fontWeight: FontWeight.w600,color: Colors.red,),
           Divider(thickness: size.width * 0.005,color: Colors.grey[300],),
-          GeneralText(padding:EdgeInsets.symmetric(vertical: size.height * 0.015),text: 'Are you sure you want to logout ?',sizeText:size.width * 0.05,fontWeight: FontWeight.w600,),
+          GeneralText(padding:EdgeInsets.symmetric(vertical: 12),text: 'Are you sure you want to logout ?',sizeText:size.width * 0.05,fontWeight: FontWeight.w600,),
 
 
           /// buttons
           Row(
             children: [
-              Expanded(child: GeneralSecondButton(title: 'Cancel',bgColor:Colors.grey.shade200 ,onTap: ()=> context.pop(),)),
+              Expanded(child: GeneralSecondButton(title: 'Cancel',bgColor:Colors.grey.shade200,titleColor: Colors.black,onTap: ()=> context.pop(),)),
               WidthSpace(space: 0.05),
               Expanded(
                 child: GeneralSecondButton(

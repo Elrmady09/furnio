@@ -19,13 +19,13 @@ class ContactItem extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Padding(
-      padding: EdgeInsets.only(bottom: size.height * 0.02),
+      padding: EdgeInsets.only(bottom: 14),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
           padding: EdgeInsets.all(size.width * 0.04),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.background,
             borderRadius: BorderRadius.circular(size.width * 0.03),
           ),
           child: Row(

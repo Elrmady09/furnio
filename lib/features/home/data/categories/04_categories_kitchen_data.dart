@@ -11,7 +11,7 @@ final List<Map<String, dynamic>> itemCategoriesKitchen = [
   },
   {
     "id": '2',
-    "productName": "Non-stick Cookware Set",
+    "productName": "Non-stick Cookware",
     "image": "assets/image/home/wooden chairs.png",
     "rating": "4.8",
     "sold": "3,980 sold",

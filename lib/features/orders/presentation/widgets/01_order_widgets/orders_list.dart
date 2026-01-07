@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../logic/orders_provider.dart';
+import '../../../logic/orders_provider.dart';
 import 'order_card.dart';
 
 class OrdersList extends StatelessWidget {

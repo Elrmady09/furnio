@@ -23,7 +23,7 @@ class FAQItem extends StatelessWidget {
       ),
       children: [
         GeneralText(
-          padding: EdgeInsets.only(left: size.width * 0.04,right: size.width * 0.04,bottom: size.height * 0.02),
+          padding: EdgeInsets.only(left: size.width * 0.04,right: size.width * 0.04,bottom: 15),
           text: content,
           sizeText: size.width * 0.035,
           color: Colors.grey,

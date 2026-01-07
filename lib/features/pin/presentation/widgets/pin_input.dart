@@ -17,7 +17,7 @@ class PinInput extends StatelessWidget {
       children: List.generate(4, (index) {
         return Container(
           width: size.width * 0.17,
-          height: size.height * 0.095,
+          height: 60,
           margin: EdgeInsets.symmetric(horizontal: size.width * 0.02),
           decoration: BoxDecoration(
               color: Colors.grey[200],
@@ -37,7 +37,7 @@ class PinInput extends StatelessWidget {
                 }
               },
               child: TextField(
-                style: TextStyle(fontSize: size.width * 0.055,fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: size.width * 0.055,fontWeight: FontWeight.bold,color: Theme.of(context).colorScheme.onSurface),
                 controller: provider.controllers[index],
                 focusNode: provider.focusNodes[index],
                 textAlign: TextAlign.center,

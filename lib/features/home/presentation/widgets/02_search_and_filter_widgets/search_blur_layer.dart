@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../logic/home_provider.dart';
-import '../../../logic/search_provider.dart';
 
 
 class SearchBlurLayer extends StatelessWidget {
