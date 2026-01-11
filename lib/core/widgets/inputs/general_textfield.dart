@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 
 class GeneralTextField extends StatelessWidget {
-  const GeneralTextField({super.key, this.textEditingController, this.onSubmitted, this.onChanged, this.focusNode, this.onTap, this.hintText, this.formatters,this.hasError = false, this.obscureText, this.suffixIcon, this.prefixIcon, this.colorHintText, this.readOnly, this.colorTextFiled,});
+  const GeneralTextField({super.key, this.textEditingController, this.onSubmitted, this.onChanged, this.focusNode, this.onTap, this.hintText, this.formatters,this.hasError = false, this.obscureText, this.suffixIcon, this.prefixIcon, this.colorHintText, this.readOnly, this.colorTextFiled, this.onSuffixTap,});
   final String? hintText;
   final TextEditingController? textEditingController;
   final Function(String)? onSubmitted;
@@ -19,6 +19,7 @@ class GeneralTextField extends StatelessWidget {
   final IconData? prefixIcon;
   final Color? colorHintText;
   final Color? colorTextFiled;
+  final VoidCallback? onSuffixTap;
 
 
   @override
@@ -56,7 +57,7 @@ class GeneralTextField extends StatelessWidget {
         decoration: InputDecoration(
           contentPadding: hasIcon ? EdgeInsets.only(top: 13,left: size.width * 0.03) : EdgeInsets.only(left: size.width * 0.03),
           prefixIcon:prefixIcon != null ? Icon(prefixIcon,color: iconColor,) : null,
-          suffixIcon:suffixIcon != null ? Icon(suffixIcon,color: iconColor) : null,
+          suffixIcon:suffixIcon != null ? GestureDetector(onTap: onSuffixTap,child: Icon(suffixIcon,color: iconColor)) : null,
           hintText: hintText,
           hintStyle: TextStyle(color: colorHintText ?? Colors.grey.shade500,fontWeight: FontWeight.w500), // Light text color
           border: InputBorder.none, // Removes underline

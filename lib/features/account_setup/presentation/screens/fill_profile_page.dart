@@ -16,31 +16,31 @@ class FillProfilePage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     final provider = context.watch<AccountSetupProvider>();
 
-
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal:size.width * 0.03,vertical: size.height * 0.02),
+          padding: EdgeInsets.symmetric(
+            horizontal: size.width * 0.03,
+            vertical: size.height * 0.02,
+          ),
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child:Column(
+                child: Column(
                   children: [
                     AccountHeader(title: 'Fill Your Profile'),
-                    HeightSpace1(space:5),
+                    HeightSpace1(space: 5),
                     ProfileImagePicker(),
-                    HeightSpace1(space:25),
+                    HeightSpace1(space: 25),
                     GeneralProfileInputs(),
-
-
-
+                    SizedBox(),
                   ],
                 ),
               ),
 
               SliverFillRemaining(
                 hasScrollBody: false,
-                child:Align(
+                child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 15),
@@ -51,33 +51,39 @@ class FillProfilePage extends StatelessWidget {
                         if (!ok) {
                           final messages =
                               provider.fullNameError ??
-                                  provider.nickNameError ??
-                                  provider.dateError ??
-                                  provider.emailError ??
-                                  provider.phoneNumberError ??
-                                  "error";
+                              provider.nickNameError ??
+                              provider.dateError ??
+                              provider.emailError ??
+                              provider.phoneNumberError ??
+                              "error";
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text(messages), backgroundColor: Colors.red),
+                            SnackBar(
+                              content: Text(messages),
+                              backgroundColor: Colors.red,
+                            ),
                           );
                           return; // مهم
                         }
                         try {
-                          await context.read<AccountSetupProvider>().submitProfile();
+                          await context
+                              .read<AccountSetupProvider>()
+                              .submitProfile();
                           context.push('/accountSetupPin');
                         } catch (e) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Something went wrong in pick image')),
+                            SnackBar(
+                              content: Text(
+                                'Something went wrong in pick image',
+                              ),
+                            ),
                           );
                         }
                       },
-
                     ),
                   ),
                 ),
               ),
-
-
-            ]
+            ],
           ),
         ),
       ),

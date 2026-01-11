@@ -8,13 +8,11 @@ import '../../widgets/auth_text_sign.dart';
 import '../../widgets/social_button.dart';
 import '../../widgets/auth_divider.dart';
 
-
 class LetsYouInPage extends StatelessWidget {
   const LetsYouInPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -22,11 +20,14 @@ class LetsYouInPage extends StatelessWidget {
           child: Column(
             children: [
               /// Header
+              HeightSpace1(space: 20),
               AuthHeader(
+                onBack: false,
                 title: "Let's you in",
                 image: "assets/image/auth/auth image.png",
               ),
               HeightSpace1(space: 20),
+
               /// SocialButton
               const SocialButton(
                 icon: "assets/image/auth/facebook logo.png",
@@ -44,34 +45,27 @@ class LetsYouInPage extends StatelessWidget {
               ),
 
               /// AuthDivider
-
               HeightSpace1(space: 20),
-              const AuthDivider(text: "or",),
-
+              const AuthDivider(text: "or"),
 
               /// Button Sign in
               Spacer(),
               GeneralButton(
                 text: "Sign in with password",
-                onTap:(){
-                  context.push(
-                    '/auth?mode=signIn',
-                  );
-                } ,
+                onTap: () {
+                  context.push('/auth?mode=signIn');
+                },
               ),
               HeightSpace1(space: 25),
 
               /// Text Sign up
               AuthTextSign(
-                onTap: (){
-                  context.push(
-                    '/auth?mode=signUp',
-                  );
+                onTap: () {
+                  context.push('/auth?mode=signUp');
                 },
                 textAccount: "Don’t have an account? ",
                 textSign: "Sign up",
               ),
-
             ],
           ),
         ),

@@ -24,12 +24,21 @@ class FavoritePage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                GeneralHeader(title: 'My Favorite',trailing: Icon(Icons.search),),
-                HeightSpace1(space: 7),
-                GeneralHomeFilterTap(items: AppLists.filtersTaps, selectedIndex:provider.selectedFilter, onTap: provider.changeFilter,),
+                GeneralHeader(
+                  title: 'My Favorite',
+                  trailing: Icon(Icons.search),
+                ),
+                const HeightSpace1(space: 7),
+                GeneralHomeFilterTap(
+                  items: AppLists.filtersTaps,
+                  selectedIndex: provider.selectedFilter,
+                  onTap: provider.changeFilter,
+                ),
                 HeightSpace1(space: 12),
-                GeneralHomeProductsGrid(itemCount: itemFavoriteProducts.length, products: itemFavoriteProducts),
-
+                GeneralHomeProductsGrid(
+                  itemCount: itemFavoriteProducts.length,
+                  products: itemFavoriteProducts,
+                ),
               ],
             ),
           ),

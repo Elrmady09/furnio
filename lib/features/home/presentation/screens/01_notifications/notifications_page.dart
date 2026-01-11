@@ -4,8 +4,6 @@ import 'package:furnio/core/widgets/general_header.dart';
 import '../../../../../core/widgets/space.dart';
 import '../../widgets/01_notifications_widgets/notifications_list_section.dart';
 
-
-
 class NotificationsPage extends StatelessWidget {
   const NotificationsPage({super.key});
 
@@ -18,12 +16,10 @@ class NotificationsPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GeneralHeader(title: 'Notification',trailing: Icon(Icons.list),),
+              GeneralHeader(title: 'Notification', trailing: Icon(Icons.list)),
               HeightSpace1(space: 10),
 
-              const Expanded(
-                child: NotificationsListSection(),
-              ),
+              const Expanded(child: NotificationsListSection()),
             ],
           ),
         ),

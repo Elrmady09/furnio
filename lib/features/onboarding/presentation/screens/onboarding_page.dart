@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/services/onboarding_service.dart';
 import 'package:furnio/core/widgets/general_button.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,6 @@ class OnBoardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final onBoard = Provider.of<OnBoardingProvider>(context);
-
 
     final List<Map<String, String>> pages = [
       {
@@ -35,12 +35,10 @@ class OnBoardingPage extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-
             /// =====================
             ///       PageView
             /// =====================
-            SizedBox(
-              height: size.height * 0.75,
+            Expanded(
               child: PageView.builder(
                 controller: onBoard.pageController,
                 itemCount: 3,
@@ -50,23 +48,27 @@ class OnBoardingPage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
-
                       /// ============ الصورة (70%) ============
-                      SizedBox(
-                        height: size.height * 0.61,
+                      Container(
+                        height: 470,
                         width: size.width,
-                        child: Image.asset(
-                          pages[index]["image"]!,
-                          fit: BoxFit.cover,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(25),
+                            bottomRight: Radius.circular(25)
+                          ),
+                          image: DecorationImage(
+                            image: AssetImage(pages[index]["image"]!,),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
 
-                      HeightSpace(space: 0.03),
 
                       /// ============ النص ============
+                      Spacer(),
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: size.width * 0.10),
+                        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
                         child: GeneralText(
                           text: pages[index]["title"]!,
                           sizeText: size.width * 0.06,
@@ -80,12 +82,9 @@ class OnBoardingPage extends StatelessWidget {
               ),
             ),
 
-            HeightSpace(space: 0.03),
-
             /// =====================
             ///   Smooth Indicator
             /// =====================
-
             SmoothPageIndicator(
               controller: onBoard.pageController,
               count: 3,
@@ -104,27 +103,30 @@ class OnBoardingPage extends StatelessWidget {
                 ),
               ),
             ),
+            HeightSpace1(space: 30),
 
-            HeightSpace(space: 0.04),
 
             /// =====================
             ///        زر Next
             /// =====================
 
             GeneralButton(
-              onTap: (){
+              onTap: () async {
                 if (onBoard.currentPage == 2) {
+                  await OnBoardingService.setSeenOnBoarding();
+                  if (!context.mounted) return;
                   context.go('/letsYouIn');
                 } else {
                   onBoard.pageController.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeInOut);
+                    duration: const Duration(milliseconds: 400),
+                    curve: Curves.easeInOut,
+                  );
                 }
               },
               text: onBoard.currentPage == 2 ? "Get Started" : "Next",
             ),
 
-            HeightSpace(space: 0.05),
+            HeightSpace1(space: 20),
           ],
         ),
       ),

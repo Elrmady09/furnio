@@ -5,6 +5,7 @@ import 'package:furnio/features/home/logic/filter_provider.dart';
 import 'package:furnio/features/orders/logic/orders_provider.dart';
 import 'package:provider/provider.dart';
 import 'config/router/app_router.dart';
+import 'core/services/internet_listener.dart';
 import 'core/theme/app_theme.dart';
 import 'features/account_setup/logic/account_setup_provider.dart';
 import 'features/account_setup/logic/fingerprint_provider.dart';

@@ -28,21 +28,13 @@ class AuthPage extends StatelessWidget {
   String get title =>
       isSignUp ? "Create Your Account" : "Login To Your Account";
 
-  String get buttonText =>
-      isSignUp ? "Sign up" : "Sign in";
+  String get buttonText => isSignUp ? "Sign up" : "Sign in";
 
   String get successMessage =>
-      isSignUp
-          ? "Account created successfully"
-          : "Signed in successfully";
+      isSignUp ? "Account created successfully" : "Signed in successfully";
   String get textAccount =>
-      isSignUp
-          ? "Already have an account"
-          : "Don't have an account";
-  String get textSign =>
-      isSignUp
-          ? " Sign In"
-          : " Sign Up";
+      isSignUp ? "Already have an account" : "Don't have an account";
+  String get textSign => isSignUp ? " Sign In" : " Sign Up";
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +57,6 @@ class AuthPage extends StatelessWidget {
                 ),
                 HeightSpace1(space: 20),
 
-
                 ///Inputs
                 GeneralTextField(
                   hintText: "Email",
@@ -73,36 +64,37 @@ class AuthPage extends StatelessWidget {
                   textEditingController: auth.emailController,
                   hasError: auth.emailError != null,
                 ),
-                HeightSpace1(space:15),
+                HeightSpace1(space: 15),
                 GeneralTextField(
                   hintText: "Password",
                   prefixIcon: Icons.lock,
-                  suffixIcon: Icons.remove_red_eye,
+                  suffixIcon: auth.isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                  obscureText: !auth.isPasswordVisible,
+                  onSuffixTap: auth.togglePasswordVisibility,
                   textEditingController: auth.passwordController,
                   hasError: auth.passwordError != null,
                 ),
                 HeightSpace1(space: 8),
 
-
                 /// Remember Box
                 const RememberMeRow(),
                 HeightSpace1(space: 10),
-
 
                 /// Button
                 GeneralButton(
                   text: buttonText,
                   onTap: () async {
-                    final success = isSignUp
-                        ? await auth.signUpWithEmail()
-                        : await auth.signInWithEmail();
+                    final success =
+                        isSignUp
+                            ? await auth.signUpWithEmail()
+                            : await auth.signInWithEmail();
 
                     if (!success) {
                       final message =
                           auth.firebaseError ??
-                              auth.emailError ??
-                              auth.passwordError ??
-                              "Error";
+                          auth.emailError ??
+                          auth.passwordError ??
+                          "Error";
 
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -123,6 +115,7 @@ class AuthPage extends StatelessWidget {
                         backgroundColor: Colors.green,
                       ),
                     );
+
                     /// SUCCESS
                     final service = AccountSetupService();
                     final hasProfile = await service.isProfileCompleted();
@@ -131,17 +124,15 @@ class AuthPage extends StatelessWidget {
                     } else {
                       context.go('/fillProfile');
                     }
-
-
                   },
                 ),
                 HeightSpace1(space: 20),
 
                 /// forgot the password ?
-                isSignUp?
-                     SizedBox(height: 40,)
-                    :GestureDetector(
-                      onTap:()async {
+                isSignUp
+                    ? SizedBox(height: 40)
+                    : GestureDetector(
+                      onTap: () async {
                         final exists = await auth.checkEmailExists();
                         if (!exists) {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -156,18 +147,19 @@ class AuthPage extends StatelessWidget {
                           '/forgotPassword',
                           extra: auth.emailController.text.trim(),
                         );
-                      } ,
+                      },
                       child: GeneralText(
-                               padding: EdgeInsets.only(left: size.width * 0.03,bottom: size.height * 0.03),
-                               text: 'forgot the password ?',
-                               sizeText: size.width * 0.04,
-                               fontWeight: FontWeight.w500,
-                            ),
-                         ),
-
+                        padding: EdgeInsets.only(
+                          left: size.width * 0.03,
+                          bottom: size.height * 0.03,
+                        ),
+                        text: 'forgot the password ?',
+                        sizeText: size.width * 0.04,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
 
                 /// AuthDivider
-
                 const AuthDivider(text: "or continue with"),
                 HeightSpace1(space: 25),
 
@@ -181,7 +173,7 @@ class AuthPage extends StatelessWidget {
                   textSign: textSign,
                   onTap: () {
                     auth.clear();
-                    context.go(
+                    context.pushReplacement(
                       isSignUp ? '/auth?mode=signIn' : '/auth?mode=signUp',
                     );
                   },

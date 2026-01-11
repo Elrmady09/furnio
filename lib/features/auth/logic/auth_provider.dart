@@ -19,6 +19,20 @@ class AuthProvider extends ChangeNotifier {
   bool rememberMe = false;
 
   /// =========================
+  /// Show Password
+  /// =========================
+
+  bool _isPasswordVisible = false;
+
+  bool get isPasswordVisible => _isPasswordVisible;
+
+  void togglePasswordVisibility() {
+    _isPasswordVisible = !_isPasswordVisible;
+    notifyListeners();
+  }
+
+
+  /// =========================
   /// RememberMe
   /// =========================
 

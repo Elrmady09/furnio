@@ -18,15 +18,27 @@ class SpecialOffersPage extends StatelessWidget {
             padding: AppPadding.pagePadding(context),
             child: Column(
               children: [
-                GeneralHeader(title: 'SpecialOffer',trailing: Icon(Icons.list)),
+                GeneralHeader(
+                  title: 'SpecialOffer',
+                  trailing: Icon(Icons.list),
+                ),
                 HeightSpace1(space: 12),
-                GeneralHomeSpecialOffer(offers: itemSpecialOffers_25, controllerKey: '25',),
-                GeneralHomeSpecialOffer(offers: itemSpecialOffers_15, controllerKey: '15',),
-                GeneralHomeSpecialOffer(offers: itemSpecialOffers_30, controllerKey: '30',),
-                GeneralHomeSpecialOffer(offers: itemSpecialOffers_20, controllerKey: '20',),
-
-
-
+                GeneralHomeSpecialOffer(
+                  offers: itemSpecialOffers_25,
+                  controllerKey: '25',
+                ),
+                GeneralHomeSpecialOffer(
+                  offers: itemSpecialOffers_15,
+                  controllerKey: '15',
+                ),
+                GeneralHomeSpecialOffer(
+                  offers: itemSpecialOffers_30,
+                  controllerKey: '30',
+                ),
+                GeneralHomeSpecialOffer(
+                  offers: itemSpecialOffers_20,
+                  controllerKey: '20',
+                ),
               ],
             ),
           ),

@@ -7,13 +7,17 @@ class AuthHeader extends StatelessWidget {
   const AuthHeader({
     super.key,
     required this.title,
-    required this.image, this.sizeImage, this.spaceBetweenImagesAndText,
+    required this.image,
+    this.sizeImage,
+    this.spaceBetweenImagesAndText,
+    this.onBack = true,
   });
 
   final String title;
   final String image;
   final double? sizeImage;
   final double? spaceBetweenImagesAndText;
+  final bool onBack;
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +25,18 @@ class AuthHeader extends StatelessWidget {
 
     return Column(
       children: [
-        GestureDetector(
-          onTap: () => context.pop(),
-          child: Container(
-            alignment: Alignment.centerLeft,
-            child:const Icon(Icons.arrow_back),
-          )
-        ),
+        if (onBack)
+          GestureDetector(
+            onTap: () => context.pop(),
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: const Icon(Icons.arrow_back),
+            ),
+          ),
 
+        Image.asset(image, height: sizeImage ?? size.height * 0.25),
 
-        Image.asset(
-          image,
-          height: sizeImage ?? size.height * 0.25,
-        ),
-
-        HeightSpace1(space:spaceBetweenImagesAndText ?? 5),
+        HeightSpace1(space: spaceBetweenImagesAndText ?? 5),
 
         GeneralText(
           text: title,

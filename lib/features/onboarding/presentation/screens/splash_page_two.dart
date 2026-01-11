@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../core/services/onboarding_service.dart';
 import '../widgets/splash_widgets/splash_two_welcome.dart';
 
 
@@ -17,9 +18,15 @@ class _SplashPageTwoState extends State<SplashPageTwo> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 3), () {
-      context.go('/onboarding');
-    });
+      Future.delayed(const Duration(seconds: 3), () async{
+        final seen = await OnBoardingService.hasSeenOnBoarding();
+        if (seen) {
+          context.go('/letsYouIn');   // أو الصفحة المناسبة
+        } else {
+          context.go('/onboarding');
+        }
+
+      });
   }
 
   @override
