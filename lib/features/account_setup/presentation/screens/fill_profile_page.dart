@@ -1,39 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/constants/app_padding.dart';
+import 'package:furnio/core/widgets/general_header.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/widgets/general_button.dart';
+import '../../../../core/widgets/inputs/general_profile_image_picker.dart';
 import '../../../../core/widgets/inputs/general_profile_inputs.dart';
 import '../../../../core/widgets/space.dart';
 import '../../logic/account_setup_provider.dart';
-import '../widgets/account_header.dart';
-import '../widgets/profile_image_picker.dart';
 
 class FillProfilePage extends StatelessWidget {
   const FillProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     final provider = context.watch<AccountSetupProvider>();
 
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: size.width * 0.03,
-            vertical: size.height * 0.02,
-          ),
+          padding: AppPadding.pagePadding(context),
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
                 child: Column(
                   children: [
-                    AccountHeader(title: 'Fill Your Profile'),
-                    HeightSpace1(space: 5),
-                    ProfileImagePicker(),
+                    GeneralHeader(onBack: false,title: 'Fill Your Profile'),
+                    HeightSpace1(space: 20),
+                    GeneralProfileImagePicker(),
                     HeightSpace1(space: 25),
                     GeneralProfileInputs(),
-                    SizedBox(),
                   ],
                 ),
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/widgets/dialog/general_dialog.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/widgets/general_button.dart';
-import '../screens/success_dialog.dart';
 
 class FingerprintActions extends StatelessWidget {
   const FingerprintActions({super.key});
@@ -29,7 +29,9 @@ class FingerprintActions extends StatelessWidget {
               showDialog(
                 context: context,
                 barrierDismissible: false,
-                builder: (context) => SuccessDialog(),
+                builder: (context) => GeneralDialog(
+                    icon: Icons.person,
+                ),
               );
               await Future.delayed(const Duration(seconds: 5));
 

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:furnio/core/constants/app_padding.dart';
 import 'package:furnio/core/widgets/general_header.dart';
 import 'package:furnio/core/widgets/space.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/widgets/general_button.dart';
+import '../../../../../core/widgets/inputs/general_profile_image_picker.dart';
 import '../../../../../core/widgets/inputs/general_profile_inputs.dart';
 import '../../../../account_setup/logic/account_setup_provider.dart';
 
@@ -24,8 +26,15 @@ class EditProfilePage extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Column(
                   children: [
-                    GeneralHeader(title: 'Edit Profile'),
-                    HeightSpace1(space: 8),
+                    GeneralHeader(
+                      onTap: (){
+                        provider.clear();
+                        context.pop();
+                      },
+                      title: 'Edit Profile',
+                    ),
+                    GeneralProfileImagePicker(),
+                    HeightSpace1(space: 15),
                     GeneralProfileInputs(),
 
                   ],

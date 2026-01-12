@@ -14,10 +14,13 @@ import 'package:furnio/features/profile/presentation/screens/08_security/securit
 import 'package:furnio/features/profile/presentation/screens/09_language/language_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import '../../core/constants/app_transitions.dart';
 import '../../core/services/internet_listener.dart';
 import '../../core/widgets/dialog/general_dialog.dart';
+import '../../features/account_setup/logic/account_setup_provider.dart';
 import '../../features/account_setup/presentation/screens/fill_profile_page.dart';
 import '../../features/account_setup/presentation/screens/fingerprint_page.dart';
+import '../../features/auth/logic/auth_provider.dart';
 import '../../features/auth/presentation/screens/01_lets_you_in/lets_you_in_page.dart';
 import '../../features/cart_and_checkout/logic/cart_provider.dart';
 import '../../features/cart_and_checkout/logic/checkout_provider.dart';
@@ -30,6 +33,7 @@ import '../../features/cart_and_checkout/presentation/screens/03_shipping_addres
 import '../../features/forgot_password/logic/pin_code_provider.dart';
 import '../../features/forgot_password/presentation/screens/create_new_password_page.dart';
 import '../../features/forgot_password/presentation/screens/forgot_password_page.dart';
+import '../../features/home/logic/home_provider.dart';
 import '../../features/home/presentation/screens/01_notifications/notifications_page.dart';
 import '../../features/home/presentation/screens/02_favorites/favorite_page.dart';
 import '../../features/home/presentation/screens/03_search_and_filter/search_and_filter_page.dart';
@@ -59,7 +63,7 @@ import '../../features/wallet/presentation/screens/transaction_history_page.dart
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/splash',
+    initialLocation: '/letsYouIn',
     routes: [
       ShellRoute(
         builder: (context, state, child) {
@@ -74,13 +78,28 @@ class AppRouter {
             GoRoute(path: '/letsYouIn', builder: (_, __) => const LetsYouInPage(),),
             GoRoute(
               path: '/auth',
-              builder: (context, state) {
-                final mode = state.uri.queryParameters['mode'];
+              pageBuilder: (context, state) {
+                final mode = state.uri.queryParameters['mode'] == 'signUp'
+                    ? AuthMode.signUp
+                    : AuthMode.signIn;
+                transition(context, animation, secondary, child) {
+                  final dx = mode == AuthMode.signIn ? -3.0 : 3.0;
+                  return AppTransitions.slideFadeByDx(
+                    context,
+                    animation,
+                    secondary,
+                    child,
+                    dx,
+                  );
+                }
 
-                return AuthPage(
-                  mode: mode == 'signIn'
-                      ? AuthMode.signIn
-                      : AuthMode.signUp,
+                return CustomTransitionPage(
+                  key: ValueKey(mode),
+                  transitionsBuilder: transition,
+                  child: ChangeNotifierProvider(
+                    create: (_) => AuthProvider(),
+                    child: AuthPage(mode: mode),
+                  ),
                 );
               },
             ),
@@ -101,7 +120,7 @@ class AppRouter {
 
             ),
             GoRoute(path: '/createNewPassword', builder: (_, __) => const CreateNewPasswordPage(),),
-            GoRoute(path: '/fillProfile', builder: (_, __) => const FillProfilePage(),),
+            GoRoute(path: '/fillProfile', builder: (_, __) => ChangeNotifierProvider(create:(_) => AccountSetupProvider(),child: const FillProfilePage()),),
             GoRoute(
               path: '/accountSetupPin',
               builder: (context, __) => PinPage(
@@ -112,11 +131,10 @@ class AppRouter {
                   }
               ),
             ),
-
             GoRoute(path: '/fingerprint', builder: (_, __) => const FingerprintPage(),),
-            GoRoute(path: '/mainLayout', builder: (_, __) => const MainLayout(),),
+            GoRoute(path: '/mainLayout', builder: (_, __) => ChangeNotifierProvider(create:(_) => HomeProvider(),child: const MainLayout()),),
             GoRoute(path: '/home', builder: (_, __) => const HomePage(),),
-            GoRoute(path: '/01_notifications', builder: (_, __) => const NotificationsPage(),),
+            GoRoute(path: '/01_notifications', pageBuilder: (_, __) => CustomTransitionPage(transitionsBuilder:AppTransitions.slideFromTop,child: const NotificationsPage()),),
             GoRoute(path: '/favorite', builder: (_, __) => const FavoritePage(),),
             GoRoute(
                 path: '/SearchAndFilter',
@@ -204,7 +222,9 @@ class AppRouter {
                         blackButtonTitle: 'View E-Wallet',
                         greyButtonTitle: 'View E-Receipt',
                         blackButtonOnTap: (){
+                          context.pop();
                           context.go('/mainLayout');
+
                           provider.clear();
                         },
                         greyButtonOnTap: () => provider.clear(),
@@ -220,7 +240,6 @@ class AppRouter {
             GoRoute(path: '/editProfile', builder: (_, __) => const EditProfilePage(),),
             GoRoute(path: '/address', builder: (_, __) => const AddressPage(),),
             GoRoute(path: '/addNewAddress', builder: (_, __) => const AddNewAddressPage(),),
-
             GoRoute(path: '/notificationSetting', builder: (_, __) => const NotificationSettingPage(),),
             GoRoute(path: '/Payment', builder: (_, __) => const PaymentPage(),),
             GoRoute(path: '/addCard', builder: (_, __) => const AddCardPage(),),

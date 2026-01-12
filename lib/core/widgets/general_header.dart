@@ -6,8 +6,10 @@ class GeneralHeader extends StatelessWidget {
   final String title;
   final Widget? trailing;
   final VoidCallback? onTap;
+  final bool onBack;
 
-  const GeneralHeader({super.key, required this.title, this.trailing, this.onTap});
+
+  const GeneralHeader({super.key, required this.title, this.trailing, this.onTap,this.onBack = true});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +17,11 @@ class GeneralHeader extends StatelessWidget {
 
     return Row(
       children: [
-        IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed:onTap ??  () => context.pop(),
-        ),
+        if(onBack)
+          IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed:onTap ??  () => context.pop(),
+          ),
         GeneralText(
           text: title,
           sizeText: size.width * 0.05,

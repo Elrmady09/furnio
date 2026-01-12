@@ -127,6 +127,8 @@ class HomeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+
+
   int selectedCategory = 0;
   void changeCategory(int index) {
     selectedCategory = index;

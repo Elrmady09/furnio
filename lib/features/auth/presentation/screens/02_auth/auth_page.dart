@@ -4,6 +4,7 @@ import 'package:furnio/core/widgets/general_text.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../core/utils/snackbar/snackbar.dart';
 import '../../../../../core/widgets/general_button.dart';
 import '../../../../../core/widgets/inputs/general_textfield.dart';
 import '../../../../../core/widgets/space.dart';
@@ -84,63 +85,41 @@ class AuthPage extends StatelessWidget {
                 GeneralButton(
                   text: buttonText,
                   onTap: () async {
-                    final success =
-                        isSignUp
-                            ? await auth.signUpWithEmail()
-                            : await auth.signInWithEmail();
+                    final success = isSignUp ? await auth.signUpWithEmail() : await auth.signInWithEmail();
+
 
                     if (!success) {
+                      if (!context.mounted) return;
                       final message =
                           auth.firebaseError ??
                           auth.emailError ??
                           auth.passwordError ??
                           "Error";
-
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(message),
-                          backgroundColor: Colors.red,
-                        ),
-                      );
+                      showSnackBar(context,message,false);
                       return;
                     }
-
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          isSignUp
-                              ? "Account created successfully"
-                              : "Signed in successfully",
-                        ),
-                        backgroundColor: Colors.green,
-                      ),
-                    );
+                    if(!context.mounted) return;
+                    showSnackBar(context,isSignUp ? "Account created successfully" : "Signed in successfully",true);
 
                     /// SUCCESS
                     final service = AccountSetupService();
                     final hasProfile = await service.isProfileCompleted();
-                    if (hasProfile) {
-                      context.go('/mainLayout');
-                    } else {
-                      context.go('/fillProfile');
-                    }
+                    if (!context.mounted) return;
+                    context.go(hasProfile ? '/mainLayout' : '/fillProfile');
+
                   },
                 ),
                 HeightSpace1(space: 20),
 
                 /// forgot the password ?
                 isSignUp
-                    ? SizedBox(height: 40)
+                    ? const SizedBox(height: 40)
                     : GestureDetector(
                       onTap: () async {
                         final exists = await auth.checkEmailExists();
+                        if (!context.mounted) return;
                         if (!exists) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(auth.emailError ?? 'Invalid email'),
-                              backgroundColor: Colors.red,
-                            ),
-                          );
+                          showSnackBar(context, auth.emailError ?? 'Invalid email', false);
                           return;
                         }
                         context.push(
@@ -151,7 +130,7 @@ class AuthPage extends StatelessWidget {
                       child: GeneralText(
                         padding: EdgeInsets.only(
                           left: size.width * 0.03,
-                          bottom: size.height * 0.03,
+                          bottom: 20,
                         ),
                         text: 'forgot the password ?',
                         sizeText: size.width * 0.04,
@@ -172,7 +151,6 @@ class AuthPage extends StatelessWidget {
                   textAccount: textAccount,
                   textSign: textSign,
                   onTap: () {
-                    auth.clear();
                     context.pushReplacement(
                       isSignUp ? '/auth?mode=signIn' : '/auth?mode=signUp',
                     );

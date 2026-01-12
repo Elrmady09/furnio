@@ -1,6 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:furnio/core/widgets/general_text.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/widgets/inputs/general_textfield.dart';
@@ -16,6 +17,7 @@ class GeneralProfileInputs extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size =MediaQuery.of(context).size;
     final provider = context.watch<AccountSetupProvider>();
+    final theme = Theme.of(context).colorScheme;
 
 
     return Column(
@@ -97,6 +99,14 @@ class GeneralProfileInputs extends StatelessWidget {
                       maxHeight: 150,
                       //direction: DropdownDirection., // 👈 الحل السحري
                     ),
+                    iconStyleData:IconStyleData(
+                      icon: Icon(
+                        Icons.keyboard_arrow_down,
+                        color: theme.onSurfaceVariant, // ← لون السهم
+                        size: 22,
+                      ),
+
+                    ),
                     items: List.generate(itemCountries.length, (index) {
                       return DropdownMenuItem<int>(
                         value: index,
@@ -104,7 +114,7 @@ class GeneralProfileInputs extends StatelessWidget {
                           children: [
                             Image.asset(itemCountries[index]["flag"], height: size.width * 0.0607),
                             WidthSpace(space: 0.03),
-                            Text(itemCountries[index]["code"]),
+                            GeneralText(text: itemCountries[index]["code"],fontWeight:FontWeight.w700,color: theme.onSurfaceVariant,),
                           ],
                         ),
                       );
@@ -150,13 +160,21 @@ class GeneralProfileInputs extends StatelessWidget {
             child: DropdownButton2<String>(
               value: provider.selectedGender,
               isExpanded: true,
+              iconStyleData:IconStyleData(
+                icon: Icon(
+                  Icons.keyboard_arrow_down,
+                  color: theme.onSurfaceVariant, // ← لون السهم
+                  size: 22,
+                ),
+
+              ),
               dropdownStyleData: DropdownStyleData(
                 maxHeight: size.height * 0.2,
 
               ),
               items: ['Male', 'Female']
                   .map(
-                    (e) => DropdownMenuItem(value: e, child: Text(e)),
+                    (e) => DropdownMenuItem(value: e, child: Text(e,style: TextStyle(color: theme.onSurfaceVariant),)),
               )
                   .toList(),
               onChanged: provider.changeGender,

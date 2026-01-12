@@ -130,24 +130,6 @@ class AccountSetupProvider extends ChangeNotifier {
   }
 
 
-
-  @override
-  void dispose() {
-    fullNameController.dispose();
-    nickNameController.dispose();
-    dobController.dispose();
-    emailController.dispose();
-    phoneController.dispose();
-
-    fullNameFocus.dispose();
-    nickNameFocus.dispose();
-    dateFocus.dispose();
-    emailFocus.dispose();
-    phoneFocus.dispose();
-
-    super.dispose();
-  }
-
   final _service = AccountSetupService();
   File? profileImage;
   final ImagePicker _picker = ImagePicker();
@@ -200,20 +182,41 @@ class AccountSetupProvider extends ChangeNotifier {
     }
   }
 
+  void clear (){
+    fullNameController.clear();
+    nickNameController.clear();
+    dobController.clear();
+    emailController.clear();
+    phoneController.clear();
+
+    fullNameError = null;
+    nickNameError = null;
+    dateError = null;
+    emailError = null;
+    phoneNumberError = null;
+
+    notifyListeners();
+
+  }
 
 
 
+  @override
+  void dispose() {
+    fullNameController.dispose();
+    nickNameController.dispose();
+    dobController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
 
+    fullNameFocus.dispose();
+    nickNameFocus.dispose();
+    dateFocus.dispose();
+    emailFocus.dispose();
+    phoneFocus.dispose();
 
-
-
-
-
-
-
-
-
-
+    super.dispose();
+  }
 
 
 }

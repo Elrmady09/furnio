@@ -44,7 +44,7 @@ class AuthProvider extends ChangeNotifier {
   /// =========================
   /// Validation
   /// =========================
-  bool validateInputs() {
+  bool validateInputs({required bool isSignUp}) {
     emailError = null;
     passwordError = null;
     firebaseError = null;
@@ -66,10 +66,15 @@ class AuthProvider extends ChangeNotifier {
     if (password.isEmpty) {
       passwordError = 'Password is required';
       ok = false;
-    } else if (password.length < 6 || password.length > 20) {
-      passwordError = 'Password must be 6–20 characters';
-      ok = false;
     }
+    // شرط طول الباسورد (للتسجيل فقط)
+    if (isSignUp) {
+      if (password.length < 6 || password.length > 20) {
+        passwordError = 'Password must be 6–20 characters';
+        ok = false;
+      }
+    }
+
 
     notifyListeners();
     return ok;
@@ -80,7 +85,7 @@ class AuthProvider extends ChangeNotifier {
   /// Firebase Sign Up
   /// =========================
   Future<bool> signUpWithEmail() async {
-    if (!validateInputs()) return false;
+    if (!validateInputs(isSignUp: true)) return false;
 
     try {
       isLoading = true;
@@ -109,7 +114,7 @@ class AuthProvider extends ChangeNotifier {
     passwordError = null;
     firebaseError = null;
 
-    if (!validateInputs()) return false;
+    if (!validateInputs(isSignUp: false)) return false;
 
     try {
       isLoading = true;
@@ -139,6 +144,7 @@ class AuthProvider extends ChangeNotifier {
   String _mapFirebaseError(FirebaseAuthException e) {
     switch (e.code) {
       case 'user-not-found':
+      case 'invalid-credential':
         return 'No account found with this email';
       case 'wrong-password':
         return 'Wrong password';

@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+
+import '../../home/logic/home_provider.dart';
 
 
 class ProfileProvider extends ChangeNotifier {
@@ -12,6 +15,8 @@ class ProfileProvider extends ChangeNotifier {
     // الرجوع لشاشة تسجيل الدخول
     if (context.mounted) {
       context.go('/auth'); // أو أي Route خاص بك
+      // إعادة ضبط الصفحة
+
     }
   }
 

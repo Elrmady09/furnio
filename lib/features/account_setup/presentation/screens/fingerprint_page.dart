@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:furnio/core/widgets/general_header.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/widgets/general_text.dart';
 import '../../../../core/widgets/space.dart';
 import '../../logic/fingerprint_provider.dart';
-import '../widgets/account_header.dart';
 import '../widgets/fingerprint_actions.dart';
 import '../widgets/fingerprint_scan_Icon.dart';
 
@@ -25,7 +25,7 @@ class FingerprintPage extends StatelessWidget {
           child: Column(
             children: [
               /// Header
-              const AccountHeader(title: 'Set Your Fingerprint'),
+              const GeneralHeader(title: 'Set Your Fingerprint'),
               HeightSpace1(space: 40),
 
               /// Text

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../logic/account_setup_provider.dart';
+import '../../../features/account_setup/logic/account_setup_provider.dart';
 
-class ProfileImagePicker extends StatelessWidget {
-  const ProfileImagePicker({super.key});
+class GeneralProfileImagePicker extends StatelessWidget {
+  const GeneralProfileImagePicker({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -19,11 +19,13 @@ class GeneralDialog extends StatelessWidget {
   final VoidCallback? blackButtonOnTap;
   final VoidCallback? greyButtonOnTap;
 
-  Widget _circleContainer({required double radius}){
+  Widget _circleContainer({required double radius,required Color color,}){
+
 
     return CircleAvatar(
       radius: radius,
-      backgroundColor: Colors.black,
+      backgroundColor: color,
+
     );
 
   }
@@ -31,6 +33,9 @@ class GeneralDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final theme = Theme.of(context).colorScheme;
+    final circleColor = theme.primary;
+
     return Dialog(
       backgroundColor: Theme.of(context).colorScheme.background,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -51,61 +56,61 @@ class GeneralDialog extends StatelessWidget {
                     //padding: padding,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.black,
+                      color: theme.primary,
                     ),
-                    child: Icon(icon,size: size.width * 0.15,color: Colors.white,),
+                    child: Icon(icon,size: size.width * 0.15,color: theme.onPrimary,),
                   ),
                   /// Start from top left
                   Positioned(
                       top: 15,
                       left: size.width * 0.05,
-                      child: _circleContainer(radius: size.width * 0.02)
+                      child: _circleContainer(radius: size.width * 0.02,color: circleColor)
                   ),
                   Positioned(
                       top: 70,
                       left: size.width * 0.03,
-                      child: _circleContainer(radius: size.width * 0.003)
+                      child: _circleContainer(radius: size.width * 0.003,color: circleColor)
                   ),
                   Positioned(
                       bottom: 53,
                       left: size.width * 0.01,
-                      child: _circleContainer(radius: size.width * 0.006)
+                      child: _circleContainer(radius: size.width * 0.006,color: circleColor)
                   ),
                   Positioned(
                       bottom: 30,
                       left: size.width * 0.05,
-                      child: _circleContainer(radius: size.width * 0.01)
+                      child: _circleContainer(radius: size.width * 0.01,color: circleColor)
                   ),
                   Positioned(
                       bottom: 7,
                       left: 0,
                       right: 0,
-                      child: _circleContainer(radius: size.width * 0.007)
+                      child: _circleContainer(radius: size.width * 0.007,color: circleColor)
                   ),
                   Positioned(
                       bottom: 20,
                       right: size.width * 0.13,
-                      child: _circleContainer(radius: size.width * 0.004)
+                      child: _circleContainer(radius: size.width * 0.004,color: circleColor)
                   ),
                   Positioned(
                       bottom: 40,
                       right: size.width * 0.05,
-                      child: _circleContainer(radius: size.width * 0.007)
+                      child: _circleContainer(radius: size.width * 0.007,color: circleColor)
                   ),
                   Positioned(
                       bottom: 75,
                       right: size.width * 0.025,
-                      child: _circleContainer(radius: size.width * 0.007)
+                      child: _circleContainer(radius: size.width * 0.007,color: circleColor)
                   ),
                   Positioned(
                       top: 25,
                       right: size.width * 0.05,
-                      child: _circleContainer(radius: size.width * 0.015)
+                      child: _circleContainer(radius: size.width * 0.015,color: circleColor)
                   ),
                   Positioned(
                       top: 8,
                       right: size.width * 0.2,
-                      child: _circleContainer(radius: size.width * 0.008)
+                      child: _circleContainer(radius: size.width * 0.008,color: circleColor)
                   ),
                   /// end to top right
 

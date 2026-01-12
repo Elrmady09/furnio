@@ -25,6 +25,7 @@ class _SplashPageOneState extends State<SplashPageOne> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final theme = Theme.of(context).colorScheme;
 
     return SafeArea(
       child: Scaffold(
@@ -37,7 +38,7 @@ class _SplashPageOneState extends State<SplashPageOne> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset('assets/image/splash/furnio icon.png',scale: size.width * 0.05,),
+                    Image.asset('assets/image/splash/furnio icon.png',scale: size.width * 0.05,color: theme.primary ,),
                     WidthSpace(space: 0.03),
 
                     GeneralText(
